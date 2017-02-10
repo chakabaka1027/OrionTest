@@ -56,15 +56,15 @@ public class Movement : MonoBehaviour {
 
     public void EngageMovementMode() {
         if(!canMove) {
-        cursor.SetActive(true);
-        canMove = true;
+            cursor.SetActive(true);
+            canMove = true;
         }
     }
 
     public void DisengageMovementMode() {
         if (canMove) {
-        cursor.SetActive(false);
-        canMove = false;
+            cursor.SetActive(false);
+            canMove = false;
         }
         
         
