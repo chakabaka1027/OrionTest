@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Mirrors
+  - Splitters
+  - SpawnedBeam
   layers:
   - Default
   - TransparentFX
