@@ -63,6 +63,7 @@ public class RaycastReflection : MonoBehaviour
             //Debug.Log("Physics.Raycast(" + lastLaserPosition + ", " + laserDirection + ", out hit , " + laserDistance + ")");
             if (Physics.Raycast(lastLaserPosition, laserDirection, out hit, laserDistance) && ((hit.transform.gameObject.tag == bounceTag) || (hit.transform.gameObject.tag == splitTag)))
             {
+
                 //Debug.Log("Bounce");
                 laserReflected++;
                 vertexCounter += 3;
@@ -94,6 +95,21 @@ public class RaycastReflection : MonoBehaviour
                     }
                 }
             }
+
+            else if (Physics.Raycast(lastLaserPosition, laserDirection, out hit, laserDistance) && hit.transform.gameObject.tag == "Sensor1") { //if you run into a sensor
+                    hit.collider.gameObject.GetComponentInParent<Sensor>().Activate();
+                    //Debug.Log("No Bounce");
+                    laserReflected++;
+                    vertexCounter++;
+                    mLineRenderer.numPositions = vertexCounter;
+                    Vector3 lastPos = lastLaserPosition + (laserDirection.normalized * laserDistance);
+                    //Debug.Log("InitialPos " + lastLaserPosition + " Last Pos" + lastPos);
+           
+                    mLineRenderer.SetPosition(vertexCounter - 1, hit.point); //insert this into argument 2 if you want it to go on infinitely: lastLaserPosition + (laserDirection.normalized * laserDistance)
+                
+                    loopActive = false;
+                }
+
             else
             {
                 //Debug.Log("No Bounce");
@@ -102,8 +118,10 @@ public class RaycastReflection : MonoBehaviour
                 mLineRenderer.numPositions = vertexCounter;
                 Vector3 lastPos = lastLaserPosition + (laserDirection.normalized * laserDistance);
                 //Debug.Log("InitialPos " + lastLaserPosition + " Last Pos" + lastPos);
-                mLineRenderer.SetPosition(vertexCounter - 1, lastLaserPosition + (laserDirection.normalized * laserDistance));
- 
+                
+           
+                mLineRenderer.SetPosition(vertexCounter - 1, hit.point); //insert this into argument 2 if you want it to go on infinitely: lastLaserPosition + (laserDirection.normalized * laserDistance)
+                
                 loopActive = false;
             }
             if (laserReflected > maxBounce)
