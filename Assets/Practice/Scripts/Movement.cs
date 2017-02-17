@@ -11,17 +11,16 @@ public class Movement : MonoBehaviour {
 
     public LayerMask moveable;
 
-    bool canMove = false;
+    bool moveModeActive = false;
+    bool isMoving = false;
 
     private void Start() {
         cursor.SetActive(false);
     }
 
     private void Update() {
-        //if(Input.GetKeyDown(KeyCode.Space)) {
-        //    MoveToNavPoint();
-        //}
-        if (canMove) {
+        
+        if (moveModeActive) {
             IdentifyNavPoint();
 
         }
@@ -34,32 +33,63 @@ public class Movement : MonoBehaviour {
         if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, moveable)) {
             nextNavpoint = hit.collider.gameObject;
             movementCursor.SetActive(true);
+
             //uncomment if you want to move instantly when looking at desired navpoint
             //MoveToNavPoint();
 
         } else {
-            nextNavpoint = null;
+            if(!isMoving) {
+                nextNavpoint = null;
+
+            }
             movementCursor.SetActive(false);
 
         }
     }
 
     public void MoveToNavPoint() {
-        if(canMove && nextNavpoint!= null && FindObjectOfType<DragBehavior>().isRotating == false) {
+        StartCoroutine(Move());
+       
+    }
+
+    public IEnumerator Move() {
+        isMoving = true;
+
+        if(moveModeActive && nextNavpoint!= null && FindObjectOfType<DragBehavior>().isRotating == false && isMoving) {
             if (currentNavpoint != null) {
                 currentNavpoint.SetActive(true);
             }
 
-            gameObject.transform.position = nextNavpoint.transform.position;
             nextNavpoint.SetActive(false);
             currentNavpoint = nextNavpoint;
             movementCursor.SetActive(false);
+
+            //test stuff below
+            float percent = 0;
+            float time = 0.3f;
+            float speed = 1/time;
+
+            while(percent < 1) {
+                percent += Time.deltaTime * speed;
+                if (nextNavpoint != null) {
+                    gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, nextNavpoint.transform.position, percent);
+                }
+                yield return null;
+            }
+
+            
+
+            //gameObject.transform.position = nextNavpoint.transform.position;
+            
+           
         }
+        isMoving = false;
+
     }
 
     public void EngageMovementMode() {
         cursor.SetActive(true);
-        canMove = true;
+        moveModeActive = true;
     }
 
     public void DisengageMovementMode() {
@@ -68,7 +98,7 @@ public class Movement : MonoBehaviour {
 
     public IEnumerator RemoveCursor() {
         yield return new WaitForSeconds(0.01f);
-        canMove = false;
+        moveModeActive = false;
         
         
         

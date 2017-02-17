@@ -31,7 +31,7 @@ public class DragBehavior : MonoBehaviour {
             closedHandCursor.SetActive(true);
 
             //offset
-            palmOffset = (rightPalm.transform.position - palmPosReference);
+            palmOffset = (rightPalm.transform.localPosition - palmPosReference);
 
             //apply rotation
             rotation.y = -(palmOffset.x + palmOffset.y) * sensitivity;
@@ -40,7 +40,7 @@ public class DragBehavior : MonoBehaviour {
             mirror.transform.Rotate(rotation);
 
             //store palm
-            palmPosReference = rightPalm.transform.position;
+            palmPosReference = rightPalm.transform.localPosition;
         } else {
             closedHandCursor.SetActive(false);
         }
@@ -71,7 +71,7 @@ public class DragBehavior : MonoBehaviour {
     public void RotateMirrorLeftRight() {
         isRotating = true;
 
-        palmPosReference = rightPalm.transform.position;
+        palmPosReference = rightPalm.transform.localPosition;
     }
 
     public void StopRotatingLeftRight() {

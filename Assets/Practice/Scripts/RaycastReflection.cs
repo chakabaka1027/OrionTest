@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(LineRenderer))]
 public class RaycastReflection : MonoBehaviour
 {
-    public float updateFrequency = 0.1f;
+    public float updateFrequency = 0.01f;
     public int laserDistance;
     public string bounceTag;
     public string splitTag;
@@ -98,7 +98,6 @@ public class RaycastReflection : MonoBehaviour
 
             else if (Physics.Raycast(lastLaserPosition, laserDirection, out hit, laserDistance) && hit.transform.gameObject.tag == "Sensor1") { //if you run into a sensor
                     hit.collider.gameObject.GetComponentInParent<Sensor>().Activate();
-                    //Debug.Log("No Bounce");
                     laserReflected++;
                     vertexCounter++;
                     mLineRenderer.numPositions = vertexCounter;
@@ -112,7 +111,7 @@ public class RaycastReflection : MonoBehaviour
 
             else
             {
-                //Debug.Log("No Bounce");
+                Debug.Log("No Bounce");
                 laserReflected++;
                 vertexCounter++;
                 mLineRenderer.numPositions = vertexCounter;
@@ -120,7 +119,7 @@ public class RaycastReflection : MonoBehaviour
                 //Debug.Log("InitialPos " + lastLaserPosition + " Last Pos" + lastPos);
                 
            
-                mLineRenderer.SetPosition(vertexCounter - 1, hit.point); //insert this into argument 2 if you want it to go on infinitely: lastLaserPosition + (laserDirection.normalized * laserDistance)
+                mLineRenderer.SetPosition(vertexCounter - 1, lastLaserPosition + (laserDirection.normalized * laserDistance)); //insert this into argument 2 if you want it to go on infinitely: lastLaserPosition + (laserDirection.normalized * laserDistance)
                 
                 loopActive = false;
             }
