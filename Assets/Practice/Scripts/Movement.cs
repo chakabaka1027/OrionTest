@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour {
 
     public GameObject cursor;
     public GameObject movementCursor;
+    public GameObject loadCursor;
     GameObject nextNavpoint;
     GameObject currentNavpoint;
 
@@ -53,9 +54,11 @@ public class Movement : MonoBehaviour {
     }
 
     public IEnumerator Move() {
+
         isMoving = true;
 
         if(moveModeActive && nextNavpoint!= null && FindObjectOfType<DragBehavior>().isRotating == false && isMoving) {
+
             if (currentNavpoint != null) {
                 currentNavpoint.SetActive(true);
             }
@@ -87,23 +90,30 @@ public class Movement : MonoBehaviour {
 
     }
 
+    //called when hand is open, playing cursor animation before allowing movement
+    public void ActivateCursor() {
+        loadCursor.SetActive(true);
+        loadCursor.GetComponent<Animator>().Play("InitiateCursor");
+        EngageMovementMode();
+
+    }
+
     public void EngageMovementMode() {
         cursor.SetActive(true);
         moveModeActive = true;
     }
 
-    public void DisengageMovementMode() {
+
+    public void DeactivateCursor() {
+        StartCoroutine(DisengageMovementMode());
+    }
+
+    IEnumerator DisengageMovementMode() {
+        loadCursor.SetActive(false);
+        StopCoroutine("LoadMovementMode");
         cursor.SetActive(false);
-    }
-
-    public IEnumerator RemoveCursor() {
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.3f);
         moveModeActive = false;
-        
-        
-        
     }
 
-
-  
 }

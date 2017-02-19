@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Leap;
 
 public class DragBehavior : MonoBehaviour {
 
     public GameObject rightPalm;
     public GameObject openHandCursor;
     public GameObject closedHandCursor;
+
     public LayerMask rotatable;
 
     GameObject mirror;
@@ -19,7 +21,7 @@ public class DragBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		sensitivity = 200;
+		sensitivity = 150;
         rotation = Vector3.zero;
 	}
 	
@@ -31,16 +33,20 @@ public class DragBehavior : MonoBehaviour {
             closedHandCursor.SetActive(true);
 
             //offset
-            palmOffset = (rightPalm.transform.localPosition - palmPosReference);
+            palmOffset = -( rightPalm.transform.localPosition - palmPosReference);
+
+            
 
             //apply rotation
-            rotation.y = -(palmOffset.x + palmOffset.y) * sensitivity;
+            rotation.y = (palmOffset.x /*+ palmOffset.y*/) * sensitivity;
 
             //rotate
             mirror.transform.Rotate(rotation);
 
             //store palm
             palmPosReference = rightPalm.transform.localPosition;
+
+
         } else {
             closedHandCursor.SetActive(false);
         }
@@ -55,13 +61,11 @@ public class DragBehavior : MonoBehaviour {
         if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, rotatable)) {
             mirror = hit.collider.gameObject;
             openHandCursor.SetActive(true);
-            
 
         } else {
             openHandCursor.SetActive(false);
             if (!isRotating) {
                 mirror = null;
-
             }
         }
     }
@@ -69,9 +73,13 @@ public class DragBehavior : MonoBehaviour {
 
 
     public void RotateMirrorLeftRight() {
-        isRotating = true;
 
-        palmPosReference = rightPalm.transform.localPosition;
+        if(openHandCursor.activeInHierarchy) {
+            isRotating = true;
+            
+            palmPosReference = rightPalm.transform.localPosition;
+        }
+       
     }
 
     public void StopRotatingLeftRight() {
