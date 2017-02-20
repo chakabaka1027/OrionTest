@@ -35,7 +35,6 @@ public class DragBehavior : MonoBehaviour {
             //offset
             palmOffset = -( rightPalm.transform.localPosition - palmPosReference);
 
-            
 
             //apply rotation
             rotation.y = (palmOffset.x /*+ palmOffset.y*/) * sensitivity;
@@ -76,8 +75,9 @@ public class DragBehavior : MonoBehaviour {
 
         if(openHandCursor.activeInHierarchy) {
             isRotating = true;
-            
             palmPosReference = rightPalm.transform.localPosition;
+            FindObjectOfType<DirectionTracker>().GrabDirection();
+
         }
        
     }
