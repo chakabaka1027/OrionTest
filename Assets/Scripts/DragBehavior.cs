@@ -31,6 +31,7 @@ public class DragBehavior : MonoBehaviour {
         IdentifyRotationObj();
 	    if(isRotating && mirror != null) {
             closedHandCursor.SetActive(true);
+            openHandCursor.SetActive(false);
 
             //offset
             palmOffset = -( rightPalm.transform.localPosition - palmPosReference);

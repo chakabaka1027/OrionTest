@@ -20,7 +20,7 @@ public class Sensor : MonoBehaviour {
     public void Activate() {
         if (gameObject.tag == "Sensor1" && !sensor1Active) {
             sensor1Active = true;
-            Instantiate(cube, gameObject.transform.position, Quaternion.identity);
+            Instantiate(cube, gameObject.transform.position + Vector3.up, Quaternion.identity);
         }
     }
 
