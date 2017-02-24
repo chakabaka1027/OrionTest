@@ -6,6 +6,8 @@ using System.Collections.Generic;
 [RequireComponent(typeof(LineRenderer))]
 public class RaycastReflection : MonoBehaviour
 {
+
+	bool hasChildBeam = false;
     public bool hasSpawned = false;
 
     public float updateFrequency = 0.01f;
@@ -85,6 +87,7 @@ public class RaycastReflection : MonoBehaviour
                     mLineRenderer.startWidth = .01f;
                     mLineRenderer.endWidth = .01f;
 
+
                     lastLaserPosition = hit.point;
                     Vector3 prevDirection = laserDirection;
                     laserDirection = Vector3.Reflect(laserDirection, hit.normal);
@@ -108,41 +111,44 @@ public class RaycastReflection : MonoBehaviour
                 else { //if you run into a sensor
                     if (hit.transform.gameObject.tag == "Sensor") {
                         hit.collider.gameObject.GetComponentInParent<Sensor>().Activate();
-
-                         //if you run into anything other than a mirror, splitter, or sensor
-                        laserReflected++;
-                        vertexCounter++;
-                        mLineRenderer.numPositions = vertexCounter;
-                        //Vector3 lastPos = lastLaserPosition + (laserDirection.normalized * laserDistance);
-
-                    
-                        //Debug.Log("InitialPos " + lastLaserPosition + " Last Pos" + lastPos);
-           
-                        mLineRenderer.SetPosition(vertexCounter - 1, hit.point); 
-                    
+                    }
 
 
-                        loopActive = false;
-                    } 
-                    
-                    else {
-
-                        if (hit.transform.gameObject.tag == "MovementSensor") {
-                                hit.collider.gameObject.GetComponent<Sensor>().Activate();
-                                                        Debug.Log("hit movement");
+					else if(hit.transform.gameObject.tag == "MovementSensor") {
+						hit.collider.gameObject.GetComponent<Sensor>().Activate();
+						//Debug.Log("Split");
+                        if (laserSplit >= maxSplit){
+                            //Debug.Log("Max split reached.");
+                        }
+                        else {
+                            laserSplit++;
+                            Object go = Instantiate(gameObject, hit.point, Quaternion.LookRotation(laserDirection));
+                            go.name = spawnedBeamTag;
+                            ((GameObject)go).tag = spawnedBeamTag;
 
                         }
-                        laserReflected++;
-                        vertexCounter++;
-                        mLineRenderer.numPositions = vertexCounter;
-                        //Vector3 lastPos = lastLaserPosition + (laserDirection.normalized * laserDistance);
-                        //Debug.Log("InitialPos " + lastLaserPosition + " Last Pos" + lastPos);
-           
-                        mLineRenderer.SetPosition(vertexCounter - 1, lastLaserPosition + (laserDirection.normalized * laserDistance)); 
+                    }
+
+
+
+                     //if you run into anything other than a mirror, splitter, or sensor
+                    laserReflected++;
+                    vertexCounter++;
+                    mLineRenderer.numPositions = vertexCounter;
+                    //Vector3 lastPos = lastLaserPosition + (laserDirection.normalized * laserDistance);
+
                 
-                        loopActive = false;
-                    }         
+                    //Debug.Log("InitialPos " + lastLaserPosition + " Last Pos" + lastPos);
+       
+                    mLineRenderer.SetPosition(vertexCounter - 1, hit.point); 
+                
+
+
+                    loopActive = false;
                 } 
+                
+                  
+               
             }
 
             else{
@@ -164,6 +170,7 @@ public class RaycastReflection : MonoBehaviour
        
         yield return new WaitForEndOfFrame();
     }
+
 }
 
 
