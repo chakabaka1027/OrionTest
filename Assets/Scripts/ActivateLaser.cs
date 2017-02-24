@@ -19,21 +19,25 @@ public class ActivateLaser : MonoBehaviour {
 
         if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, lasers)){
             defaultCursor.SetActive(false);
-
-            if(hit.collider.gameObject.transform.FindChild("Laser").GetComponentInChildren<RaycastReflection>().isActive == 0) {
-                laserOnUI.SetActive(true);
-                laserOffUI.SetActive(false);
-            } else if(hit.collider.gameObject.transform.FindChild("Laser").GetComponentInChildren<RaycastReflection>().isActive == 1) {
-               laserOffUI.SetActive(true);
-               laserOnUI.SetActive(false);
+            if(FindObjectOfType<Movement>().handOpen) {
+                if(hit.collider.gameObject.transform.FindChild("Laser").GetComponentInChildren<RaycastReflection>().isActive == 0) {
+                    laserOnUI.SetActive(true);
+                    laserOffUI.SetActive(false);
+                } else if(hit.collider.gameObject.transform.FindChild("Laser").GetComponentInChildren<RaycastReflection>().isActive == 1) {
+                   laserOffUI.SetActive(true);
+                   laserOnUI.SetActive(false);
+                }
+                currentLaser = hit.collider.gameObject;
             }
-            currentLaser = hit.collider.gameObject;
+            
 
         } else {
             currentLaser = null;
             laserOffUI.SetActive(false);
             laserOnUI.SetActive(false);
-            defaultCursor.SetActive(true);
+            if (FindObjectOfType<Movement>().handOpen) {
+                defaultCursor.SetActive(true);
+            }
 
         }
     }

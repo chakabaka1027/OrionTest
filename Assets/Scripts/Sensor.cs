@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Sensor : MonoBehaviour {
 
-    bool sensor1Active = false;
-    public GameObject cube;
+    public UnityEvent sensorAction;
+    public bool wasTriggeredByLaser = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -14,14 +16,30 @@ public class Sensor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+	
 	}
 
     public void Activate() {
-        if (gameObject.tag == "Sensor1" && !sensor1Active) {
-            sensor1Active = true;
-            Instantiate(cube, gameObject.transform.position + Vector3.up, Quaternion.identity);
+        StopCoroutine("DeactivationTimer");
+        if(!wasTriggeredByLaser) {
+            sensorAction.Invoke();
+            wasTriggeredByLaser = true;
         }
+        StartCoroutine("DeactivationTimer");
+
+    }
+
+    public void Deactivate() {
+        if(wasTriggeredByLaser) {
+            sensorAction.Invoke();
+            wasTriggeredByLaser = false;
+        }
+        
+    }
+
+    public IEnumerator DeactivationTimer() {
+        yield return new WaitForSeconds(.1f);
+        Deactivate();
     }
 
 }

@@ -7,8 +7,9 @@ TagManager:
   - Mirrors
   - Splitters
   - SpawnedBeam
-  - Sensor1
   - Fire
+  - Sensor
+  - MovementSensor
   layers:
   - Default
   - TransparentFX

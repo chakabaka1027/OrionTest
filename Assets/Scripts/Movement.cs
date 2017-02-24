@@ -12,6 +12,7 @@ public class Movement : MonoBehaviour {
 
     public LayerMask moveable;
 
+    public bool handOpen = false;
     bool moveModeActive = false;
     bool isMoving = false;
 
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour {
         Vector3 ray = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
 		RaycastHit hit;
 
-        if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, moveable)) {
+        if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, moveable) && hit.collider.gameObject.GetComponent<MovementLantern>().isActive) {
             nextNavpoint = hit.collider.gameObject;
             movementCursor.SetActive(true);
 
@@ -94,6 +95,8 @@ public class Movement : MonoBehaviour {
     public void ActivateCursor() {
         loadCursor.SetActive(true);
         loadCursor.GetComponent<Animator>().Play("InitiateCursor");
+        handOpen = true;
+
         EngageMovementMode();
 
     }
@@ -112,6 +115,7 @@ public class Movement : MonoBehaviour {
         loadCursor.SetActive(false);
         StopCoroutine("LoadMovementMode");
         cursor.SetActive(false);
+        handOpen = false;
         yield return new WaitForSeconds(0.3f);
         moveModeActive = false;
     }
