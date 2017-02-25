@@ -8,17 +8,6 @@ public class Sensor : MonoBehaviour {
     public UnityEvent sensorAction;
     public bool wasTriggeredByLaser = false;
 
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public void Activate() {
         StopCoroutine("DeactivationTimer");
         if(!wasTriggeredByLaser) {

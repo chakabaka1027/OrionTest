@@ -4,11 +4,11 @@ using System.Collections;
 using System.Collections.Generic;
  
 [RequireComponent(typeof(LineRenderer))]
-public class RaycastReflection : MonoBehaviour
-{
+public class RaycastReflection : MonoBehaviour{
 
 	bool hasChildBeam = false;
     public bool hasSpawned = false;
+    public int vertexCounter;
 
     public float updateFrequency = 0.01f;
     public int laserDistance;
@@ -20,6 +20,8 @@ public class RaycastReflection : MonoBehaviour
     private float timer = 0;
     private LineRenderer mLineRenderer;
 
+    //public List<GameObject> myChildren;
+
     public int isActive = 0;
  
     // Use this for initialization
@@ -30,19 +32,20 @@ public class RaycastReflection : MonoBehaviour
     }
  
     // Update is called once per frame
-    void Update(){
+    void FixedUpdate(){
 
         if (gameObject.tag != spawnedBeamTag){
-            if (timer >= updateFrequency){
-                timer = 0;
+            //if (timer >= updateFrequency){
+                //timer = 0;
                 //Debug.Log("Redrawing laser");
                 foreach (GameObject laserSplit in GameObject.FindGameObjectsWithTag(spawnedBeamTag)) {
-                    Destroy (laserSplit);
+                    Destroy(laserSplit);
                 }
- 
+
+
                 StartCoroutine (RedrawLaser ());
-            }
-            timer += Time.deltaTime;
+            //}
+            //timer += Time.deltaTime;
         }  
     }
 
@@ -57,12 +60,20 @@ public class RaycastReflection : MonoBehaviour
             gameObject.GetComponent<RaycastReflection>().enabled = false;
         }
     }
- 
+
+
+    //private void OnDestroy() {
+    //    foreach (GameObject myChild in myChildren) {
+    //        Destroy(myChild);
+    //    }
+    //    myChildren = new List<GameObject>();
+    //}
+
     IEnumerator RedrawLaser(){
         //Debug.Log("Running");
         int laserSplit = 1; //How many times it got split
         int laserReflected = 1; //How many times it got reflected
-        int vertexCounter = 1; //How many line segments are there
+        vertexCounter = 1; //How many line segments are there
         bool loopActive = true; //Is the reflecting loop active?
  
         Vector3 laserDirection = transform.forward; //direction of the next laser
@@ -72,6 +83,12 @@ public class RaycastReflection : MonoBehaviour
         mLineRenderer.SetPosition(0, transform.position);
         RaycastHit hit;
  
+        //destroy children
+        //foreach (GameObject myChild in myChildren) {
+        //    Destroy(myChild);
+        //}
+        //myChildren = new List<GameObject>();
+
         while (loopActive){
             //Debug.Log("Physics.Raycast(" + lastLaserPosition + ", " + laserDirection + ", out hit , " + laserDistance + ")");
             if (Physics.Raycast(lastLaserPosition, laserDirection, out hit, laserDistance)) {
@@ -81,15 +98,29 @@ public class RaycastReflection : MonoBehaviour
                     laserReflected++;
                     vertexCounter += 3;
                     mLineRenderer.numPositions = vertexCounter;
+
                     mLineRenderer.SetPosition(vertexCounter - 3, Vector3.MoveTowards(hit.point, lastLaserPosition, 0.01f));
+
+
+                    if(hit.transform.gameObject.tag == bounceTag) {
+                        mLineRenderer.SetPosition(vertexCounter - 1, hit.point);
+
+                    } else if (hit.transform.gameObject.tag == splitTag) {
+                        mLineRenderer.SetPosition(vertexCounter - 1, hit.point + (laserDirection * 0.01f));
+
+                    }
+
+
+                    
+
                     mLineRenderer.SetPosition(vertexCounter - 2, hit.point);
-                    mLineRenderer.SetPosition(vertexCounter - 1, hit.point);
+                    //mLineRenderer.SetPosition(vertexCounter - 1, hit.point);
                     mLineRenderer.startWidth = .01f;
                     mLineRenderer.endWidth = .01f;
 
 
                     lastLaserPosition = hit.point;
-                    Vector3 prevDirection = laserDirection;
+                    Vector3 incomingDirection = laserDirection;
                     laserDirection = Vector3.Reflect(laserDirection, hit.normal);
                
                     if (hit.transform.gameObject.tag == splitTag){
@@ -100,9 +131,11 @@ public class RaycastReflection : MonoBehaviour
                         else {
                             //Debug.Log("Splitting...");
                             laserSplit++;
-                            Object go = Instantiate(gameObject, hit.point, Quaternion.LookRotation(prevDirection));
+                            Object go = Instantiate(gameObject, hit.point + (incomingDirection * .01f), Quaternion.LookRotation(incomingDirection));
                             go.name = spawnedBeamTag;
                             ((GameObject)go).tag = spawnedBeamTag;
+
+                            //myChildren.Add(go as GameObject);
 
                         }
                     }
@@ -122,9 +155,11 @@ public class RaycastReflection : MonoBehaviour
                         }
                         else {
                             laserSplit++;
-                            Object go = Instantiate(gameObject, hit.point, Quaternion.LookRotation(laserDirection));
+                            Object go = Instantiate(gameObject, hit.point + (laserDirection * 0.01f), Quaternion.LookRotation(laserDirection));
                             go.name = spawnedBeamTag;
                             ((GameObject)go).tag = spawnedBeamTag;
+                            //myChildren.Add(go as GameObject);
+
 
                         }
                     }
@@ -140,7 +175,8 @@ public class RaycastReflection : MonoBehaviour
                 
                     //Debug.Log("InitialPos " + lastLaserPosition + " Last Pos" + lastPos);
        
-                    mLineRenderer.SetPosition(vertexCounter - 1, hit.point); 
+                    mLineRenderer.SetPosition(vertexCounter - 1, hit.point + (laserDirection * 0.01f)); 
+                   
                 
 
 
