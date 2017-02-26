@@ -6,6 +6,8 @@ using System.Collections.Generic;
 [RequireComponent(typeof(LineRenderer))]
 public class RaycastReflection : MonoBehaviour{
 
+    public GameObject laser;
+
 	bool hasChildBeam = false;
     public bool hasSpawned = false;
     public int vertexCounter;
@@ -20,7 +22,7 @@ public class RaycastReflection : MonoBehaviour{
     private float timer = 0;
     private LineRenderer mLineRenderer;
 
-    //public List<GameObject> myChildren;
+    public List<GameObject> myChildren;
 
     public int isActive = 0;
  
@@ -37,8 +39,12 @@ public class RaycastReflection : MonoBehaviour{
         if (gameObject.tag != spawnedBeamTag){
             //if (timer >= updateFrequency){
                 //timer = 0;
-                //Debug.Log("Redrawing laser");
-                foreach (GameObject laserSplit in GameObject.FindGameObjectsWithTag(spawnedBeamTag)) {
+
+                //foreach (GameObject laserSplit in GameObject.FindGameObjectsWithTag(spawnedBeamTag)) {
+                //    Destroy(laserSplit);
+                //}
+
+                foreach (GameObject laserSplit in myChildren) {
                     Destroy(laserSplit);
                 }
 
@@ -62,12 +68,12 @@ public class RaycastReflection : MonoBehaviour{
     }
 
 
-    //private void OnDestroy() {
-    //    foreach (GameObject myChild in myChildren) {
-    //        Destroy(myChild);
-    //    }
-    //    myChildren = new List<GameObject>();
-    //}
+    private void OnDestroy() {
+        foreach (GameObject myChild in myChildren) {
+            Destroy(myChild);
+        }
+        myChildren = new List<GameObject>();
+    }
 
     IEnumerator RedrawLaser(){
         //Debug.Log("Running");
@@ -131,11 +137,11 @@ public class RaycastReflection : MonoBehaviour{
                         else {
                             //Debug.Log("Splitting...");
                             laserSplit++;
-                            Object go = Instantiate(gameObject, hit.point + (incomingDirection * .01f), Quaternion.LookRotation(incomingDirection));
+                            Object go = Instantiate(laser, hit.point + (incomingDirection * .01f), Quaternion.LookRotation(incomingDirection));
                             go.name = spawnedBeamTag;
                             ((GameObject)go).tag = spawnedBeamTag;
 
-                            //myChildren.Add(go as GameObject);
+                            myChildren.Add(go as GameObject);
 
                         }
                     }
@@ -155,10 +161,12 @@ public class RaycastReflection : MonoBehaviour{
                         }
                         else {
                             laserSplit++;
-                            Object go = Instantiate(gameObject, hit.point + (laserDirection * 0.01f), Quaternion.LookRotation(laserDirection));
+                            Object go = Instantiate(laser, hit.point + (laserDirection * 0.01f), Quaternion.LookRotation(laserDirection));
                             go.name = spawnedBeamTag;
                             ((GameObject)go).tag = spawnedBeamTag;
-                            //myChildren.Add(go as GameObject);
+
+
+                            myChildren.Add(go as GameObject);
 
 
                         }

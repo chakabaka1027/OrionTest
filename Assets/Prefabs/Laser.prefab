@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6b5fecb93e09f2428aa909fe4f0f39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laser: {fileID: 1827368240724560}
   hasSpawned: 0
   vertexCounter: 0
   updateFrequency: 0.0001
