@@ -37,11 +37,23 @@ public class DragBehavior : MonoBehaviour {
             palmOffset = -( rightPalm.transform.localPosition - palmPosReference);
 
 
-            //apply rotation
-            rotation.y = (palmOffset.x /*+ palmOffset.y*/) * sensitivity;
+            //apply rotation left and right
+            if (mirror.gameObject.name == "MirrorX"){
+                rotation.y = (palmOffset.x /*+ palmOffset.y*/) * sensitivity;
+                mirror.transform.Rotate(0, rotation.y, 0);
+
+            }
+
+            if (mirror.gameObject.name == "MirrorY"){
+            //apply rotation up and down
+                rotation.x = (palmOffset.y /*+ palmOffset.y*/) * sensitivity;
+                mirror.transform.Rotate(-rotation.x, 0, 0);
+
+            }
 
             //rotate
-            mirror.transform.Rotate(rotation);
+            
+            //mirror.transform.Rotate(rotation);
 
             //store palm
             palmPosReference = rightPalm.transform.localPosition;
