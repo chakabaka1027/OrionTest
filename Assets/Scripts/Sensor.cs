@@ -11,8 +11,9 @@ public class Sensor : MonoBehaviour {
     public void Activate() {
         StopCoroutine("DeactivationTimer");
         if(!wasTriggeredByLaser) {
-            sensorAction.Invoke();
             wasTriggeredByLaser = true;
+            sensorAction.Invoke();
+
         }
         StartCoroutine("DeactivationTimer");
 
@@ -26,7 +27,7 @@ public class Sensor : MonoBehaviour {
         
     }
 
-    public IEnumerator DeactivationTimer() {
+    IEnumerator DeactivationTimer() {
         yield return new WaitForSeconds(.1f);
         Deactivate();
     }

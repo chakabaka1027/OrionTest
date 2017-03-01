@@ -97,6 +97,7 @@ public class DragBehavior : MonoBehaviour {
 
     public void StopRotatingLeftRight() {
         isRotating = false;
+        palmPosReference = Vector3.zero;
     }
 
 }
