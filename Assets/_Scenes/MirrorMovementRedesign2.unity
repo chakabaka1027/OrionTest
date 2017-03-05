@@ -3149,7 +3149,7 @@ MonoBehaviour:
   - {fileID: 581778320}
   AddAllSiblingDetectorsOnAwake: 0
   GateType: 0
-  Negate: 1
+  Negate: 0
 --- !u!114 &581778319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3249,7 +3249,7 @@ MonoBehaviour:
   Period: 0.1
   HandModel: {fileID: 1061438465}
   FingerName: 0
-  PointingType: 0
+  PointingType: 2
   PointingDirection: {x: 0, y: 1, z: 0}
   TargetObject: {fileID: 0}
   OnAngle: 15
