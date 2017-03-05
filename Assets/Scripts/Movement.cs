@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour {
     public LayerMask moveable;
 
     public bool handOpen = false;
-    bool moveModeActive = false;
+    public bool moveModeActive = false;
     bool isMoving = false;
 
     private void Start() {
@@ -32,9 +32,14 @@ public class Movement : MonoBehaviour {
         Vector3 ray = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
 		RaycastHit hit;
 
-        if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, moveable) && hit.collider.gameObject.GetComponent<MovementLantern>().isActive) {
-            nextNavpoint = hit.collider.gameObject;
-            movementCursor.SetActive(true);
+        if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, moveable)) {
+            if(hit.collider.gameObject.GetComponent<MovementLantern>() != null) {
+                if(hit.collider.gameObject.GetComponent<MovementLantern>().isActive){
+                    nextNavpoint = hit.collider.gameObject;
+                    movementCursor.SetActive(true);
+                }
+            }
+
 
             //uncomment if you want to move instantly when looking at desired navpoint
             //MoveToNavPoint();
@@ -58,7 +63,7 @@ public class Movement : MonoBehaviour {
 
         isMoving = true;
 
-        if(moveModeActive && nextNavpoint!= null && FindObjectOfType<DragBehavior>().isRotating == false && isMoving) {
+        if(moveModeActive && nextNavpoint!= null && isMoving && FindObjectOfType<DragBehavior>().rotationModeActive == false) {
 
             if (currentNavpoint != null) {
                 currentNavpoint.SetActive(true);
@@ -102,8 +107,10 @@ public class Movement : MonoBehaviour {
     }
 
     public void EngageMovementMode() {
-        cursor.SetActive(true);
-        moveModeActive = true;
+        if(FindObjectOfType<DragBehavior>().isRotating == false) {
+            cursor.SetActive(true);
+            moveModeActive = true;
+        }
     }
 
 
@@ -112,12 +119,14 @@ public class Movement : MonoBehaviour {
     }
 
     IEnumerator DisengageMovementMode() {
-        loadCursor.SetActive(false);
-        StopCoroutine("LoadMovementMode");
-        cursor.SetActive(false);
-        handOpen = false;
-        yield return new WaitForSeconds(0.3f);
-        moveModeActive = false;
+        if(!FindObjectOfType<DragBehavior>().rotationModeActive) {    
+            loadCursor.SetActive(false);
+            StopCoroutine("LoadMovementMode");
+            cursor.SetActive(false);
+            handOpen = false;
+            yield return new WaitForSeconds(0.3f);
+            moveModeActive = false;
+        }
     }
 
 }

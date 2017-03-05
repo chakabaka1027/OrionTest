@@ -154,7 +154,9 @@ public class RaycastReflection : MonoBehaviour{
 
 
 					else if(hit.transform.gameObject.tag == "MovementSensor") {
-						hit.collider.gameObject.GetComponent<Sensor>().Activate();
+                        if(hit.collider.gameObject.GetComponent<Sensor>() != null) {
+						    hit.collider.gameObject.GetComponent<Sensor>().Activate();
+                        }
 						//Debug.Log("Split");
                         if (laserSplit >= maxSplit){
                             //Debug.Log("Max split reached.");

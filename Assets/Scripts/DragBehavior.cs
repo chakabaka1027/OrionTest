@@ -11,12 +11,13 @@ public class DragBehavior : MonoBehaviour {
 
     public LayerMask rotatable;
 
-    GameObject mirror;
+    public GameObject mirror;
 
     private float sensitivity;
      private Vector3 palmPosReference;
      private Vector3 palmOffset;
      private Vector3 rotation;
+     public bool rotationModeActive = false;
      public bool isRotating;
 
 	// Use this for initialization
@@ -27,9 +28,15 @@ public class DragBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if(!FindObjectOfType<Movement>().moveModeActive) {
+            mirror = null;
+        }
+        
+        else if(FindObjectOfType<Movement>().moveModeActive) {
+            IdentifyRotationObj();
+        }
 
-        IdentifyRotationObj();
-	    if(isRotating && mirror != null) {
+	    if(rotationModeActive && mirror != null && isRotating) {
             closedHandCursor.SetActive(true);
             openHandCursor.SetActive(false);
 
@@ -51,16 +58,13 @@ public class DragBehavior : MonoBehaviour {
 
             }
 
-            //rotate
-            
-            //mirror.transform.Rotate(rotation);
-
             //store palm
             palmPosReference = rightPalm.transform.localPosition;
 
 
         } else {
             closedHandCursor.SetActive(false);
+            isRotating = false;
         }
 
 
@@ -70,13 +74,15 @@ public class DragBehavior : MonoBehaviour {
         Vector3 ray = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0f));
 		RaycastHit hit;
 
-        if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, rotatable)) {
+        if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, rotatable) && FindObjectOfType<Movement>().moveModeActive) {
             mirror = hit.collider.gameObject;
-            openHandCursor.SetActive(true);
+            if(FindObjectOfType<Movement>().moveModeActive) {
+                openHandCursor.SetActive(true);
+            }
 
         } else {
             openHandCursor.SetActive(false);
-            if (!isRotating) {
+            if (!rotationModeActive) {
                 mirror = null;
             }
         }
@@ -85,19 +91,22 @@ public class DragBehavior : MonoBehaviour {
 
 
     public void RotateMirrorLeftRight() {
-
-        if(openHandCursor.activeInHierarchy) {
+        if(mirror != null) {
+            rotationModeActive = true;
             isRotating = true;
             palmPosReference = rightPalm.transform.localPosition;
             FindObjectOfType<DirectionTracker>().GrabDirection();
-
         }
-       
     }
 
     public void StopRotatingLeftRight() {
         isRotating = false;
         palmPosReference = Vector3.zero;
+    }
+
+    public void FinishedRotating() {
+        rotationModeActive = false;
+        Debug.Log("finished!");
     }
 
 }
