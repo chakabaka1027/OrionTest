@@ -22,7 +22,7 @@ public class DragBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		sensitivity = 150;
+		sensitivity = 75;
         rotation = Vector3.zero;
 	}
 	
