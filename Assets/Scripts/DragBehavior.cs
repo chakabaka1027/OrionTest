@@ -22,7 +22,7 @@ public class DragBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		sensitivity = 75;
+		sensitivity = 65;
         rotation = Vector3.zero;
 	}
 	
@@ -54,7 +54,7 @@ public class DragBehavior : MonoBehaviour {
             if (mirror.gameObject.name == "MirrorY"){
             //apply rotation up and down
                 rotation.x = (palmOffset.y /*+ palmOffset.y*/) * sensitivity;
-                mirror.transform.Rotate(-rotation.x, 0, 0);
+                mirror.transform.Rotate(rotation.x, 0, 0);
 
             }
 

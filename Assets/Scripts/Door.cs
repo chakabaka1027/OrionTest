@@ -10,7 +10,7 @@ public class Door : MonoBehaviour {
     Vector3 closedPosition;
     Vector3 openedPosition;
 
-    int toggle = 0;
+    int toggle = 1;
 
 	// Use this for initialization
 	void Start () {
