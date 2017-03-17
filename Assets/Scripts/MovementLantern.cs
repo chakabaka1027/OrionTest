@@ -22,12 +22,14 @@ public class MovementLantern : MonoBehaviour {
         //sensor.transform.position + Vector3.up * 1f;
 
 
-        if(gameObject.name == "MovementLanternActual") {
-            StartCoroutine(MoveFromSensor());
+        if(gameObject.name == "MovementLanternActual") { 
             gameObject.GetComponent<MeshRenderer>().enabled = true;
+            StartCoroutine(MoveFromSensor());
         }
         if(gameObject.name != "MovementLanternActual") {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
+
             gameObject.GetComponentInChildren<Light>().enabled = false;
         }
     }
@@ -37,7 +39,7 @@ public class MovementLantern : MonoBehaviour {
         GameObject childLantern = Instantiate(gameObject, startLocation, Quaternion.identity) as GameObject;
         childLantern.name = "MovementLanternActual";
         childLantern.transform.parent = gameObject.transform.parent;
-        childLantern.GetComponent<MovementLantern>().isActive = true;
+        //childLantern.GetComponent<MovementLantern>().isActive = true;
     }
 
     public void DestroyLantern() {
@@ -47,7 +49,6 @@ public class MovementLantern : MonoBehaviour {
     }
 
      public void MovementLanternSwitch() {
-
         activationSwitch = 1 - activationSwitch;
 
         if(activationSwitch == 1) {
@@ -63,7 +64,8 @@ public class MovementLantern : MonoBehaviour {
 
 
     public IEnumerator MoveFromSensor() {
-        
+            Debug.Log("hit");    
+
             gameObject.transform.position = startLocation;
 
             float percent = 0;
