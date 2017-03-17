@@ -8,15 +8,20 @@ public class MovementLantern : MonoBehaviour {
     public bool isActive = false;
 
     public GameObject sensor;
-
+    GameObject endLocTarget;
  
     Vector3 startLocation;
     Vector3 endLocation;
 
+    bool wasTriggeredByLaser = false;
 
     private void Start() {
         startLocation = sensor.transform.position;
-        endLocation = sensor.transform.position + Vector3.up * 1;
+        endLocTarget = transform.parent.FindChild("Lantern").gameObject;
+        endLocation = endLocTarget.transform.position;
+        //sensor.transform.position + Vector3.up * 1f;
+
+
         if(gameObject.name == "MovementLanternActual") {
             StartCoroutine(MoveFromSensor());
             gameObject.GetComponent<MeshRenderer>().enabled = true;
@@ -31,17 +36,18 @@ public class MovementLantern : MonoBehaviour {
     public void SpawnLantern() {
         GameObject childLantern = Instantiate(gameObject, startLocation, Quaternion.identity) as GameObject;
         childLantern.name = "MovementLanternActual";
-        childLantern.transform.parent = gameObject.transform;
+        childLantern.transform.parent = gameObject.transform.parent;
         childLantern.GetComponent<MovementLantern>().isActive = true;
     }
 
     public void DestroyLantern() {
-        GameObject childLantern = gameObject.transform.FindChild("MovementLanternActual").gameObject;
+        GameObject childLantern = gameObject.transform.parent.FindChild("MovementLanternActual").gameObject;
         Destroy(childLantern);
         
     }
 
      public void MovementLanternSwitch() {
+
         activationSwitch = 1 - activationSwitch;
 
         if(activationSwitch == 1) {
