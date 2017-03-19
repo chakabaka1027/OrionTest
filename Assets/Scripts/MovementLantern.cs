@@ -24,6 +24,7 @@ public class MovementLantern : MonoBehaviour {
 
         if(gameObject.name == "MovementLanternActual") { 
             gameObject.GetComponent<MeshRenderer>().enabled = true;
+
             StartCoroutine(MoveFromSensor());
         }
         if(gameObject.name != "MovementLanternActual") {
@@ -39,7 +40,8 @@ public class MovementLantern : MonoBehaviour {
         GameObject childLantern = Instantiate(gameObject, startLocation, Quaternion.identity) as GameObject;
         childLantern.name = "MovementLanternActual";
         childLantern.transform.parent = gameObject.transform.parent;
-        //childLantern.GetComponent<MovementLantern>().isActive = true;
+
+        childLantern.GetComponent<MovementLantern>().isActive = true;
     }
 
     public void DestroyLantern() {
@@ -79,6 +81,8 @@ public class MovementLantern : MonoBehaviour {
                 yield return null;
             }
             gameObject.transform.GetChild(0).GetComponent<Light>().enabled = true;
+            gameObject.transform.GetComponent<BoxCollider>().enabled = true;
+
 
     }
 }

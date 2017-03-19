@@ -76,7 +76,7 @@ public class DragBehavior : MonoBehaviour {
 
         if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, rotatable) && FindObjectOfType<Movement>().moveModeActive) {
             mirror = hit.collider.gameObject;
-            if(FindObjectOfType<Movement>().moveModeActive) {
+            if(FindObjectOfType<Movement>().moveModeActive && mirror.name == "MirrorX" || mirror.name == "MirrorY") {
                 openHandCursor.SetActive(true);
             }
 
