@@ -936,7 +936,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 185171410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.89, y: 3.401, z: 19.800316}
+  m_LocalPosition: {x: -27.18, y: 0.277, z: 39.21}
   m_LocalScale: {x: 0.37586024, y: 0.37585998, z: 0.005070004}
   m_Children: []
   m_Father: {fileID: 312509967}
@@ -8571,7 +8571,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 816829177}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.52, y: 3.447, z: 25.623}
+  m_LocalPosition: {x: 2.52, y: 3.749, z: 25.623}
   m_LocalScale: {x: 0.13543, y: 0.13543, z: 0.13543}
   m_Children:
   - {fileID: 1200609942}
@@ -15758,7 +15758,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1513542109}
   m_LocalRotation: {x: -0, y: -0.44495982, z: -0, w: 0.8955506}
-  m_LocalPosition: {x: -0.328, y: -1.05, z: -1.865}
+  m_LocalPosition: {x: -0.375, y: -1.05, z: -1.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 729669462}
@@ -18244,7 +18244,7 @@ MonoBehaviour:
   loadCursor: {fileID: 1717932145}
   moveable:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4294967295
   handOpen: 0
   moveModeActive: 0
 --- !u!114 &1805543671
@@ -18263,7 +18263,7 @@ MonoBehaviour:
   closedHandCursor: {fileID: 839361188}
   rotatable:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 4294967295
   mirror: {fileID: 0}
   rotationModeActive: 0
   isRotating: 0

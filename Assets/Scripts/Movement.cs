@@ -40,18 +40,19 @@ public class Movement : MonoBehaviour {
                 }
             }
 
+            else {
+                if(!isMoving) {
+                    nextNavpoint = null;
+
+                }
+                movementCursor.SetActive(false);
+
+            }
 
             //uncomment if you want to move instantly when looking at desired navpoint
             //MoveToNavPoint();
 
-        } else {
-            if(!isMoving) {
-                nextNavpoint = null;
-
-            }
-            movementCursor.SetActive(false);
-
-        }
+        } 
     }
 
     public void MoveToNavPoint() {
