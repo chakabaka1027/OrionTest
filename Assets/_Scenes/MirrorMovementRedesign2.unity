@@ -1619,6 +1619,7 @@ GameObject:
   - component: {fileID: 185171414}
   - component: {fileID: 185171413}
   - component: {fileID: 185171412}
+  - component: {fileID: 185171415}
   m_Layer: 9
   m_Name: MirrorX
   m_TagString: Mirrors
@@ -1689,6 +1690,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 185171410}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &185171415
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 185171410}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d5e52e51d63f4f4c9d7ded912c39e2c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &186146424
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,6 +2746,7 @@ GameObject:
   - component: {fileID: 266907295}
   - component: {fileID: 266907293}
   - component: {fileID: 266907294}
+  - component: {fileID: 266907298}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -2971,6 +2990,20 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266907291}
   m_Enabled: 1
+--- !u!114 &266907298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266907291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79151f9244582f645b57853312bb857a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScannerOrigin: {fileID: 266907292}
+  EffectMaterial: {fileID: 2100000, guid: 0d9079b2a57addc42bc122b2732e59b1, type: 2}
+  ScanDistance: 50
 --- !u!1 &276558651
 GameObject:
   m_ObjectHideFlags: 0
@@ -14673,7 +14706,7 @@ MonoBehaviour:
     m_TypeName: Hover.Core.Items.HoverItemData+EnabledChangedEventHandler, Assembly-CSharp-firstpass,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   _Id: Item-34
-  _Label: Flashlight
+  _Label: Palm Light
   _IsEnabled: 1
   OnSelectedEvent:
     m_PersistentCalls:
@@ -20996,7 +21029,7 @@ Animator:
   m_GameObject: {fileID: 1645356743}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 875b1e7621963e24aa8bd34d6be2b4c4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -23385,6 +23418,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   mirror: {fileID: 0}
+  rotationPanel: {fileID: 1645356743}
   rotationModeActive: 0
   isRotating: 0
 --- !u!114 &1805543672

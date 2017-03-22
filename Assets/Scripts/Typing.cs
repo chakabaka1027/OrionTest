@@ -6,7 +6,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class Typing : MonoBehaviour {
 
-	public string msg = "Replace";
+	string verticalMSG = "Vertical Rotation";
+    string horizontalMSG = "Horizontal Rotation";
+
 	private Text textComp;
 	public float startDelay = 2f;
 	public float typeDelay = 0.01f;
@@ -14,14 +16,14 @@ public class Typing : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine("TypeIn");
+		//StartCoroutine("TypeIn");
 	}
 
 	void Awake(){
 		textComp = GetComponent<Text>();
 	}
 
-	public IEnumerator TypeIn(){
+	public IEnumerator TypeIn(string msg){
 		yield return new WaitForSeconds(startDelay);
 		for (int i = 0; i < msg.Length; i++){
 			textComp.text = msg.Substring(0, i);
@@ -30,7 +32,7 @@ public class Typing : MonoBehaviour {
 		}
 	}
 
-	public IEnumerator TypeOff(){
+	public IEnumerator TypeOff(string msg){
 		for(int i =msg.Length; i >= 0; i--){
 			textComp.text = msg.Substring(0, i);
 			yield return new WaitForSeconds(typeDelay);

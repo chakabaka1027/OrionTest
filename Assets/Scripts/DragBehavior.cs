@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Leap;
 
 public class DragBehavior : MonoBehaviour {
@@ -12,6 +13,7 @@ public class DragBehavior : MonoBehaviour {
     public LayerMask rotatable;
 
     public GameObject mirror;
+    public GameObject rotationPanel;
 
     private float sensitivity;
      private Vector3 palmPosReference;
@@ -98,10 +100,22 @@ public class DragBehavior : MonoBehaviour {
 
     public void RotateMirrorLeftRight() {
         if(mirror != null) {
+            //animate and type text for HUD
+            rotationPanel.GetComponent<Animator>().Play("Opened");
+            if(!rotationModeActive) {
+                rotationPanel.transform.GetComponentInChildren<Text>().text = "";
+                if(mirror.name == "MirrorY") {
+                    StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Vertical Rotation "));
+                } else if (mirror.name == "MirrorX") {
+                    StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Horizontal Rotation "));
+                }
+            }
+
             rotationModeActive = true;
             isRotating = true;
             palmPosReference = rightPalm.transform.localPosition;
             FindObjectOfType<DirectionTracker>().GrabDirection();
+
         }
     }
 
@@ -111,8 +125,19 @@ public class DragBehavior : MonoBehaviour {
     }
 
     public void FinishedRotating() {
+       StartCoroutine(FinishedRotatingCoroutine());
+    }
+
+    IEnumerator FinishedRotatingCoroutine() {
+    rotationPanel.GetComponent<Animator>().Play("Closed");
+       
+        yield return new WaitForSeconds(.5f);
+        rotationPanel.transform.GetComponentInChildren<Text>().text = "";
+
+
         rotationModeActive = false;
         Debug.Log("finished!");
     }
+
 
 }
