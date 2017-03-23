@@ -58,6 +58,11 @@ public class ScannerEffectDemo : MonoBehaviour
 	}
 	// End Demo Code
 
+    public void Scan() {
+        _scanning = true;
+		ScanDistance = 0;
+    }
+
 	void OnEnable()
 	{
 		_camera = GetComponent<Camera>();
