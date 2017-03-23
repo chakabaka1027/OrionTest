@@ -5,14 +5,16 @@ using UnityEngine;
 public class Scannable : MonoBehaviour {
 
     public void Ping() {
+        Debug.Log("pinging");
         GetComponent<Animator>().Play("IncreaseEmission");
+        StartCoroutine(DecreaseEmission());
     }
 
-    private void Update() {
-
-        if(Input.GetKeyDown(KeyCode.T)) {
-            Ping();
-        }
+    IEnumerator DecreaseEmission() {
+        yield return new WaitForSeconds(7);
+        GetComponent<Animator>().Play("DecreaseEmission");
     }
+
+    
 
 }

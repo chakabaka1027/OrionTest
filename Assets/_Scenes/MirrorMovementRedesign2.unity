@@ -3519,7 +3519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScannerOrigin: {fileID: 266907292}
   EffectMaterial: {fileID: 2100000, guid: 0d9079b2a57addc42bc122b2732e59b1, type: 2}
-  ScanDistance: 50
+  ScanDistance: 25
 --- !u!1 &271917361
 GameObject:
   m_ObjectHideFlags: 0

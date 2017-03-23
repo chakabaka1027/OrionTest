@@ -16,7 +16,7 @@ public class ScannerEffectDemo : MonoBehaviour
 
 	void Start()
 	{
-		//_scannables = FindObjectsOfType<Scannable>();
+		_scannables = FindObjectsOfType<Scannable>();
     }
 
 	void Update()
@@ -24,6 +24,12 @@ public class ScannerEffectDemo : MonoBehaviour
 		if (_scanning)
 		{
 			ScanDistance += Time.deltaTime * 25;
+            ScanDistance = Mathf.Clamp(ScanDistance, 0, 50);
+
+            if(ScanDistance >= 50) {
+                _scanning = false;
+            }
+
 			foreach (Scannable s in _scannables)
 			{
 				if (Vector3.Distance(ScannerOrigin.position, s.transform.position) <= ScanDistance)
