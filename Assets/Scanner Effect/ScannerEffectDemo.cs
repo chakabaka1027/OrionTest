@@ -12,7 +12,7 @@ public class ScannerEffectDemo : MonoBehaviour
 
 	// Demo Code
 	bool _scanning;
-	//Scannable[] _scannables;
+	Scannable[] _scannables;
 
 	void Start()
 	{
@@ -24,11 +24,11 @@ public class ScannerEffectDemo : MonoBehaviour
 		if (_scanning)
 		{
 			ScanDistance += Time.deltaTime * 25;
-			//foreach (Scannable s in _scannables)
-			//{
-			//	if (Vector3.Distance(ScannerOrigin.position, s.transform.position) <= ScanDistance)
-			//		s.Ping();
-			//}
+			foreach (Scannable s in _scannables)
+			{
+				if (Vector3.Distance(ScannerOrigin.position, s.transform.position) <= ScanDistance)
+					s.Ping();
+			}
 		}
 
 		if (Input.GetKeyDown(KeyCode.C))

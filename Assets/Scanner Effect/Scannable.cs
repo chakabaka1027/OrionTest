@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Scannable : MonoBehaviour {
 
-    void IncreaseEmissive() {
-      
-
+    public void Ping() {
+        GetComponent<Animator>().Play("IncreaseEmission");
     }
-    
-    void DecreaseEmissive() {
 
+    private void Update() {
 
-    }	
+        if(Input.GetKeyDown(KeyCode.T)) {
+            Ping();
+        }
+    }
 
 }
