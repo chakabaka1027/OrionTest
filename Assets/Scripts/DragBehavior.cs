@@ -14,13 +14,16 @@ public class DragBehavior : MonoBehaviour {
 
     public GameObject mirror;
     public GameObject rotationPanel;
+    public GameObject rotatorCompass;
+
+    GameObject myCompass;
 
     private float sensitivity;
-     private Vector3 palmPosReference;
-     private Vector3 palmOffset;
-     private Vector3 rotation;
-     public bool rotationModeActive = false;
-     public bool isRotating;
+    private Vector3 palmPosReference;
+    private Vector3 palmOffset;
+    private Vector3 rotation;
+    public bool rotationModeActive = false;
+    public bool isRotating;
 
 	// Use this for initialization
 	void Start () {
@@ -50,13 +53,19 @@ public class DragBehavior : MonoBehaviour {
             if (mirror.gameObject.name == "MirrorX"){
                 rotation.y = (palmOffset.x /*+ palmOffset.y*/) * sensitivity;
                 mirror.transform.Rotate(0, rotation.y, 0);
+                
+                //rotate ui compass
+                myCompass.transform.Rotate(0, 0, -rotation.y);
 
             }
 
             if (mirror.gameObject.name == "MirrorY"){
             //apply rotation up and down
                 rotation.x = (palmOffset.y /*+ palmOffset.y*/) * sensitivity;
-                mirror.transform.Rotate(rotation.x, 0, 0);
+                mirror.transform.Rotate(-rotation.x, 0, 0);
+
+                //rotate ui compass
+                myCompass.transform.Rotate(0, 0, -rotation.x);
 
             }
 
@@ -77,7 +86,7 @@ public class DragBehavior : MonoBehaviour {
 		RaycastHit hit;
 
         if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, rotatable) && FindObjectOfType<Movement>().moveModeActive) {
-            if(hit.collider.gameObject.name == "MirrorX" || hit.collider.gameObject.name == "Mirror Y") {
+            if(hit.collider.gameObject.name == "MirrorX" || hit.collider.gameObject.name == "MirrorY") {
                 mirror = hit.collider.gameObject;
                 
                 if(FindObjectOfType<Movement>().moveModeActive && mirror.name == "MirrorX" || mirror.name == "MirrorY") {
@@ -102,12 +111,17 @@ public class DragBehavior : MonoBehaviour {
         if(mirror != null) {
             //animate and type text for HUD
             rotationPanel.GetComponent<Animator>().Play("Opened");
+
             if(!rotationModeActive) {
                 rotationPanel.transform.GetComponentInChildren<Text>().text = "";
                 if(mirror.name == "MirrorY") {
                     StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Vertical Rotation "));
+                    myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.localRotation.y + 45, 0)) as GameObject;
+                    //myCompass.transform.parent = mirror.transform;
                 } else if (mirror.name == "MirrorX") {
                     StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Horizontal Rotation "));
+                    myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(90, 0 , 0)) as GameObject;
+                    //myCompass.transform.parent = mirror.transform;
                 }
             }
 
@@ -134,9 +148,9 @@ public class DragBehavior : MonoBehaviour {
         yield return new WaitForSeconds(.5f);
         rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
+        Destroy(myCompass);
 
         rotationModeActive = false;
-        Debug.Log("finished!");
     }
 
 
