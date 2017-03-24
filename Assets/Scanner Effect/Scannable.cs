@@ -10,14 +10,18 @@ public class Scannable : MonoBehaviour {
         if(!hasBeenScanned) {
             hasBeenScanned = true;
             Debug.Log("pinging");
-            GetComponent<Animator>().Play("IncreaseEmission");
+            if(gameObject.name == "MirrorX" || gameObject.name == "MirrorY") {
+                GetComponent<Animator>().Play("IncreaseMoveableMirrorEmission");
+            } else {
+                GetComponent<Animator>().Play("IncreaseEmission");
+            }
             StartCoroutine(DecreaseEmission());
         }
         
     }
 
     IEnumerator DecreaseEmission() {
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(30);
         GetComponent<Animator>().Play("DecreaseEmission");
         hasBeenScanned = false;
     }

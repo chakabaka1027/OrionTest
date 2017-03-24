@@ -64,7 +64,7 @@ public class Movement : MonoBehaviour {
 
         isMoving = true;
 
-        if(moveModeActive && nextNavpoint!= null && isMoving && FindObjectOfType<DragBehavior>().rotationModeActive == false) {
+        if(moveModeActive && nextNavpoint!= null /*&& isMoving*/ && FindObjectOfType<DragBehavior>().rotationModeActive == false) {
 
             if (currentNavpoint != null) {
                 currentNavpoint.SetActive(true);

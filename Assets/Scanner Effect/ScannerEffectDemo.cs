@@ -33,7 +33,7 @@ public class ScannerEffectDemo : MonoBehaviour
 			foreach (Scannable s in _scannables)
 			{
 				if (Vector3.Distance(ScannerOrigin.position, s.transform.position) <= ScanDistance)
-					s.Ping();
+                    s.Ping();
 			}
 		}
 
