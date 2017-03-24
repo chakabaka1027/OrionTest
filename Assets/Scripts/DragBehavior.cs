@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Leap;
+using Hover.InterfaceModules.Cast;
 
 public class DragBehavior : MonoBehaviour {
 
     public GameObject rightPalm;
     public GameObject openHandCursor;
     public GameObject closedHandCursor;
+
+    public GameObject wristUI;
 
     public LayerMask rotatable;
 
@@ -109,6 +112,9 @@ public class DragBehavior : MonoBehaviour {
 
     public void RotateMirrorLeftRight() {
         if(mirror != null) {
+            //deactivate wrist UI
+            FindObjectOfType<HovercastInterface>().IsOpen = false;
+
             //animate and type text for HUD
             rotationPanel.GetComponent<Animator>().Play("Opened");
 
