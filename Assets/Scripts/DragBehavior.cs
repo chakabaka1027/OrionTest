@@ -8,6 +8,7 @@ using Hover.InterfaceModules.Cast;
 public class DragBehavior : MonoBehaviour {
 
     public GameObject cameraReference;
+    public GameObject cameraReferenceUpandDown;
 
     [Header("Palm Info")]
     public GameObject rightPalm;
@@ -210,13 +211,17 @@ public class DragBehavior : MonoBehaviour {
                     }
 
                     Vector3 mirrorVector = cameraReference.transform.forward;
-                    Vector3 up = new Vector3(0, 1, 0);
-                    Vector3 left = Vector3.Cross(mirrorVector.normalized, up.normalized);
-                    Vector3 right = -left;
+                    //Vector3 up = new Vector3(0, 1, 0);
+                    //Vector3 left = Vector3.Cross(mirrorVector.normalized, up.normalized);
+                    //Vector3 right = -left;
+                    Vector3 left = mirrorVector - cameraReference.transform.right;
+                    Vector3 up = Vector3.Cross(mirrorVector.normalized, left.normalized);
                     
 
-                    myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f , Quaternion.Euler(cameraReference.transform.eulerAngles.x - 90, 0, 0)) as GameObject;
-                    myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.025f , Quaternion.Euler(cameraReference.transform.eulerAngles.x + 90, 0, 0)) as GameObject;
+                    myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f , /*cameraReference.transform.rotation*/ Quaternion.Euler(-90, 0, 0), cameraReference.transform) as GameObject;
+                    
+
+                    myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.025f , /*cameraReference.transform.rotation*/ Quaternion.Euler(90, 0, 0), cameraReference.transform) as GameObject;
                     
                     upArrowScale = myUpArrow.transform.localScale;
                     downArrowScale = myDownArrow.transform.localScale;
@@ -275,7 +280,10 @@ public class DragBehavior : MonoBehaviour {
         rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
         Destroy(myCompass);
-        mirror.GetComponent<Animator>().Play("DecreaseEmission");
+        if(mirror!=null) {
+            mirror.GetComponent<Animator>().Play("DecreaseEmission");
+
+        }
 
 
         rotationModeActive = false;
