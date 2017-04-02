@@ -21,7 +21,7 @@ public class Scannable : MonoBehaviour {
     }
 
     IEnumerator DecreaseEmission() {
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(60);
         GetComponent<Animator>().Play("DecreaseEmission");
         hasBeenScanned = false;
     }

@@ -35,6 +35,11 @@ public class DragBehavior : MonoBehaviour {
     GameObject myUpArrow;
     GameObject myDownArrow;
 
+    Vector3 rightArrowScale;
+    Vector3 leftArrowScale;
+    Vector3 upArrowScale;
+    Vector3 downArrowScale;
+
 
     float sensitivity;
     Vector3 palmPosReference;
@@ -78,13 +83,33 @@ public class DragBehavior : MonoBehaviour {
                 mirror.transform.Rotate(0, rotation.y, 0);
                 
                 //rotate ui compass
-                myCompass.transform.Rotate(0, 0, -rotation.y);
+                if(myCompass != null) {
+                    myCompass.transform.Rotate(0, 0, -rotation.y);
+                }
                 
                 //enlargen ui arrow
                 if(myRightArrow != null && myLeftArrow != null) {
+   
+                //make right arrow bigger, left arrow smaller
                     if(rightPalm.transform.localPosition.x > palmPosReference.x) {
                         myRightArrow.transform.localScale += new Vector3(-palmOffset.x, -palmOffset.x, -palmOffset.x) * 2f;
+                        myLeftArrow.transform.localScale += new Vector3(palmOffset.x, palmOffset.x, palmOffset.x) * 2f;
+
                     } 
+                //make left arrow bigger, right arrow smaller 
+                    if(rightPalm.transform.localPosition.x < palmPosReference.x) {
+                        myRightArrow.transform.localScale -= new Vector3(palmOffset.x, palmOffset.x, palmOffset.x) * 2f;
+                        myLeftArrow.transform.localScale -= new Vector3(-palmOffset.x, -palmOffset.x, -palmOffset.x) * 2f;
+
+                    }  
+                    
+                    //lock scales of arrows to a certain size
+                    if(myRightArrow.transform.localScale.x < rightArrowScale.x) {
+                        myRightArrow.transform.localScale = rightArrowScale;
+                    }   
+                    if(myLeftArrow.transform.localScale.x < leftArrowScale.x) {
+                        myLeftArrow.transform.localScale = leftArrowScale;
+                    }             
                 }
                 
 
@@ -96,7 +121,9 @@ public class DragBehavior : MonoBehaviour {
                 mirror.transform.Rotate(rotation.x, 0, 0);
 
                 //rotate ui compass
-                myCompass.transform.Rotate(0, 0, -rotation.x);
+                if(myCompass != null) {
+                    myCompass.transform.Rotate(0, 0, -rotation.x);
+                }
 
             }
 
@@ -145,6 +172,8 @@ public class DragBehavior : MonoBehaviour {
 
             //animate and type text for HUD
             rotationPanel.GetComponent<Animator>().Play("Opened");
+            mirror.GetComponent<Animator>().Play("IncreaseEmission");
+
 
             //if(!rotationModeActive) {
                 if(mirror.name == "MirrorY") {
@@ -170,9 +199,11 @@ public class DragBehavior : MonoBehaviour {
                     Vector3 right = -left;
                     
 
-                    myRightArrow = Instantiate(arrow, rightPalm.transform.position + right * 0.05f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y + 90, 0)) as GameObject;
-                    myLeftArrow = Instantiate(arrow, rightPalm.transform.position + left * 0.05f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y - 90, 0)) as GameObject;
-
+                    myRightArrow = Instantiate(arrow, rightPalm.transform.position + right * 0.025f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y + 90, 0)) as GameObject;
+                    myLeftArrow = Instantiate(arrow, rightPalm.transform.position + left * 0.025f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y - 90, 0)) as GameObject;
+                    
+                    rightArrowScale = myRightArrow.transform.localScale;
+                    leftArrowScale = myLeftArrow.transform.localScale;
                 }
             //}
 
@@ -203,6 +234,8 @@ public class DragBehavior : MonoBehaviour {
         rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
         Destroy(myCompass);
+        mirror.GetComponent<Animator>().Play("DecreaseEmission");
+
 
         rotationModeActive = false;
     }
