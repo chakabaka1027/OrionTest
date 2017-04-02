@@ -7,26 +7,46 @@ using Hover.InterfaceModules.Cast;
 
 public class DragBehavior : MonoBehaviour {
 
+    public GameObject cameraReference;
+
+    [Header("Palm Info")]
     public GameObject rightPalm;
+    public LayerMask rotatable;    
+
+    [Header("Cursors")]
     public GameObject openHandCursor;
     public GameObject closedHandCursor;
 
-    public GameObject wristUI;
-
-    public LayerMask rotatable;
-
-    public GameObject mirror;
+    
+    [Header("Rotation UI")]
     public GameObject rotationPanel;
     public GameObject rotatorCompass;
 
-    GameObject myCompass;
+    public GameObject arrow;
 
-    private float sensitivity;
-    private Vector3 palmPosReference;
-    private Vector3 palmOffset;
-    private Vector3 rotation;
+    public GameObject rightArrowLocation;
+    public GameObject leftArrowLocation;
+    public GameObject upArrowLocation;
+    public GameObject downArrowLocation;
+
+    GameObject myCompass;
+    GameObject myLeftArrow;
+    GameObject myRightArrow;
+    GameObject myUpArrow;
+    GameObject myDownArrow;
+
+
+    float sensitivity;
+    Vector3 palmPosReference;
+    Vector3 palmOffset;
+    Vector3 rotation;
+
+    [HideInInspector]
     public bool rotationModeActive = false;
+    [HideInInspector]
     public bool isRotating;
+    [HideInInspector]
+    public GameObject mirror;
 
 	// Use this for initialization
 	void Start () {
@@ -54,17 +74,25 @@ public class DragBehavior : MonoBehaviour {
 
             //apply rotation left and right
             if (mirror.gameObject.name == "MirrorX"){
-                rotation.y = (palmOffset.x /*+ palmOffset.y*/) * sensitivity;
+                rotation.y = (palmOffset.x) * sensitivity;
                 mirror.transform.Rotate(0, rotation.y, 0);
                 
                 //rotate ui compass
                 myCompass.transform.Rotate(0, 0, -rotation.y);
+                
+                //enlargen ui arrow
+                if(myRightArrow != null && myLeftArrow != null) {
+                    if(rightPalm.transform.localPosition.x > palmPosReference.x) {
+                        myRightArrow.transform.localScale += new Vector3(-palmOffset.x, -palmOffset.x, -palmOffset.x) * 2f;
+                    } 
+                }
+                
 
             }
 
             if (mirror.gameObject.name == "MirrorY"){
             //apply rotation up and down
-                rotation.x = (palmOffset.y /*+ palmOffset.y*/) * sensitivity;
+                rotation.x = (palmOffset.y) * sensitivity;
                 mirror.transform.Rotate(rotation.x, 0, 0);
 
                 //rotate ui compass
@@ -118,18 +146,35 @@ public class DragBehavior : MonoBehaviour {
             //animate and type text for HUD
             rotationPanel.GetComponent<Animator>().Play("Opened");
 
-            if(!rotationModeActive) {
-                rotationPanel.transform.GetComponentInChildren<Text>().text = "";
+            //if(!rotationModeActive) {
                 if(mirror.name == "MirrorY") {
-                    StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Vertical Rotation "));
-                    myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.localRotation.y + 45, 0)) as GameObject;
-                    //myCompass.transform.parent = mirror.transform;
-                } else if (mirror.name == "MirrorX") {
-                    StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Horizontal Rotation "));
-                    myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(90, 0 , 0)) as GameObject;
-                    //myCompass.transform.parent = mirror.transform;
+                    if(!rotationModeActive) {
+                        rotationPanel.transform.GetComponentInChildren<Text>().text = "";
+
+                        myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.localRotation.y + 45, 0)) as GameObject;
+                        StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Vertical Rotation "));
+                    }
+                } else if (mirror.name == "MirrorX") { 
+                    if(!rotationModeActive) {
+                        rotationPanel.transform.GetComponentInChildren<Text>().text = "";
+
+                        myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(90, 0 , 0)) as GameObject;
+                        StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Horizontal Rotation "));
+
+                    }
+
+                    //a way of using cross product to find the right and left vectors from the player's facing direction.
+                    Vector3 mirrorVector = cameraReference.transform.forward;
+                    Vector3 up = new Vector3(0, 1, 0);
+                    Vector3 left = Vector3.Cross(mirrorVector.normalized, up.normalized);
+                    Vector3 right = -left;
+                    
+
+                    myRightArrow = Instantiate(arrow, rightPalm.transform.position + right * 0.05f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y + 90, 0)) as GameObject;
+                    myLeftArrow = Instantiate(arrow, rightPalm.transform.position + left * 0.05f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y - 90, 0)) as GameObject;
+
                 }
-            }
+            //}
 
             rotationModeActive = true;
             isRotating = true;
@@ -142,6 +187,9 @@ public class DragBehavior : MonoBehaviour {
     public void StopRotatingLeftRight() {
         isRotating = false;
         palmPosReference = Vector3.zero;
+
+        Destroy(myLeftArrow);
+        Destroy(myRightArrow);
     }
 
     public void FinishedRotating() {
