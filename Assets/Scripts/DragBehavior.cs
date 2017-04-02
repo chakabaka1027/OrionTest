@@ -125,6 +125,31 @@ public class DragBehavior : MonoBehaviour {
                     myCompass.transform.Rotate(0, 0, -rotation.x);
                 }
 
+                //enlargen ui arrow
+                if(myUpArrow != null && myDownArrow != null) {
+   
+                //make up arrow bigger, down arrow smaller
+                    if(rightPalm.transform.localPosition.y > palmPosReference.y) {
+                        myUpArrow.transform.localScale += new Vector3(-palmOffset.y, -palmOffset.y, -palmOffset.y) * 2f;
+                        myDownArrow.transform.localScale += new Vector3(palmOffset.y, palmOffset.y, palmOffset.y) * 2f;
+
+                    } 
+                //make down arrow bigger, up arrow smaller 
+                    if(rightPalm.transform.localPosition.y < palmPosReference.y) {
+                        myUpArrow.transform.localScale -= new Vector3(palmOffset.y, palmOffset.y, palmOffset.y) * 1.25f;
+                        myDownArrow.transform.localScale -= new Vector3(-palmOffset.y, -palmOffset.y, -palmOffset.y) * 1.25f;
+
+                    }  
+                    
+                    //lock scales of arrows to a certain size
+                    if(myUpArrow.transform.localScale.x < upArrowScale.x) {
+                        myUpArrow.transform.localScale = upArrowScale;
+                    }   
+                    if(myDownArrow.transform.localScale.x < downArrowScale.x) {
+                        myDownArrow.transform.localScale = downArrowScale;
+                    }             
+                }
+
             }
 
             //store palm
@@ -183,6 +208,19 @@ public class DragBehavior : MonoBehaviour {
                         myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.localRotation.y + 45, 0)) as GameObject;
                         StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Vertical Rotation "));
                     }
+
+                    Vector3 mirrorVector = cameraReference.transform.forward;
+                    Vector3 up = new Vector3(0, 1, 0);
+                    Vector3 left = Vector3.Cross(mirrorVector.normalized, up.normalized);
+                    Vector3 right = -left;
+                    
+
+                    myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f , Quaternion.Euler(cameraReference.transform.eulerAngles.x - 90, 0, 0)) as GameObject;
+                    myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.025f , Quaternion.Euler(cameraReference.transform.eulerAngles.x + 90, 0, 0)) as GameObject;
+                    
+                    upArrowScale = myUpArrow.transform.localScale;
+                    downArrowScale = myDownArrow.transform.localScale;
+
                 } else if (mirror.name == "MirrorX") { 
                     if(!rotationModeActive) {
                         rotationPanel.transform.GetComponentInChildren<Text>().text = "";
@@ -221,6 +259,9 @@ public class DragBehavior : MonoBehaviour {
 
         Destroy(myLeftArrow);
         Destroy(myRightArrow);
+        
+        Destroy(myUpArrow);
+        Destroy(myDownArrow);
     }
 
     public void FinishedRotating() {
