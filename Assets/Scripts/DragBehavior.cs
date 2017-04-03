@@ -93,14 +93,14 @@ public class DragBehavior : MonoBehaviour {
    
                 //make right arrow bigger, left arrow smaller
                     if(rightPalm.transform.localPosition.x > palmPosReference.x) {
-                        myRightArrow.transform.localScale += new Vector3(-palmOffset.x, -palmOffset.x, -palmOffset.x) * 2f;
-                        myLeftArrow.transform.localScale += new Vector3(palmOffset.x, palmOffset.x, palmOffset.x) * 2f;
+                        myRightArrow.transform.localScale += new Vector3(-palmOffset.x, -palmOffset.x, -palmOffset.x) * 1f;
+                        myLeftArrow.transform.localScale += new Vector3(palmOffset.x, palmOffset.x, palmOffset.x) * 1f;
 
                     } 
                 //make left arrow bigger, right arrow smaller 
                     if(rightPalm.transform.localPosition.x < palmPosReference.x) {
-                        myRightArrow.transform.localScale -= new Vector3(palmOffset.x, palmOffset.x, palmOffset.x) * 2f;
-                        myLeftArrow.transform.localScale -= new Vector3(-palmOffset.x, -palmOffset.x, -palmOffset.x) * 2f;
+                        myRightArrow.transform.localScale -= new Vector3(palmOffset.x, palmOffset.x, palmOffset.x) * 1f;
+                        myLeftArrow.transform.localScale -= new Vector3(-palmOffset.x, -palmOffset.x, -palmOffset.x) * 1f;
 
                     }  
                     
@@ -131,8 +131,8 @@ public class DragBehavior : MonoBehaviour {
    
                 //make up arrow bigger, down arrow smaller
                     if(rightPalm.transform.localPosition.y > palmPosReference.y) {
-                        myUpArrow.transform.localScale += new Vector3(-palmOffset.y, -palmOffset.y, -palmOffset.y) * 2f;
-                        myDownArrow.transform.localScale += new Vector3(palmOffset.y, palmOffset.y, palmOffset.y) * 2f;
+                        myUpArrow.transform.localScale += new Vector3(-palmOffset.y, -palmOffset.y, -palmOffset.y) * 1.25f;
+                        myDownArrow.transform.localScale += new Vector3(palmOffset.y, palmOffset.y, palmOffset.y) * 1.25f;
 
                     } 
                 //make down arrow bigger, up arrow smaller 
@@ -216,14 +216,9 @@ public class DragBehavior : MonoBehaviour {
                     Vector3 up = Vector3.Cross(mirrorVector.normalized, left.normalized);
                     
 
-                    myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f ,  Quaternion.Euler(-90, 0, 0), cameraReference.transform) as GameObject;        
-                    myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.025f ,  Quaternion.Euler(90, 0, 0), cameraReference.transform) as GameObject;
-                    
-                    myUpArrow.GetComponent<Animator>().Play("ArrowOpen");
-                    myDownArrow.GetComponent<Animator>().Play("ArrowOpen");
-
-                    Invoke("myUpArrow.GetComponent<Animator>().Stop()", 1);
-                    Invoke("myDownArrow.GetComponent<Animator>().Stop()", 1);
+                    myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f ,  Quaternion.Euler(-90, 0, 0)) as GameObject;        
+                    myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.001f ,  Quaternion.Euler(90, 0, 0)) as GameObject;
+                  
 
                     upArrowScale = myUpArrow.transform.localScale;
                     downArrowScale = myDownArrow.transform.localScale;
@@ -244,11 +239,11 @@ public class DragBehavior : MonoBehaviour {
                     Vector3 right = -left;
                     
 
-                    myRightArrow = Instantiate(arrow, rightPalm.transform.position + right * 0.025f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y + 90, 0)) as GameObject;
-                    myLeftArrow = Instantiate(arrow, rightPalm.transform.position + left * 0.025f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y - 90, 0)) as GameObject;
+                    myRightArrow = Instantiate(arrow, rightPalm.transform.position + right * 0.01f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y + 90, 0)) as GameObject;
+                    myLeftArrow = Instantiate(arrow, rightPalm.transform.position + left * 0.01f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y - 90, 0)) as GameObject;
                     
-                    myRightArrow.GetComponent<Animator>().Play("ArrowOpen");
-                    myLeftArrow.GetComponent<Animator>().Play("ArrowOpen");
+                    //myRightArrow.GetComponent<Animator>().Play("ArrowOpen");
+                    //myLeftArrow.GetComponent<Animator>().Play("ArrowOpen");
 
                     rightArrowScale = myRightArrow.transform.localScale;
                     leftArrowScale = myLeftArrow.transform.localScale;
@@ -274,20 +269,20 @@ public class DragBehavior : MonoBehaviour {
         Destroy(myDownArrow, .5f);
 
         if(myUpArrow != null) {
-            myUpArrow.GetComponent<Animator>().Play("ArrowClosed");
+            myUpArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
         }
 
         if(myDownArrow != null) {
-            myDownArrow.GetComponent<Animator>().Play("ArrowClosed");
+            myDownArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
 
         }
 
         if(myLeftArrow != null) {
-            myLeftArrow.GetComponent<Animator>().Play("ArrowClosed");
+            myLeftArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
         }
 
         if(myRightArrow != null) {
-            myRightArrow.GetComponent<Animator>().Play("ArrowClosed");
+            myRightArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
 
         }
     }
