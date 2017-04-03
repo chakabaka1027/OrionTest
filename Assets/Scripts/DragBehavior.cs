@@ -211,18 +211,20 @@ public class DragBehavior : MonoBehaviour {
                     }
 
                     Vector3 mirrorVector = cameraReference.transform.forward;
-                    //Vector3 up = new Vector3(0, 1, 0);
-                    //Vector3 left = Vector3.Cross(mirrorVector.normalized, up.normalized);
-                    //Vector3 right = -left;
+                   
                     Vector3 left = mirrorVector - cameraReference.transform.right;
                     Vector3 up = Vector3.Cross(mirrorVector.normalized, left.normalized);
                     
 
-                    myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f , /*cameraReference.transform.rotation*/ Quaternion.Euler(-90, 0, 0), cameraReference.transform) as GameObject;
+                    myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f ,  Quaternion.Euler(-90, 0, 0), cameraReference.transform) as GameObject;        
+                    myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.025f ,  Quaternion.Euler(90, 0, 0), cameraReference.transform) as GameObject;
                     
+                    myUpArrow.GetComponent<Animator>().Play("ArrowOpen");
+                    myDownArrow.GetComponent<Animator>().Play("ArrowOpen");
 
-                    myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.025f , /*cameraReference.transform.rotation*/ Quaternion.Euler(90, 0, 0), cameraReference.transform) as GameObject;
-                    
+                    Invoke("myUpArrow.GetComponent<Animator>().Stop()", 1);
+                    Invoke("myDownArrow.GetComponent<Animator>().Stop()", 1);
+
                     upArrowScale = myUpArrow.transform.localScale;
                     downArrowScale = myDownArrow.transform.localScale;
 
@@ -245,6 +247,9 @@ public class DragBehavior : MonoBehaviour {
                     myRightArrow = Instantiate(arrow, rightPalm.transform.position + right * 0.025f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y + 90, 0)) as GameObject;
                     myLeftArrow = Instantiate(arrow, rightPalm.transform.position + left * 0.025f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y - 90, 0)) as GameObject;
                     
+                    myRightArrow.GetComponent<Animator>().Play("ArrowOpen");
+                    myLeftArrow.GetComponent<Animator>().Play("ArrowOpen");
+
                     rightArrowScale = myRightArrow.transform.localScale;
                     leftArrowScale = myLeftArrow.transform.localScale;
                 }
@@ -262,11 +267,29 @@ public class DragBehavior : MonoBehaviour {
         isRotating = false;
         palmPosReference = Vector3.zero;
 
-        Destroy(myLeftArrow);
-        Destroy(myRightArrow);
+        Destroy(myLeftArrow, .5f);
+        Destroy(myRightArrow, .5f);
         
-        Destroy(myUpArrow);
-        Destroy(myDownArrow);
+        Destroy(myUpArrow, .5f);
+        Destroy(myDownArrow, .5f);
+
+        if(myUpArrow != null) {
+            myUpArrow.GetComponent<Animator>().Play("ArrowClosed");
+        }
+
+        if(myDownArrow != null) {
+            myDownArrow.GetComponent<Animator>().Play("ArrowClosed");
+
+        }
+
+        if(myLeftArrow != null) {
+            myLeftArrow.GetComponent<Animator>().Play("ArrowClosed");
+        }
+
+        if(myRightArrow != null) {
+            myRightArrow.GetComponent<Animator>().Play("ArrowClosed");
+
+        }
     }
 
     public void FinishedRotating() {

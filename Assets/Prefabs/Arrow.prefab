@@ -37,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4041769101923184}
+  - component: {fileID: 95452836539120414}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -51,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1699012015493700}
   m_LocalRotation: {x: -0, y: -0, z: 6.472957e-24, w: 1}
-  m_LocalPosition: {x: 0.6366577, y: -0.9499999, z: 45.143036}
+  m_LocalPosition: {x: 0.5658112, y: -0.7078, z: 46.078}
   m_LocalScale: {x: 0.44763935, y: 0.44763935, z: 0.44763935}
   m_Children:
   - {fileID: 4087970421312830}
@@ -119,6 +120,23 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: db9a5fc4378c67a40a2dec8067b3824e, type: 3}
   m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95452836539120414
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699012015493700}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 892cbe0ecb5e6a04b877f899644a273f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

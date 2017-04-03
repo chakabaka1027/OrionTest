@@ -29713,6 +29713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraReference: {fileID: 72902600}
+  cameraReferenceUpandDown: {fileID: 266907291}
   rightPalm: {fileID: 1156891106}
   rotatable:
     serializedVersion: 2
