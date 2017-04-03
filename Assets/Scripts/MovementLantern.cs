@@ -18,6 +18,10 @@ public class MovementLantern : MonoBehaviour {
     bool wasTriggeredByLaser = false;
 
     private void Start() {
+
+    //deactivate mesh renderer if the player is occupying this lantern
+       
+
         startLocation = sensor.transform.position;
         endLocTarget = transform.parent.FindChild("Lantern").gameObject;
         endLocation = endLocTarget.transform.position;
@@ -25,7 +29,10 @@ public class MovementLantern : MonoBehaviour {
 
 
         if(gameObject.name == "MovementLanternActual") { 
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
+            if(!isCurrentLantern) {
+                gameObject.GetComponent<MeshRenderer>().enabled = true;
+
+            }
 
             StartCoroutine(MoveFromSensor());
         }

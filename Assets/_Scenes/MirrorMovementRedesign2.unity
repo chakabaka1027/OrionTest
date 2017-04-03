@@ -3735,6 +3735,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 959714862}
 --- !u!23 &316892816
 MeshRenderer:
@@ -4063,12 +4064,12 @@ MonoBehaviour:
   Period: 0.1
   HandModel: {fileID: 1545945338}
   FingerName: 0
-  PointingType: 2
+  PointingType: 1
   PointingDirection: {x: 0, y: 1, z: 0}
   TargetObject: {fileID: 0}
-  OnAngle: 15
-  OffAngle: 25
-  ShowGizmos: 1
+  OnAngle: 25
+  OffAngle: 30
+  ShowGizmos: 0
 --- !u!114 &321235804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8608,11 +8609,11 @@ MonoBehaviour:
   Period: 0.1
   HandModel: {fileID: 1061438465}
   FingerName: 0
-  PointingType: 2
+  PointingType: 1
   PointingDirection: {x: 0, y: 1, z: 0}
   TargetObject: {fileID: 0}
-  OnAngle: 15
-  OffAngle: 25
+  OnAngle: 25
+  OffAngle: 30
   ShowGizmos: 1
 --- !u!114 &581778321
 MonoBehaviour:
@@ -12791,6 +12792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 1920642626}
 --- !u!23 &775701531
 MeshRenderer:
@@ -13257,6 +13259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 1357310801}
 --- !u!23 &806689092
 MeshRenderer:
@@ -13899,6 +13902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 1011231224}
 --- !u!23 &834680637
 MeshRenderer:
@@ -16017,6 +16021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 1455903706}
 --- !u!23 &963842082
 MeshRenderer:
@@ -17378,6 +17383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 2030217343}
 --- !u!23 &1035719581
 MeshRenderer:
@@ -23647,6 +23653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 1525597549}
 --- !u!23 &1400737996
 MeshRenderer:
@@ -23744,6 +23751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 781553531}
 --- !u!23 &1404337460
 MeshRenderer:
@@ -25053,6 +25061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 506071983}
 --- !u!23 &1487426128
 MeshRenderer:
@@ -26105,6 +26114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 966075800}
 --- !u!23 &1573591185
 MeshRenderer:
@@ -26281,6 +26291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 843283760}
 --- !u!23 &1583778993
 MeshRenderer:
@@ -28265,6 +28276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 1488058215}
 --- !u!23 &1741959051
 MeshRenderer:
@@ -30556,7 +30568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855932155}
   - component: {fileID: 1855932154}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RotationPane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31348,6 +31360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 1584299973}
 --- !u!23 &1915421145
 MeshRenderer:
@@ -32640,7 +32653,7 @@ GameObject:
   - component: {fileID: 2006069098}
   - component: {fileID: 2006069100}
   - component: {fileID: 2006069101}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33047,6 +33060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationSwitch: 0
   isActive: 0
+  isCurrentLantern: 0
   sensor: {fileID: 461285622}
 --- !u!23 &2018993651
 MeshRenderer:

@@ -262,11 +262,11 @@ public class DragBehavior : MonoBehaviour {
         isRotating = false;
         palmPosReference = Vector3.zero;
 
-        Destroy(myLeftArrow, .5f);
-        Destroy(myRightArrow, .5f);
+        Destroy(myLeftArrow, .25f);
+        Destroy(myRightArrow, .25f);
         
-        Destroy(myUpArrow, .5f);
-        Destroy(myDownArrow, .5f);
+        Destroy(myUpArrow, .25f);
+        Destroy(myDownArrow, .25f);
 
         if(myUpArrow != null) {
             myUpArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");

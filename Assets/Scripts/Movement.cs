@@ -66,7 +66,9 @@ public class Movement : MonoBehaviour {
         isMoving = true;
 
         //player now occupies new lantern
-        nextNavpoint.GetComponent<MovementLantern>().isCurrentLantern = true;
+        if(nextNavpoint != null) {
+            nextNavpoint.GetComponent<MovementLantern>().isCurrentLantern = true;
+        }
 
         if(moveModeActive && nextNavpoint!= null /*&& isMoving*/ && FindObjectOfType<DragBehavior>().rotationModeActive == false) {
 
