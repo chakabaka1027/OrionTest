@@ -9,8 +9,10 @@ public class Sensor : MonoBehaviour {
     public bool wasTriggeredByLaser = false;
 
     public void Activate() {
+
         StopCoroutine("DeactivationTimer");
         if(!wasTriggeredByLaser) {
+
             wasTriggeredByLaser = true;
             sensorAction.Invoke();
 
@@ -28,7 +30,7 @@ public class Sensor : MonoBehaviour {
     }
 
     IEnumerator DeactivationTimer() {
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.2f);
         Deactivate();
     }
 

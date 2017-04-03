@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour {
     public bool handOpen = false;
     public bool moveModeActive = false;
     bool isMoving = false;
+    bool isCurrentLantern = false;
 
     private void Start() {
         cursor.SetActive(false);
@@ -64,13 +65,19 @@ public class Movement : MonoBehaviour {
 
         isMoving = true;
 
+        //player now occupies new lantern
+        nextNavpoint.GetComponent<MovementLantern>().isCurrentLantern = true;
+
         if(moveModeActive && nextNavpoint!= null /*&& isMoving*/ && FindObjectOfType<DragBehavior>().rotationModeActive == false) {
 
             if (currentNavpoint != null) {
-                currentNavpoint.SetActive(true);
+                currentNavpoint.GetComponent<MeshRenderer>().enabled = true;
+                //player no longer occupying old lantern
+                currentNavpoint.GetComponent<MovementLantern>().isCurrentLantern = false;
+
             }
 
-            nextNavpoint.SetActive(false);
+            nextNavpoint.GetComponent<MeshRenderer>().enabled = false;
             currentNavpoint = nextNavpoint;
             movementCursor.SetActive(false);
 

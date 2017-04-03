@@ -7,6 +7,8 @@ public class MovementLantern : MonoBehaviour {
     public int activationSwitch = 0;
     public bool isActive = false;
 
+    public bool isCurrentLantern = false;
+
     public GameObject sensor;
     GameObject endLocTarget;
  
@@ -42,6 +44,8 @@ public class MovementLantern : MonoBehaviour {
         childLantern.transform.parent = gameObject.transform.parent;
 
         childLantern.GetComponent<MovementLantern>().isActive = true;
+        
+        
     }
 
     public void DestroyLantern() {
@@ -53,9 +57,10 @@ public class MovementLantern : MonoBehaviour {
      public void MovementLanternSwitch() {
         activationSwitch = 1 - activationSwitch;
 
-        if(activationSwitch == 1) {
-            SpawnLantern();
+        if(activationSwitch == 1) {   
 
+            SpawnLantern();
+            
         } else if (activationSwitch == 0) {
             //gameObject.SetActive(false);
             //gameObject.GetComponent<MeshRenderer>().enabled = false;
