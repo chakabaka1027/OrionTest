@@ -12,6 +12,8 @@ public class Movement : MonoBehaviour {
 
     public LayerMask moveable;
 
+    //bool canMove = true;
+
     public bool handOpen = false;
     public bool moveModeActive = false;
     bool isMoving = false;
@@ -41,6 +43,15 @@ public class Movement : MonoBehaviour {
                 }
             }
 
+            //elevator
+            else if(hit.collider.gameObject.GetComponent<Elevator>() != null && !hit.collider.gameObject.GetComponent<Elevator>().isStartingElevator) {
+                movementCursor.SetActive(true);
+
+                nextNavpoint = hit.collider.gameObject;
+                //canMove = false;
+
+            }
+
             else {
                 if(!isMoving) {
                     nextNavpoint = null;
@@ -49,9 +60,6 @@ public class Movement : MonoBehaviour {
                 movementCursor.SetActive(false);
 
             }
-
-            //uncomment if you want to move instantly when looking at desired navpoint
-            //MoveToNavPoint();
 
         } 
     }
@@ -66,20 +74,29 @@ public class Movement : MonoBehaviour {
         isMoving = true;
 
         //player now occupies new lantern
-        if(nextNavpoint != null) {
+        if(nextNavpoint != null && nextNavpoint.GetComponent<MovementLantern>() != null) {
             nextNavpoint.GetComponent<MovementLantern>().isCurrentLantern = true;
         }
 
-        if(moveModeActive && nextNavpoint!= null /*&& isMoving*/ && FindObjectOfType<DragBehavior>().rotationModeActive == false) {
+        //elevator
+        //if(nextNavpoint.GetComponent<Elevator>() != null) {
+        //    yield return new WaitForSeconds(1.5f);
+        //    nextNavpoint.GetComponent<Elevator>().InitiateElevator();
+        //}
+
+        if(moveModeActive && nextNavpoint!= null && FindObjectOfType<DragBehavior>().rotationModeActive == false) {
 
             if (currentNavpoint != null) {
                 currentNavpoint.GetComponent<MeshRenderer>().enabled = true;
                 //player no longer occupying old lantern
-                currentNavpoint.GetComponent<MovementLantern>().isCurrentLantern = false;
-
+                if(currentNavpoint.GetComponent<MovementLantern>() != null) { 
+                    currentNavpoint.GetComponent<MovementLantern>().isCurrentLantern = false;
+                }
             }
 
             nextNavpoint.GetComponent<MeshRenderer>().enabled = false;
+            //nextNavpoint.GetComponent<BoxCollider>().enabled = false;
+
             currentNavpoint = nextNavpoint;
             movementCursor.SetActive(false);
 
@@ -94,12 +111,7 @@ public class Movement : MonoBehaviour {
                     gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, nextNavpoint.transform.position, percent);
                 }
                 yield return null;
-            }
-
-            
-
-            //gameObject.transform.position = nextNavpoint.transform.position;
-            
+            }            
            
         }
         isMoving = false;
@@ -113,7 +125,7 @@ public class Movement : MonoBehaviour {
         handOpen = true;
 
         EngageMovementMode();
-
+        
     }
 
     public void EngageMovementMode() {
