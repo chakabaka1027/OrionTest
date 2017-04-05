@@ -27,15 +27,20 @@ public class MovementLantern : MonoBehaviour {
         endLocation = endLocTarget.transform.position;
         //sensor.transform.position + Vector3.up * 1f;
 
-
-        if(gameObject.name == "MovementLanternActual") { 
-            if(!isCurrentLantern) {
-                gameObject.GetComponent<MeshRenderer>().enabled = true;
-
-            }
+        //if you are a newly spawned lantern and the player is not occupying your location
+        if(gameObject.name == "MovementLanternActual" && !gameObject.transform.parent.FindChild("Lantern").GetComponent<MovementLantern>().isCurrentLantern) {       
+            gameObject.GetComponent<MeshRenderer>().enabled = true;
+           
 
             StartCoroutine(MoveFromSensor());
         }
+        else if(gameObject.name == "MovementLanternActual" && gameObject.transform.parent.FindChild("Lantern").GetComponent<MovementLantern>().isCurrentLantern) {
+            gameObject.GetComponent<MeshRenderer>().enabled = false;
+           
+
+            StartCoroutine(MoveFromSensor());
+        }
+
         if(gameObject.name != "MovementLanternActual") {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider>().enabled = false;

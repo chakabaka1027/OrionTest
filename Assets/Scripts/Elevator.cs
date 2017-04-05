@@ -7,6 +7,8 @@ public class Elevator : MonoBehaviour {
     public bool isOccupied = false;
     public bool isStartingElevator = false;
 
+    public float travelTime = 5;
+
     public GameObject target;
 
     public GameObject player;
@@ -42,8 +44,7 @@ public class Elevator : MonoBehaviour {
         isOccupied = true;
 
         float percent = 0;
-        float time = 5;
-        float speed = 1 / time;
+        float speed = 1 / travelTime;
 
         while (percent < 1) {
             percent += Time.deltaTime * speed;
