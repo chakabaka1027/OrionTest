@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Elevator : MonoBehaviour {
 
@@ -12,6 +13,8 @@ public class Elevator : MonoBehaviour {
     public GameObject target;
 
     public GameObject player;
+
+    public int nextLevelIndex;
 
     void Start() { 
 
@@ -53,7 +56,11 @@ public class Elevator : MonoBehaviour {
             yield return null;
         }
 
-       isOccupied = false;
+        if(!isStartingElevator) {
+            SceneManager.LoadScene(nextLevelIndex);
+        }
+
+        isOccupied = false;
 
 
     }
