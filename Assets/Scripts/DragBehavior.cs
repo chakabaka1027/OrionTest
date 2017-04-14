@@ -80,8 +80,12 @@ public class DragBehavior : MonoBehaviour {
 
             //apply rotation left and right
             if (mirror.gameObject.name == "MirrorX"){
+            //IF SQUARE SHAPED
+                //rotation.y = (palmOffset.x) * sensitivity;
+                //mirror.transform.Rotate(0, rotation.y, 0);
+
                 rotation.y = (palmOffset.x) * sensitivity;
-                mirror.transform.Rotate(0, rotation.y, 0);
+                mirror.transform.Rotate(0, 0, -rotation.y);
                 
                 //rotate ui compass
                 if(myCompass != null) {

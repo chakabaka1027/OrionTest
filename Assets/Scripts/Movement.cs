@@ -7,8 +7,8 @@ public class Movement : MonoBehaviour {
     public GameObject cursor;
     public GameObject movementCursor;
     public GameObject loadCursor;
-    GameObject nextNavpoint;
-    GameObject currentNavpoint;
+    public GameObject nextNavpoint;
+    public GameObject currentNavpoint;
 
     public LayerMask moveable;
 
@@ -72,6 +72,8 @@ public class Movement : MonoBehaviour {
 
         isMoving = true;
 
+
+
         //player now occupies new lantern
         if(nextNavpoint != null && nextNavpoint.GetComponent<MovementLantern>() != null) {
             nextNavpoint.transform.parent.FindChild("Lantern").GetComponent<MovementLantern>().isCurrentLantern = true;
@@ -81,6 +83,8 @@ public class Movement : MonoBehaviour {
 
             if (currentNavpoint != null) {
                 currentNavpoint.GetComponent<MeshRenderer>().enabled = true;
+                currentNavpoint.GetComponent<BoxCollider>().enabled = true;
+
                 //player no longer occupying old lantern
                 if(currentNavpoint.GetComponent<MovementLantern>() != null) { 
                     currentNavpoint.transform.parent.FindChild("Lantern").GetComponent<MovementLantern>().isCurrentLantern  = false;
@@ -90,10 +94,11 @@ public class Movement : MonoBehaviour {
             nextNavpoint.GetComponent<MeshRenderer>().enabled = false;
             nextNavpoint.GetComponent<BoxCollider>().enabled = false;
 
+
             currentNavpoint = nextNavpoint;
             movementCursor.SetActive(false);
 
-            //test stuff below
+            //interpolate movement
             float percent = 0;
             float time = 0.3f;
             float speed = 1/time;
@@ -110,7 +115,7 @@ public class Movement : MonoBehaviour {
         //is end of level elevator
         if(currentNavpoint != null && currentNavpoint.GetComponent<Elevator>() != null) {
             yield return new WaitForSeconds(.75f);
-            if(nextNavpoint.GetComponent<Elevator>() != null) {
+            if(nextNavpoint != null && nextNavpoint.GetComponent<Elevator>() != null) {
                 nextNavpoint.GetComponent<Elevator>().InitiateElevator();
 
             }
