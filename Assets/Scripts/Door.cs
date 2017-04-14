@@ -7,6 +7,8 @@ public class Door : MonoBehaviour {
     public Transform closedPos;
     public Transform openedPos;
 
+    public float time = 3;
+
     Vector3 closedPosition;
     Vector3 openedPosition;
 
@@ -36,7 +38,6 @@ public class Door : MonoBehaviour {
         
         StopCoroutine("CloseDoor");
         float percent = 0;
-        float time = 1;
         float speed = 1 / time;
         Vector3 currentPos = transform.position;
 
