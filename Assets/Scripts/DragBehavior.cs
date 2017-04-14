@@ -201,56 +201,54 @@ public class DragBehavior : MonoBehaviour {
             mirror.GetComponent<Animator>().Play("IncreaseEmission");
 
 
-            //if(!rotationModeActive) {
-                if(mirror.name == "MirrorY") {
-                    if(!rotationModeActive) {
-                        rotationPanel.transform.GetComponentInChildren<Text>().text = "";
+            if(mirror.name == "MirrorY") {
+                if(!rotationModeActive) {
+                    rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
-                        myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.localRotation.y + 45, 0)) as GameObject;
-                        StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Vertical Rotation "));
-                    }
+                    myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.localRotation.y + 45, 0)) as GameObject;
+                    StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Vertical Rotation "));
+                }
 
-                    Vector3 mirrorVector = cameraReference.transform.forward;
+                Vector3 mirrorVector = cameraReference.transform.forward;
                    
-                    Vector3 left = mirrorVector - cameraReference.transform.right;
-                    Vector3 up = Vector3.Cross(mirrorVector.normalized, left.normalized);
+                Vector3 left = mirrorVector - cameraReference.transform.right;
+                Vector3 up = Vector3.Cross(mirrorVector.normalized, left.normalized);
                     
 
-                    myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f ,  Quaternion.Euler(-90, 0, 0)) as GameObject;        
-                    myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.001f ,  Quaternion.Euler(90, 0, 0)) as GameObject;
+                myUpArrow = Instantiate(arrow, rightPalm.transform.position + up * 0.01f ,  Quaternion.Euler(-90, 0, 0)) as GameObject;        
+                myDownArrow = Instantiate(arrow, rightPalm.transform.position - up * 0.001f ,  Quaternion.Euler(90, 0, 0)) as GameObject;
                   
 
-                    upArrowScale = myUpArrow.transform.localScale;
-                    downArrowScale = myDownArrow.transform.localScale;
+                upArrowScale = myUpArrow.transform.localScale;
+                downArrowScale = myDownArrow.transform.localScale;
 
-                } else if (mirror.name == "MirrorX") { 
-                    if(!rotationModeActive) {
-                        rotationPanel.transform.GetComponentInChildren<Text>().text = "";
+            } else if (mirror.name == "MirrorX") { 
+                if(!rotationModeActive) {
+                    rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
-                        myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(90, 0 , 0)) as GameObject;
-                        StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Horizontal Rotation "));
+                    myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(90, 0 , 0)) as GameObject;
+                    StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Horizontal Rotation "));
 
-                    }
-
-                    //a way of using cross product to find the right and left vectors from the player's facing direction.
-                    Vector3 mirrorVector = cameraReference.transform.forward;
-                    Vector3 up = new Vector3(0, 1, 0);
-                    Vector3 left = Vector3.Cross(mirrorVector.normalized, up.normalized);
-                    Vector3 right = -left;
-                    
-
-                    myRightArrow = Instantiate(arrow, rightPalm.transform.position + right * 0.01f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y + 90, 0)) as GameObject;
-                    myLeftArrow = Instantiate(arrow, rightPalm.transform.position + left * 0.01f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y - 90, 0)) as GameObject;
-                    
-                    //myRightArrow.GetComponent<Animator>().Play("ArrowOpen");
-                    //myLeftArrow.GetComponent<Animator>().Play("ArrowOpen");
-
-                    rightArrowScale = myRightArrow.transform.localScale;
-                    leftArrowScale = myLeftArrow.transform.localScale;
                 }
-            //}
+
+                //a way of using cross product to find the right and left vectors from the player's facing direction.
+                Vector3 mirrorVector = cameraReference.transform.forward;
+                Vector3 up = new Vector3(0, 1, 0);
+                Vector3 left = Vector3.Cross(mirrorVector.normalized, up.normalized);
+                Vector3 right = -left;
+                    
+
+                myRightArrow = Instantiate(arrow, rightPalm.transform.position + right * 0.01f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y + 90, 0)) as GameObject;
+                myLeftArrow = Instantiate(arrow, rightPalm.transform.position + left * 0.01f , Quaternion.Euler(0, cameraReference.transform.eulerAngles.y - 90, 0)) as GameObject;
+
+                rightArrowScale = myRightArrow.transform.localScale;
+                leftArrowScale = myLeftArrow.transform.localScale;
+            }
 
             rotationModeActive = true;
+
+
+
             isRotating = true;
             palmPosReference = rightPalm.transform.localPosition;
             FindObjectOfType<DirectionTracker>().GrabDirection();
@@ -288,7 +286,9 @@ public class DragBehavior : MonoBehaviour {
     }
 
     public void FinishedRotating() {
-       StartCoroutine(FinishedRotatingCoroutine());
+        if(rotationModeActive) {
+            StartCoroutine(FinishedRotatingCoroutine());
+        }
     }
 
     IEnumerator FinishedRotatingCoroutine() {

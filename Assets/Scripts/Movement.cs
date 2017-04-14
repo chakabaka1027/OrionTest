@@ -36,14 +36,14 @@ public class Movement : MonoBehaviour {
 
         if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, moveable)) {
             if(hit.collider.gameObject.GetComponent<MovementLantern>() != null) {
-                if(hit.collider.gameObject.GetComponent<MovementLantern>().isActive){
+                if(hit.collider.gameObject.GetComponent<MovementLantern>().isActive && !gameObject.GetComponent<DragBehavior>().rotationModeActive){
                     nextNavpoint = hit.collider.gameObject;
                     movementCursor.SetActive(true);
                 }
             }
 
             //elevator
-            else if(hit.collider.gameObject.GetComponent<Elevator>() != null && !hit.collider.gameObject.GetComponent<Elevator>().isStartingElevator) {
+            else if(hit.collider.gameObject.GetComponent<Elevator>() != null && !hit.collider.gameObject.GetComponent<Elevator>().isStartingElevator && !gameObject.GetComponent<DragBehavior>().rotationModeActive) {
                 movementCursor.SetActive(true);
 
                 nextNavpoint = hit.collider.gameObject;
@@ -121,17 +121,23 @@ public class Movement : MonoBehaviour {
 
     //called when hand is open, playing cursor animation before allowing movement
     public void ActivateCursor() {
-        loadCursor.SetActive(true);
-        loadCursor.GetComponent<Animator>().Play("InitiateCursor");
-        handOpen = true;
 
+        if(!gameObject.GetComponent<DragBehavior>().rotationModeActive) {
+            loadCursor.SetActive(true);
+            loadCursor.GetComponent<Animator>().Play("InitiateCursor");
+        }
+
+        handOpen = true;        
         EngageMovementMode();
+
         
     }
 
     public void EngageMovementMode() {
         if(FindObjectOfType<DragBehavior>().isRotating == false) {
-            cursor.SetActive(true);
+            if(!gameObject.GetComponent<DragBehavior>().rotationModeActive) {
+                cursor.SetActive(true);
+            } 
             moveModeActive = true;
         }
     }
