@@ -7,8 +7,8 @@ public class Movement : MonoBehaviour {
     public GameObject cursor;
     public GameObject movementCursor;
     public GameObject loadCursor;
-    public GameObject nextNavpoint;
-    public GameObject currentNavpoint;
+    GameObject nextNavpoint;
+    GameObject currentNavpoint;
 
     public LayerMask moveable;
 
@@ -127,7 +127,7 @@ public class Movement : MonoBehaviour {
     //called when hand is open, playing cursor animation before allowing movement
     public void ActivateCursor() {
 
-        if(!gameObject.GetComponent<DragBehavior>().rotationModeActive) {
+        if(!gameObject.GetComponent<DragBehavior>().rotationModeActive ) {
             loadCursor.SetActive(true);
             loadCursor.GetComponent<Animator>().Play("InitiateCursor");
         }

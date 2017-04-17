@@ -51,7 +51,7 @@ public class DragBehavior : MonoBehaviour {
     public bool rotationModeActive = false;
     [HideInInspector]
     public bool isRotating;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject mirror;
 
 	// Use this for initialization
@@ -62,11 +62,8 @@ public class DragBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(!FindObjectOfType<Movement>().moveModeActive) {
-            mirror = null;
-        }
-        
-        else if(FindObjectOfType<Movement>().moveModeActive) {
+
+        if(FindObjectOfType<Movement>().moveModeActive && !isRotating && !rotationModeActive) {
             IdentifyRotationObj();
         }
 
@@ -185,9 +182,9 @@ public class DragBehavior : MonoBehaviour {
             
             else {
                 openHandCursor.SetActive(false);
-                if (!rotationModeActive) {
-                    mirror = null;
-                }
+                
+                mirror = null;
+                
             }
 
         } 
@@ -197,6 +194,7 @@ public class DragBehavior : MonoBehaviour {
 
     public void RotateMirrorLeftRight() {
         if(mirror != null) {
+           
             //deactivate wrist UI
             FindObjectOfType<HovercastInterface>().IsOpen = false;
 
@@ -251,9 +249,8 @@ public class DragBehavior : MonoBehaviour {
 
             rotationModeActive = true;
 
-
-
             isRotating = true;
+
             palmPosReference = rightPalm.transform.localPosition;
             FindObjectOfType<DirectionTracker>().GrabDirection();
 
@@ -309,6 +306,7 @@ public class DragBehavior : MonoBehaviour {
 
 
         rotationModeActive = false;
+        mirror = null;
     }
 
 
