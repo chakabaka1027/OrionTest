@@ -130,16 +130,16 @@ public class Movement : MonoBehaviour {
         if(!gameObject.GetComponent<DragBehavior>().rotationModeActive ) {
             loadCursor.SetActive(true);
             loadCursor.GetComponent<Animator>().Play("InitiateCursor");
-        }
+        
 
         handOpen = true;        
         EngageMovementMode();
 
-        
+        }
     }
 
     public void EngageMovementMode() {
-        if(FindObjectOfType<DragBehavior>().isRotating == false) {
+        if(!FindObjectOfType<DragBehavior>().isRotating) {
             if(!gameObject.GetComponent<DragBehavior>().rotationModeActive) {
                 cursor.SetActive(true);
             } 

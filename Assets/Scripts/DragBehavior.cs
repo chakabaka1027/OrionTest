@@ -68,7 +68,10 @@ public class DragBehavior : MonoBehaviour {
         }
 
 	    if(rotationModeActive && mirror != null && isRotating) {
-            closedHandCursor.SetActive(true);
+            //closedHandCursor.SetActive(true);
+            
+            FindObjectOfType<Movement>().cursor.SetActive(false);
+
             openHandCursor.SetActive(false);
 
             //offset
@@ -173,7 +176,8 @@ public class DragBehavior : MonoBehaviour {
         if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, rotatable) && FindObjectOfType<Movement>().moveModeActive) {
             if(hit.collider.gameObject.name == "MirrorX" || hit.collider.gameObject.name == "MirrorY") {
                 mirror = hit.collider.gameObject;
-                
+                FindObjectOfType<Movement>().cursor.SetActive(false);
+
                 if(FindObjectOfType<Movement>().moveModeActive && mirror.name == "MirrorX" || mirror.name == "MirrorY") {
                     openHandCursor.SetActive(true);
 
@@ -194,7 +198,9 @@ public class DragBehavior : MonoBehaviour {
 
     public void RotateMirrorLeftRight() {
         if(mirror != null) {
-           
+            //turn off crosshair
+            FindObjectOfType<Movement>().cursor.SetActive(false);
+
             //deactivate wrist UI
             FindObjectOfType<HovercastInterface>().IsOpen = false;
 
