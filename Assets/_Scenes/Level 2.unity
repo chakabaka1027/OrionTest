@@ -13246,7 +13246,7 @@ GameObject:
   - component: {fileID: 1805543672}
   m_Layer: 0
   m_Name: LMHeadMountedRig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13312,8 +13312,6 @@ MonoBehaviour:
   cursor: {fileID: 1289647381}
   movementCursor: {fileID: 1443338694}
   loadCursor: {fileID: 1717932145}
-  nextNavpoint: {fileID: 0}
-  currentNavpoint: {fileID: 0}
   moveable:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -13342,6 +13340,7 @@ MonoBehaviour:
   rotatorCompass: {fileID: 1317265384571496, guid: f8ae09bda5411364c960894f3d7b1772,
     type: 2}
   arrow: {fileID: 1699012015493700, guid: 59cd9737e672dcd4bb35b64dedf1993c, type: 2}
+  lockOn: {fileID: 1158336422774692, guid: f038cac4a3a41a648bdece5fb2961096, type: 2}
   rightArrowLocation: {fileID: 1238089326}
   leftArrowLocation: {fileID: 863320148}
   upArrowLocation: {fileID: 2058847305}

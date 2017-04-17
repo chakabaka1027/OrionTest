@@ -24,12 +24,15 @@ public class DragBehavior : MonoBehaviour {
     public GameObject rotatorCompass;
 
     public GameObject arrow;
+    public GameObject lockOn;
 
     public GameObject rightArrowLocation;
     public GameObject leftArrowLocation;
     public GameObject upArrowLocation;
     public GameObject downArrowLocation;
 
+    
+    GameObject myLockOn;
     GameObject myCompass;
     GameObject myLeftArrow;
     GameObject myRightArrow;
@@ -214,6 +217,9 @@ public class DragBehavior : MonoBehaviour {
                     rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
                     myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.localRotation.y + 45, 0)) as GameObject;
+                    
+                    myLockOn = Instantiate(lockOn, mirror.transform.position, Quaternion.identity) as GameObject;
+                    
                     StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Vertical Rotation "));
                 }
 
@@ -235,6 +241,9 @@ public class DragBehavior : MonoBehaviour {
                     rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
                     myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(90, 0 , 0)) as GameObject;
+
+                    myLockOn = Instantiate(lockOn, mirror.transform.position, Quaternion.identity) as GameObject;
+
                     StartCoroutine(rotationPanel.transform.GetComponentInChildren<Typing>().TypeIn("Horizontal Rotation "));
 
                 }
@@ -305,6 +314,8 @@ public class DragBehavior : MonoBehaviour {
         rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
         Destroy(myCompass);
+        Destroy(myLockOn);
+
         if(mirror!=null) {
             mirror.GetComponent<Animator>().Play("DecreaseEmission");
 
