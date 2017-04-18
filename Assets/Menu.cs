@@ -47,7 +47,13 @@ public class Menu : MonoBehaviour {
     }
 
     public void QuitGame() {
+        StartCoroutine(QuitGameCoroutine());
+    }
+
+    IEnumerator QuitGameCoroutine() {
+        yield return new WaitForSeconds(0.5f);
         Application.Quit();
+
     }
 
 }
