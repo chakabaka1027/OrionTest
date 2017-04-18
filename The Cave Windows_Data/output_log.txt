@@ -25,27 +25,9 @@ Platform assembly: C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Da
 Loading C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\UnityEngine.VR.dll into Unity Child Domain
 Platform assembly: C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\LeapCSharp.NET3.5.dll (this message is harmless)
 Loading C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\LeapCSharp.NET3.5.dll into Unity Child Domain
-- Completed reload, in  0.029 seconds
+- Completed reload, in  0.043 seconds
 Platform assembly: C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\System.dll (this message is harmless)
 desktop: 3440x1440 60Hz; virtual: 3440x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-<RI> Initialized touch support.
-Overlay is using an unsupported compressed pixel format.WARNING: Shader Unsupported: 'Outlined/Silhouetted Diffuse' - Pass 'OUTLINE' has no vertex shader
-UnloadTime: 0.917462 ms
-Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-hit
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Setting up 2 worker threads for Enlighten.
-  Thread -> id: 28c4 -> priority: 1 
-  Thread -> id: 5b3c -> priority: 1 

@@ -210,6 +210,11 @@ public class DragBehavior : MonoBehaviour {
             //animate and type text for HUD
             rotationPanel.GetComponent<Animator>().Play("Opened");
             mirror.GetComponent<Animator>().Play("IncreaseEmission");
+            //make thumb ui in HUD activate
+            if(!rotationModeActive) {
+                rotationPanel.transform.FindChild("ThumbsUp").GetComponent<Animator>().Play("Active");
+
+            }
 
 
             if(mirror.name == "MirrorY") {
@@ -309,6 +314,9 @@ public class DragBehavior : MonoBehaviour {
 
     IEnumerator FinishedRotatingCoroutine() {
     rotationPanel.GetComponent<Animator>().Play("Closed");
+    
+    //make thumb ui in HUD deactivate
+    rotationPanel.transform.FindChild("ThumbsUp").GetComponent<Animator>().Play("Accepted");
        
         yield return new WaitForSeconds(.5f);
         rotationPanel.transform.GetComponentInChildren<Text>().text = "";
