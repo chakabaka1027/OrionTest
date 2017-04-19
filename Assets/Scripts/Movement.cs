@@ -7,8 +7,10 @@ public class Movement : MonoBehaviour {
     public GameObject cursor;
     public GameObject movementCursor;
     public GameObject loadCursor;
-    public GameObject nextNavpoint;
-    public GameObject currentNavpoint;
+    GameObject nextNavpoint;
+    GameObject currentNavpoint;
+
+    GameObject currentNavpointParent;
 
     public LayerMask moveable;
 
@@ -89,6 +91,12 @@ public class Movement : MonoBehaviour {
                 if(currentNavpoint.GetComponent<MovementLantern>() != null) { 
                     currentNavpoint.transform.parent.FindChild("Lantern").GetComponent<MovementLantern>().isCurrentLantern  = false;
                 }
+
+            }
+
+            else if(currentNavpointParent != null && currentNavpoint == null){
+                currentNavpointParent.GetComponent<MovementLantern>().isCurrentLantern = false;
+
             }
 
             nextNavpoint.GetComponent<MeshRenderer>().enabled = false;
@@ -96,6 +104,13 @@ public class Movement : MonoBehaviour {
 
 
             currentNavpoint = nextNavpoint;
+
+            if(nextNavpoint.name == "MovementLanternActual") {
+                currentNavpointParent = nextNavpoint.transform.parent.FindChild("Lantern").gameObject;
+
+            }
+
+
             movementCursor.SetActive(false);
 
             //interpolate movement
