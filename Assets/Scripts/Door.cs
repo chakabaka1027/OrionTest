@@ -7,12 +7,15 @@ public class Door : MonoBehaviour {
     public Transform closedPos;
     public Transform openedPos;
 
-    //public int requiredSensorActivations = 1;
+    public int requiredSensorActivations = 1;
+    public int currentSensorActivations = 0;
 
     public float time = 3;
 
     Vector3 closedPosition;
     Vector3 openedPosition;
+
+    bool doorOpened = false;
 
     int toggle = 1;
 
@@ -23,21 +26,18 @@ public class Door : MonoBehaviour {
 
 	}
 	
-	
+	void Update() {
+        if(currentSensorActivations == requiredSensorActivations && !doorOpened) {
+            ToggleDoor();
+            doorOpened = true;
+        } else if(currentSensorActivations != requiredSensorActivations && doorOpened){
+            ToggleDoor();
+            doorOpened = false;
+        }
+    }
 
     
-    public void ToggleDoor() {
-        
-        //toggle = 1 - toggle;
-
-        //int currentSensorActivations = 0; 
-        //currentSensorActivations += toggle;
-
-        //if (currentSensorActivations == 1) {
-        //    StartCoroutine("OpenDoor");
-        //} else {
-        //    StartCoroutine("CloseDoor");
-        //}
+    public void ToggleDoor() { 
 
         toggle = 1 - toggle;
 
@@ -68,7 +68,6 @@ public class Door : MonoBehaviour {
         StopCoroutine("OpenDoor");
 
         float percent = 0;
-        float time = 1;
         float speed = 1 / time;
         Vector3 currentPos = transform.position;
 

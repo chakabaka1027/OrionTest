@@ -7,6 +7,7 @@ public class Sensor : MonoBehaviour {
 
     public UnityEvent sensorAction;
     public bool wasTriggeredByLaser = false;
+    public GameObject door;
 
     public void Activate() {
 
@@ -14,16 +15,18 @@ public class Sensor : MonoBehaviour {
         if(!wasTriggeredByLaser) {
 
             wasTriggeredByLaser = true;
-            sensorAction.Invoke();
+            if(gameObject.transform.name != "LaserSensor") {
+                sensorAction.Invoke();
+            }
 
             if (gameObject.transform.name == "LaserSensor") {
                 GameObject cords = gameObject.transform.FindChild("Cords").gameObject;
                 for(int i = 0; i < cords.transform.childCount; i++) {
                     cords.transform.GetChild(i).GetComponent<Animator>().Play("Active");
                 }
+                //add 1 to the current sensor activations thats unique to door sensors
+                door.GetComponent<Door>().currentSensorActivations += 1;
                 
-                
-                //GetComponentInChildren<Animator>().Play("Active");
             }
 
         }
@@ -33,7 +36,9 @@ public class Sensor : MonoBehaviour {
 
     public void Deactivate() {
         if(wasTriggeredByLaser) {
-            sensorAction.Invoke();
+            if(gameObject.transform.name != "LaserSensor") {
+                sensorAction.Invoke();
+            }
             wasTriggeredByLaser = false;
 
             if (gameObject.transform.name == "LaserSensor") {
@@ -42,6 +47,9 @@ public class Sensor : MonoBehaviour {
                 for(int i = 0; i < cords.transform.childCount; i++) {
                     cords.transform.GetChild(i).GetComponent<Animator>().Play("Inactive");
                 }
+                //subtract 1 to the current sensor activations thats unique to door sensors
+                door.GetComponent<Door>().currentSensorActivations -= 1;
+
             }
         }
         
