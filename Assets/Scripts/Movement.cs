@@ -7,8 +7,8 @@ public class Movement : MonoBehaviour {
     public GameObject cursor;
     public GameObject movementCursor;
     public GameObject loadCursor;
-    GameObject nextNavpoint;
-    GameObject currentNavpoint;
+    public GameObject nextNavpoint;
+    public GameObject currentNavpoint;
 
     public LayerMask moveable;
 
