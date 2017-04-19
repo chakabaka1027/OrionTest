@@ -16,6 +16,16 @@ public class Sensor : MonoBehaviour {
             wasTriggeredByLaser = true;
             sensorAction.Invoke();
 
+            if (gameObject.transform.name == "LaserSensor") {
+                GameObject cords = gameObject.transform.FindChild("Cords").gameObject;
+                for(int i = 0; i < cords.transform.childCount; i++) {
+                    cords.transform.GetChild(i).GetComponent<Animator>().Play("Active");
+                }
+                
+                
+                //GetComponentInChildren<Animator>().Play("Active");
+            }
+
         }
         StartCoroutine("DeactivationTimer");
 
@@ -25,6 +35,14 @@ public class Sensor : MonoBehaviour {
         if(wasTriggeredByLaser) {
             sensorAction.Invoke();
             wasTriggeredByLaser = false;
+
+            if (gameObject.transform.name == "LaserSensor") {
+                GameObject cords = gameObject.transform.FindChild("Cords").gameObject;
+                //cords.transform.GetComponentInChildren<Animator>().Play("Inactive");
+                for(int i = 0; i < cords.transform.childCount; i++) {
+                    cords.transform.GetChild(i).GetComponent<Animator>().Play("Inactive");
+                }
+            }
         }
         
     }

@@ -7,6 +7,8 @@ public class Door : MonoBehaviour {
     public Transform closedPos;
     public Transform openedPos;
 
+    //public int requiredSensorActivations = 1;
+
     public float time = 3;
 
     Vector3 closedPosition;
@@ -25,7 +27,20 @@ public class Door : MonoBehaviour {
 
     
     public void ToggleDoor() {
+        
+        //toggle = 1 - toggle;
+
+        //int currentSensorActivations = 0; 
+        //currentSensorActivations += toggle;
+
+        //if (currentSensorActivations == 1) {
+        //    StartCoroutine("OpenDoor");
+        //} else {
+        //    StartCoroutine("CloseDoor");
+        //}
+
         toggle = 1 - toggle;
+
         if (toggle == 1) {
             StartCoroutine("OpenDoor");
         } else {
