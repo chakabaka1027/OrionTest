@@ -221,7 +221,7 @@ public class DragBehavior : MonoBehaviour {
                 if(!rotationModeActive) {
                     rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
-                    myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.localRotation.y + 45, 0)) as GameObject;
+                    myCompass = Instantiate(rotatorCompass, mirror.transform.position, Quaternion.Euler(0, mirror.transform.rotation.eulerAngles.y - 90, 0)) as GameObject;
                     
                     myLockOn = Instantiate(lockOn, mirror.transform.position, Quaternion.identity) as GameObject;
                     
