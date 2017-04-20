@@ -30,13 +30,14 @@ public class Sensor : MonoBehaviour {
             }
 
         }
+
         StartCoroutine("DeactivationTimer");
 
     }
 
     public void Deactivate() {
         if(wasTriggeredByLaser) {
-            if(gameObject.transform.name != "LaserSensor") {
+            if(gameObject.transform.name != "LaserSensor" && gameObject.transform.name != "DimensionSensor"){
                 sensorAction.Invoke();
             }
             wasTriggeredByLaser = false;
