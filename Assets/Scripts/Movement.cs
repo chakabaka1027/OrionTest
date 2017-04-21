@@ -7,8 +7,11 @@ public class Movement : MonoBehaviour {
     public GameObject cursor;
     public GameObject movementCursor;
     public GameObject loadCursor;
-    GameObject nextNavpoint;
-    GameObject currentNavpoint;
+    
+    [HideInInspector]
+    public GameObject nextNavpoint;
+    [HideInInspector]
+    public GameObject currentNavpoint;
 
     GameObject currentNavpointParent;
 

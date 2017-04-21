@@ -16,7 +16,6 @@ public class UniverseController : MonoBehaviour
 
 	[Header("Swap Effect Stuff")]
 	
-
     [SerializeField]
 	private AnimationCurve _vingetteCurve;
 	[SerializeField]
@@ -27,8 +26,6 @@ public class UniverseController : MonoBehaviour
 	private AnimationCurve _fov;
 	[SerializeField]
 	private AnimationCurve _timeScale;
-
-	
 
 	private AudioSource _audio;
 	private bool _swapTiggered;
@@ -56,6 +53,8 @@ public class UniverseController : MonoBehaviour
 	
 	IEnumerator SwapAsync()
 	{
+        FindObjectOfType<DragBehavior>().FinishedRotating();
+
 		Swapping = true;
 		_swapTiggered = false;
 
@@ -65,12 +64,10 @@ public class UniverseController : MonoBehaviour
 		{
 			_camera.fieldOfView = _fov.Evaluate(t);
 			
-
             FindObjectOfType<ColorCorrectionCurves>().saturation = _saturation.Evaluate(t);
             FindObjectOfType<VignetteAndChromaticAberration>().intensity = _vingetteCurve.Evaluate(t);
 
 			Time.timeScale = _timeScale.Evaluate(t);
-
 
 			if (t > _swapTime && !_swapTiggered)
 			{
@@ -107,12 +104,21 @@ public class UniverseController : MonoBehaviour
 
         if (toggle == 1) {
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * 100;
+            ResetCurrentMovementCubeState();
             Debug.Log("Universe A");
         } else if (toggle == 0) {
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * -100;
+            ResetCurrentMovementCubeState();
+
             Debug.Log("Universe B");
         }
-    
+    }
+
+
+    public void ResetCurrentMovementCubeState() {
+        FindObjectOfType<Movement>().currentNavpoint.GetComponent<MovementLantern>().isCurrentLantern = false;
+        FindObjectOfType<Movement>().currentNavpoint.GetComponent<BoxCollider>().enabled = true;
+        FindObjectOfType<Movement>().currentNavpoint.GetComponent<MeshRenderer>().enabled = true;
 
     }
 }
