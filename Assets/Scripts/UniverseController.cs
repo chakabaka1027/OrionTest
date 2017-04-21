@@ -8,6 +8,11 @@ public class UniverseController : MonoBehaviour
 {
 
     int toggle = 0;
+
+
+    public GameObject sun;
+    public float lightRotationA = 307.456f;
+    public float lightRotationB = 31;
     
 	public static bool Swapping
 	{
@@ -105,20 +110,24 @@ public class UniverseController : MonoBehaviour
         if (toggle == 1) {
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * 100;
             ResetCurrentMovementCubeState();
-            Debug.Log("Universe A");
+            Debug.Log("Universe B");
+            sun.transform.eulerAngles = new Vector3(lightRotationB, 0, 0);
+
         } else if (toggle == 0) {
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * -100;
             ResetCurrentMovementCubeState();
+            Debug.Log("Universe A");
+            sun.transform.eulerAngles = new Vector3(lightRotationA, 0, 0);
 
-            Debug.Log("Universe B");
         }
     }
 
 
     public void ResetCurrentMovementCubeState() {
-        FindObjectOfType<Movement>().currentNavpoint.GetComponent<MovementLantern>().isCurrentLantern = false;
-        FindObjectOfType<Movement>().currentNavpoint.GetComponent<BoxCollider>().enabled = true;
-        FindObjectOfType<Movement>().currentNavpoint.GetComponent<MeshRenderer>().enabled = true;
-
+        if(FindObjectOfType<Movement>().currentNavpoint != null) {
+            FindObjectOfType<Movement>().currentNavpoint.GetComponent<MovementLantern>().isCurrentLantern = false;
+            FindObjectOfType<Movement>().currentNavpoint.GetComponent<BoxCollider>().enabled = true;
+            FindObjectOfType<Movement>().currentNavpoint.GetComponent<MeshRenderer>().enabled = true;
+        }
     }
 }
