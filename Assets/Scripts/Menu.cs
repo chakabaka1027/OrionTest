@@ -41,6 +41,8 @@ public class Menu : MonoBehaviour {
         yield return new WaitForSeconds(1);
         StartCoroutine(introDoor.GetComponent<Door>().OpenDoor());
         
+        mainMenu.SetActive(false);
+
         yield return new WaitForSeconds(4);
 
               
@@ -48,9 +50,7 @@ public class Menu : MonoBehaviour {
 
         yield return new WaitForSeconds(3f);
         laser.SetActive(true);
-
-
-
+   
     }
 
     public void QuitGame() {
