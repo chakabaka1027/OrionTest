@@ -39,6 +39,8 @@ public class UniverseController : MonoBehaviour
 	void Awake()
 	{
 		_audio = GetComponent<AudioSource>();
+        sun.transform.eulerAngles = new Vector3(lightRotationA, 0, 0);
+
 	}
 
 	public void SwapUniverses()

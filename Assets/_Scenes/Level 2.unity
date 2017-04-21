@@ -1103,8 +1103,9 @@ Transform:
   m_GameObject: {fileID: 207252099}
   m_LocalRotation: {x: -0, y: 0.38026065, z: -0, w: 0.92487943}
   m_LocalPosition: {x: -2.018, y: -1.329, z: 53.3}
-  m_LocalScale: {x: 0.40657645, y: 1.1378325, z: 0.37067398}
-  m_Children: []
+  m_LocalScale: {x: 0.40657654, y: 1.1378325, z: 0.370674}
+  m_Children:
+  - {fileID: 489027802}
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 44.7, z: 0}
@@ -1780,7 +1781,8 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.38026065, z: -0, w: 0.92487943}
   m_LocalPosition: {x: -2.018, y: -1.329, z: 50.659}
   m_LocalScale: {x: 0.40657645, y: 1.1378325, z: 0.37067398}
-  m_Children: []
+  m_Children:
+  - {fileID: 990126110}
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 44.7, z: 0}
@@ -3366,12 +3368,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 489027796}
-  m_LocalRotation: {x: -0, y: 0.38026065, z: -0, w: 0.92487943}
-  m_LocalPosition: {x: -2.018, y: -1.789, z: 53.3}
-  m_LocalScale: {x: 0.462591, y: 0.120333016, z: 0.4217423}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.40427747, z: 0}
+  m_LocalScale: {x: 1.1377711, y: 0.10575636, z: 1.1377716}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_Father: {fileID: 207252105}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 44.7, z: 0}
 --- !u!1 &496176879
 GameObject:
@@ -8264,12 +8266,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 990126104}
-  m_LocalRotation: {x: -0, y: 0.38026065, z: -0, w: 0.92487943}
-  m_LocalPosition: {x: -2.018, y: -1.763, z: 50.659}
-  m_LocalScale: {x: 0.47569445, y: 0.09925763, z: 0.43368855}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.381427, z: 0}
+  m_LocalScale: {x: 1.1700001, y: 0.08723396, z: 1.1700002}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_Father: {fileID: 283675637}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 44.7, z: 0}
 --- !u!1 &1030932258
 GameObject:
@@ -13883,6 +13885,8 @@ MonoBehaviour:
   cursor: {fileID: 1289647381}
   movementCursor: {fileID: 1443338694}
   loadCursor: {fileID: 1717932145}
+  nextNavpoint: {fileID: 0}
+  currentNavpoint: {fileID: 0}
   moveable:
     serializedVersion: 2
     m_Bits: 4294967295
