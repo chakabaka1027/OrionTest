@@ -2163,8 +2163,9 @@ GameObject:
   - component: {fileID: 266907294}
   - component: {fileID: 266907298}
   - component: {fileID: 266907300}
-  - component: {fileID: 266907301}
   - component: {fileID: 266907299}
+  - component: {fileID: 266907301}
+  - component: {fileID: 266907302}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -2434,61 +2435,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42cd2416f0b06aa42926843f05b17116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _vingette: {fileID: 266907301}
-  _innerVingette:
+  _vingetteCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0.3
-      inSlope: -0.00040303363
-      outSlope: -0.00040303363
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.84
       value: 0
-      inSlope: -0.119727165
-      outSlope: -0.119727165
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.9219254
-      value: 0.35655335
       inSlope: 0
       outSlope: 0
+      tangentMode: 34
+    - serializedVersion: 2
+      time: 0.30002284
+      value: 0
+      inSlope: -0.00039679464
+      outSlope: -0.00039679464
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.9992482
-      value: 0.31273204
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  _outerVingette:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 1
-      inSlope: -0.47315517
-      outSlope: -0.47315517
+      time: 0.89989287
+      value: 0.06050701
+      inSlope: 0.0696148
+      outSlope: 0.0696148
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.8
-      value: 0.8
-      inSlope: -0.44430307
-      outSlope: -0.44430307
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.9
-      value: 1.0500001
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 0.9998093
-      value: 1.0033387
+      time: 0.99885565
+      value: 0.00024248613
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2519,8 +2489,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  _cameras:
-  - {fileID: 266907296}
+  _camera: {fileID: 266907296}
   _fov:
     serializedVersion: 2
     m_Curve:
@@ -2531,8 +2500,8 @@ MonoBehaviour:
       outSlope: -0.24127243
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.8
-      value: 146
+      time: 0.7874007
+      value: 137.30328
       inSlope: 13.818853
       outSlope: 13.818853
       tangentMode: 0
@@ -2598,7 +2567,7 @@ AudioSource:
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
-  BypassEffects: 0
+  BypassEffects: 1
   BypassListenerEffects: 0
   BypassReverbZones: 0
   rolloffCustomCurve:
@@ -2663,13 +2632,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 266907291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f8bd167b4abe5d45a4e1fb9affe4dbf, type: 3}
+  m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shader: {fileID: 4800000, guid: 7977fc04316a5d9458fe5107bb7f9255, type: 3}
-  MinRadius: 0.3
-  MaxRadius: 1
-  Saturation: 1
+  mode: 0
+  intensity: 0
+  chromaticAberration: 0.2
+  axialAberration: 0.5
+  blur: 0
+  blurSpread: 0.75
+  luminanceDependency: 0.25
+  blurDistance: 2.5
+  vignetteShader: {fileID: 4800000, guid: 627943dc7a9a74286b70a4f694a0acd5, type: 3}
+  separableBlurShader: {fileID: 4800000, guid: e97c14fbb5ea04c3a902cc533d7fc5d1, type: 3}
+  chromAberrationShader: {fileID: 4800000, guid: 2b4f29398d9484ccfa9fd220449f5eee,
+    type: 3}
+--- !u!114 &266907302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266907291}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9191284b058eef549b7108b5f04e1117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensityMultiplier: 0.6
+  generalIntensity: 0.5
+  blackIntensity: 1
+  whiteIntensity: 1
+  midGrey: 0.2
+  dx11Grain: 1
+  softness: 0
+  monochrome: 0
+  intensities: {x: 1, y: 1, z: 1}
+  tiling: {x: 64, y: 64, z: 64}
+  monochromeTiling: 64
+  filterMode: 1
+  noiseTexture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
+  noiseShader: {fileID: 4800000, guid: b0249d8c935344451aa4de6db76f0688, type: 3}
+  dx11NoiseShader: {fileID: 4800000, guid: 8b30686bb4322ab42ad5eb50a0210b58, type: 3}
 --- !u!1 &283675631
 GameObject:
   m_ObjectHideFlags: 0

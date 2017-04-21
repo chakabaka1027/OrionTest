@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.ImageEffects;
 
 public class UniverseController : MonoBehaviour
 {
@@ -13,27 +14,21 @@ public class UniverseController : MonoBehaviour
 		get; private set;
 	}
 
-	//[SerializeField]
-	//private TwinCameraController _twinCameras;
 	[Header("Swap Effect Stuff")]
-	[SerializeField]
-	private Vingette _vingette;
-	[SerializeField]
-	private AnimationCurve _innerVingette;
-	[SerializeField]
-	private AnimationCurve _outerVingette;
+	
+
+    [SerializeField]
+	private AnimationCurve _vingetteCurve;
 	[SerializeField]
 	private AnimationCurve _saturation;
 	[SerializeField]
-	private Camera[] _cameras;
+	private Camera _camera;
 	[SerializeField]
 	private AnimationCurve _fov;
 	[SerializeField]
 	private AnimationCurve _timeScale;
-	//[SerializeField]
-	//private Transform _itemTransform;
-	//[SerializeField]
-	//private AnimationCurve _itemPosition;
+
+	
 
 	private AudioSource _audio;
 	private bool _swapTiggered;
@@ -41,7 +36,6 @@ public class UniverseController : MonoBehaviour
 
 	void Awake()
 	{
-	//	SceneManager.LoadScene(1, LoadSceneMode.Additive);
 		_audio = GetComponent<AudioSource>();
 	}
 
@@ -56,13 +50,10 @@ public class UniverseController : MonoBehaviour
 		if (!Swapping && Input.GetMouseButtonDown(0))
 		{
 			StartCoroutine(SwapAsync());
-            Debug.Log("Swapping");
 		}
 	}
 
-	/// <summary>
-	/// Controls a bunch of stuff like vingette and FoV over time and calls the swap cameras function after a fixed duration.
-	/// </summary>
+	
 	IEnumerator SwapAsync()
 	{
 		Swapping = true;
@@ -72,21 +63,18 @@ public class UniverseController : MonoBehaviour
 
 		for (float t = 0; t < 1.0f; t += Time.unscaledDeltaTime * 1.2f)
 		{
-			for (int i = 0; i < _cameras.Length; i++)
-			{
-				_cameras[i].fieldOfView = _fov.Evaluate(t);
-			}
-			_vingette.MinRadius = _innerVingette.Evaluate(t);
-			_vingette.MaxRadius = _outerVingette.Evaluate(t);
-			_vingette.Saturation = _saturation.Evaluate(t);
+			_camera.fieldOfView = _fov.Evaluate(t);
+			
+
+            FindObjectOfType<ColorCorrectionCurves>().saturation = _saturation.Evaluate(t);
+            FindObjectOfType<VignetteAndChromaticAberration>().intensity = _vingetteCurve.Evaluate(t);
+
 			Time.timeScale = _timeScale.Evaluate(t);
 
-			//_itemTransform.localPosition = new Vector3(-0.5f, -0.5f, _itemPosition.Evaluate(t));
 
 			if (t > _swapTime && !_swapTiggered)
 			{
 				_swapTiggered = true;
-				//_twinCameras.SwapCameras();
                 Shift();
 			}
 
@@ -97,20 +85,15 @@ public class UniverseController : MonoBehaviour
 		if (!_swapTiggered)
 		{
 			_swapTiggered = true;
-			//_twinCameras.SwapCameras();
             Shift();
 
 		}
 
-		for (int i = 0; i < _cameras.Length; i++)
-		{
-			_cameras[i].fieldOfView = _fov.Evaluate(1.0f);
-		}
+	    _camera.fieldOfView = _fov.Evaluate(1.0f);
 
-		_vingette.MinRadius = _innerVingette.Evaluate(1.0f);
-		_vingette.MaxRadius = _outerVingette.Evaluate(1.0f);
-		_vingette.Saturation = 1.0f;
-		//_itemTransform.localPosition = new Vector3(-0.5f, -0.5f, 0.5f);
+		
+        FindObjectOfType<ColorCorrectionCurves>().saturation = 1;
+        FindObjectOfType<VignetteAndChromaticAberration>().intensity = 0;
 
 		Time.timeScale = 1.0f;
 
