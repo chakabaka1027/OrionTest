@@ -8,6 +8,7 @@ public class Sensor : MonoBehaviour {
     public UnityEvent sensorAction;
     public bool wasTriggeredByLaser = false;
     public GameObject door;
+    public GameObject otherlaserSensor;
 
     public void Activate() {
 
@@ -25,12 +26,17 @@ public class Sensor : MonoBehaviour {
                     cords.transform.GetChild(i).GetComponent<Animator>().Play("Active");
                 }
                 //add 1 to the current sensor activations thats unique to door sensors
+                
+                
                 door.GetComponent<Door>().currentSensorActivations += 1;
                 
+
             }
 
         }
-
+        if(otherlaserSensor != null) {
+            otherlaserSensor.transform.FindChild("LaserSensor").GetComponent<Sensor>().Activate();
+        }
         StartCoroutine("DeactivationTimer");
 
     }
