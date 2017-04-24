@@ -8,6 +8,9 @@ public class ScannerEffectDemo : MonoBehaviour
 	public Material EffectMaterial;
 	public float ScanDistance;
 
+    public GameObject player;
+    public AudioClip scanSound;
+
 	private Camera _camera;
 
 	// Demo Code
@@ -60,6 +63,7 @@ public class ScannerEffectDemo : MonoBehaviour
 
     public void Scan() {
         _scanning = true;
+        player.GetComponent<AudioSource>().PlayOneShot(scanSound, 0.4f);
 		ScanDistance = 0;
     }
 

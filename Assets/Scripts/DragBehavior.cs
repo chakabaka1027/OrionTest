@@ -320,6 +320,32 @@ public class DragBehavior : MonoBehaviour {
     public void FinishedRotating() {
         if(rotationModeActive) {
             audioSource.PlayOneShot(thumbsUp, .2f);
+            isRotating = false;
+
+            Destroy(myLeftArrow, .25f);
+            Destroy(myRightArrow, .25f);
+        
+            Destroy(myUpArrow, .25f);
+            Destroy(myDownArrow, .25f);
+
+            if(myUpArrow != null) {
+                myUpArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
+            }
+
+            if(myDownArrow != null) {
+                myDownArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
+
+            }
+
+            if(myLeftArrow != null) {
+                myLeftArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
+            }
+
+            if(myRightArrow != null) {
+                myRightArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
+
+            }
+
             StartCoroutine(FinishedRotatingCoroutine());
         }
     }

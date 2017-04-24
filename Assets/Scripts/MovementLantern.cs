@@ -88,7 +88,7 @@ public class MovementLantern : MonoBehaviour {
 
 
     public IEnumerator MoveFromSensor() {
-            Debug.Log("hit");    
+            //Debug.Log("hit");    
 
             gameObject.transform.position = startLocation;
 

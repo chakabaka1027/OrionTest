@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
 
+    bool hasFinishedLevel = false;    
+
     public GameObject cursor;
     public GameObject movementCursor;
     public GameObject loadCursor;
 
     AudioSource audioSource;
     public AudioClip[] move;
+    bool hasPlayed = false;
     
     [HideInInspector]
     public GameObject nextNavpoint;
@@ -123,9 +126,11 @@ public class Movement : MonoBehaviour {
             movementCursor.SetActive(false);
 
             //move sound
-            int rand = Random.Range(0, 4);
-            audioSource.PlayOneShot(move[rand], .75f);
-
+            if(!hasPlayed) {
+                int rand = Random.Range(0, 4);
+                audioSource.PlayOneShot(move[rand], .75f);
+                hasPlayed = true;
+            }
             //interpolate movement
             float percent = 0;
             float time = 0.3f;
@@ -146,14 +151,14 @@ public class Movement : MonoBehaviour {
         //is end of level elevator
         if(currentNavpoint != null && currentNavpoint.GetComponent<Elevator>() != null) {
             yield return new WaitForSeconds(.75f);
-            if(nextNavpoint != null && nextNavpoint.GetComponent<Elevator>() != null) {
+            if(nextNavpoint != null && nextNavpoint.GetComponent<Elevator>() != null && !hasFinishedLevel) {
+                hasFinishedLevel = true;
                 nextNavpoint.GetComponent<Elevator>().InitiateElevator();
-
             }
         }
 
         isMoving = false;
-
+        hasPlayed = false;
     }
 
     //called when hand is open, playing cursor animation before allowing movement
@@ -164,8 +169,8 @@ public class Movement : MonoBehaviour {
             loadCursor.GetComponent<Animator>().Play("InitiateCursor");
         
 
-        handOpen = true;        
-        EngageMovementMode();
+            handOpen = true;        
+            EngageMovementMode();
 
         }
     }

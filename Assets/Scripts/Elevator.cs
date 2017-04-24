@@ -39,6 +39,8 @@ public class Elevator : MonoBehaviour {
     }	
 
     public void InitiateElevator() {
+        audioSource.PlayOneShot(success, .1f);
+
         StartCoroutine(Activate());
 
     }
@@ -49,8 +51,6 @@ public class Elevator : MonoBehaviour {
         Vector3 endLocation = target.transform.position;
 
         isOccupied = true;
-
-        audioSource.PlayOneShot(success, .1f);
 
         float percent = 0;
         float speed = 1 / travelTime;
@@ -67,8 +67,6 @@ public class Elevator : MonoBehaviour {
         }
 
         isOccupied = false;
-
-
     }
 
 }

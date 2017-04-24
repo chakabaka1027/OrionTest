@@ -2394,6 +2394,7 @@ GameObject:
   - component: {fileID: 266907299}
   - component: {fileID: 266907301}
   - component: {fileID: 266907302}
+  - component: {fileID: 266907303}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -2637,7 +2638,7 @@ AudioListener:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266907291}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &266907298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2652,6 +2653,8 @@ MonoBehaviour:
   ScannerOrigin: {fileID: 266907292}
   EffectMaterial: {fileID: 2100000, guid: 0d9079b2a57addc42bc122b2732e59b1, type: 2}
   ScanDistance: 0
+  player: {fileID: 1805543666}
+  scanSound: {fileID: 8300000, guid: 2a36bce9563676d409ed1833b5d83dc9, type: 3}
 --- !u!114 &266907299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2842,7 +2845,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2904,6 +2907,17 @@ MonoBehaviour:
   noiseTexture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
   noiseShader: {fileID: 4800000, guid: b0249d8c935344451aa4de6db76f0688, type: 3}
   dx11NoiseShader: {fileID: 4800000, guid: 8b30686bb4322ab42ad5eb50a0210b58, type: 3}
+--- !u!114 &266907303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 266907291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1256f2e924e258045a215d97e2a6d7c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &275662463
 GameObject:
   m_ObjectHideFlags: 0
@@ -3293,6 +3307,59 @@ SpriteRenderer:
 GameObject:
   m_PrefabParentObject: {fileID: 188576, guid: 869d20cdda15af24aab9e72b5f2eec78, type: 2}
   m_PrefabInternal: {fileID: 1504968337}
+--- !u!114 &321235801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321235800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98e641d160144e87a3d33fcdb893a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 910287684}
+        m_MethodName: FlashLightOn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDeactivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 910287684}
+        m_MethodName: FlashLightOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  Period: 0.1
+  HandModel: {fileID: 1545945338}
+  Thumb: 0
+  Index: 0
+  Middle: 0
+  Ring: 0
+  Pinky: 0
+  MinimumExtendedCount: 5
+  MaximumExtendedCount: 5
+  ShowGizmos: 1
 --- !u!114 &321235802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3391,6 +3458,48 @@ MonoBehaviour:
   Pinky: 1
   MinimumExtendedCount: 1
   MaximumExtendedCount: 1
+  ShowGizmos: 1
+--- !u!114 &321235806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 321235800}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e98e641d160144e87a3d33fcdb893a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnActivate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 266907298}
+        m_MethodName: Scan
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  Period: 0.1
+  HandModel: {fileID: 1545945338}
+  Thumb: 1
+  Index: 0
+  Middle: 0
+  Ring: 1
+  Pinky: 1
+  MinimumExtendedCount: 2
+  MaximumExtendedCount: 2
   ShowGizmos: 1
 --- !u!1 &322900144
 GameObject:
@@ -9827,6 +9936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d4e9dbaea4d6441884d75818164f8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1805543666}
+  on: {fileID: 8300000, guid: 47bc5a330189172458138b1e75343512, type: 3}
+  off: {fileID: 8300000, guid: 2bbef7c60eb0e6a45afd14fd5a4b6935, type: 3}
 --- !u!108 &910287685
 Light:
   m_ObjectHideFlags: 0
@@ -10960,6 +11072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01f240db79d7e4459c8a001e01ca5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFacilityDoor: 1
   openAudioSouce: {fileID: 1001057344}
   closeAudioSource: {fileID: 1001057343}
   closedPos: {fileID: 193470010}
@@ -11224,6 +11337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01f240db79d7e4459c8a001e01ca5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFacilityDoor: 1
   openAudioSouce: {fileID: 1010005456}
   closeAudioSource: {fileID: 1010005455}
   closedPos: {fileID: 1729967076}
