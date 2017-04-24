@@ -1120,7 +1120,7 @@ MonoBehaviour:
   isActive: 0
   isCurrentLantern: 0
   sensor: {fileID: 1289457774}
-  spawnSound: {fileID: 0}
+  spawnSound: {fileID: 8300000, guid: 36c9e532627d38547adaf27097bd8886, type: 3}
 --- !u!23 &155756161
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1180,8 +1180,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 36c9e532627d38547adaf27097bd8886, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1220,7 +1220,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1232,13 +1232,13 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.90555555
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -15452,6 +15452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8578577a919d7a54fb1f9f0804e70bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flicker: {fileID: 0}
 --- !u!108 &1484043761
 Light:
   m_ObjectHideFlags: 0
@@ -16139,7 +16140,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -16178,7 +16179,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -16190,13 +16191,13 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.90555555
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -17596,6 +17597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8578577a919d7a54fb1f9f0804e70bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flicker: {fileID: 0}
 --- !u!108 &1757297676
 Light:
   m_ObjectHideFlags: 0

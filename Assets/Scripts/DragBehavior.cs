@@ -312,7 +312,7 @@ public class DragBehavior : MonoBehaviour {
 
     public void FinishedRotating() {
         if(rotationModeActive) {
-            audioSource.PlayOneShot(thumbsUp, 1);
+            audioSource.PlayOneShot(thumbsUp, .5f);
             StartCoroutine(FinishedRotatingCoroutine());
         }
     }
