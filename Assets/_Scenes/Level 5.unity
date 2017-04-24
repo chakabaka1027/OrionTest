@@ -13706,6 +13706,12 @@ MonoBehaviour:
   cursor: {fileID: 1289647381}
   movementCursor: {fileID: 1443338694}
   loadCursor: {fileID: 1717932145}
+  move:
+  - {fileID: 8300000, guid: 182c7ef275cd24841ac275529da67637, type: 3}
+  - {fileID: 8300000, guid: 2815617d8fba60440bbc72ac3fcc0886, type: 3}
+  - {fileID: 8300000, guid: 6e8f7178af33b7a4393994ea4fcc319a, type: 3}
+  - {fileID: 8300000, guid: 96c44976449d27e479820cc8e582b6eb, type: 3}
+  - {fileID: 8300000, guid: 94a1d4ec83327e24a8296b61eb7987bf, type: 3}
   nextNavpoint: {fileID: 0}
   currentNavpoint: {fileID: 0}
   moveable:
@@ -13829,7 +13835,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

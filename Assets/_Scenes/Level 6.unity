@@ -1816,8 +1816,8 @@ MonoBehaviour:
   wasTriggeredByLaser: 0
   door: {fileID: 1010005449}
   otherlaserSensor: {fileID: 0}
-  sensorOn: {fileID: 8300000, guid: 014cf634c218a9146938735783fecd08, type: 3}
-  sensorOff: {fileID: 8300000, guid: 14d3f8282308b3a438c6df17b26a7004, type: 3}
+  sensorOn: {fileID: 8300000, guid: 7d88f9af77582474fa996e8239756d77, type: 3}
+  sensorOff: {fileID: 8300000, guid: 5cf63cfe44a05ab47b48bed727d30404, type: 3}
 --- !u!23 &235893470
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18529,6 +18529,12 @@ MonoBehaviour:
   cursor: {fileID: 1289647381}
   movementCursor: {fileID: 1443338694}
   loadCursor: {fileID: 1717932145}
+  move:
+  - {fileID: 8300000, guid: 182c7ef275cd24841ac275529da67637, type: 3}
+  - {fileID: 8300000, guid: 2815617d8fba60440bbc72ac3fcc0886, type: 3}
+  - {fileID: 8300000, guid: 6e8f7178af33b7a4393994ea4fcc319a, type: 3}
+  - {fileID: 8300000, guid: 96c44976449d27e479820cc8e582b6eb, type: 3}
+  - {fileID: 8300000, guid: 94a1d4ec83327e24a8296b61eb7987bf, type: 3}
   nextNavpoint: {fileID: 0}
   currentNavpoint: {fileID: 0}
   moveable:
@@ -18652,7 +18658,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

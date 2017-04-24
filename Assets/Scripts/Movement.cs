@@ -7,6 +7,9 @@ public class Movement : MonoBehaviour {
     public GameObject cursor;
     public GameObject movementCursor;
     public GameObject loadCursor;
+
+    AudioSource audioSource;
+    public AudioClip[] move;
     
     [HideInInspector]
     public GameObject nextNavpoint;
@@ -25,6 +28,7 @@ public class Movement : MonoBehaviour {
 
     private void Start() {
         cursor.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update() {
@@ -77,8 +81,6 @@ public class Movement : MonoBehaviour {
 
         isMoving = true;
 
-
-
         //player now occupies new lantern
         if(nextNavpoint != null && nextNavpoint.GetComponent<MovementLantern>() != null) {
             nextNavpoint.transform.parent.FindChild("Lantern").GetComponent<MovementLantern>().isCurrentLantern = true;
@@ -120,6 +122,10 @@ public class Movement : MonoBehaviour {
 
             movementCursor.SetActive(false);
 
+            //move sound
+            int rand = Random.Range(0, 4);
+            audioSource.PlayOneShot(move[rand], .75f);
+
             //interpolate movement
             float percent = 0;
             float time = 0.3f;
@@ -131,7 +137,10 @@ public class Movement : MonoBehaviour {
                     gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, nextNavpoint.transform.position, percent);
                 }
                 yield return null;
-            }            
+
+            }     
+            
+               
            
         }
         //is end of level elevator
@@ -142,6 +151,7 @@ public class Movement : MonoBehaviour {
 
             }
         }
+
         isMoving = false;
 
     }
