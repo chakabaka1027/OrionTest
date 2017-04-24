@@ -62,6 +62,9 @@ public class Elevator : MonoBehaviour {
             yield return null;
         }
 
+        FindObjectOfType<TutorialManager>().Activate(0);
+        
+
         if(!isStartingElevator) {
             SceneManager.LoadScene(nextLevelIndex);
         }

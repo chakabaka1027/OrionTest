@@ -2132,7 +2132,6 @@ GameObject:
   - component: {fileID: 266907299}
   - component: {fileID: 266907301}
   - component: {fileID: 266907302}
-  - component: {fileID: 266907303}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -2645,17 +2644,6 @@ MonoBehaviour:
   noiseTexture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
   noiseShader: {fileID: 4800000, guid: b0249d8c935344451aa4de6db76f0688, type: 3}
   dx11NoiseShader: {fileID: 4800000, guid: 8b30686bb4322ab42ad5eb50a0210b58, type: 3}
---- !u!114 &266907303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 266907291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1256f2e924e258045a215d97e2a6d7c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &283675631
 GameObject:
   m_ObjectHideFlags: 0
@@ -16354,6 +16342,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1533293204}
   - component: {fileID: 1533293203}
+  - component: {fileID: 1533293205}
   m_Layer: 0
   m_Name: Scene Management
   m_TagString: Untagged
@@ -16394,6 +16383,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1533293205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1533293202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19c20e281d83384f86588f99cec368e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lasers:
+  - {fileID: 1373476847}
+  - {fileID: 395255415}
+  waitTime: 6
 --- !u!1 &1540679894
 GameObject:
   m_ObjectHideFlags: 0

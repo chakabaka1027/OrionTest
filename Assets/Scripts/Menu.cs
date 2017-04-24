@@ -12,8 +12,6 @@ public class Menu : MonoBehaviour {
     public GameObject emitter;
     public GameObject laser;
 
-    public GameObject tutorialManager;
-
     public GameObject textComp;
 	public AudioClip putt;
     public float startDelay = 2f;
@@ -56,7 +54,7 @@ public class Menu : MonoBehaviour {
 
         yield return new WaitForSeconds(1f);
 
-        tutorialManager.GetComponent<TutorialManager>().Activate(0);
+        FindObjectOfType<TutorialManager>().Activate(0);
     }
 
     public void QuitGame() {

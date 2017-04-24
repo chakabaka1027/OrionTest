@@ -23,7 +23,9 @@ public class MovementLantern : MonoBehaviour {
     private void Start() {
 
         audioSource = GetComponent<AudioSource>();
-        audioSource.PlayOneShot(spawnSound, 1);
+        if(gameObject.name == "MovementLanternActual") {
+            audioSource.PlayOneShot(spawnSound, 1);
+        }
     //deactivate mesh renderer if the player is occupying this lantern
        
 

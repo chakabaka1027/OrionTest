@@ -2394,7 +2394,6 @@ GameObject:
   - component: {fileID: 266907299}
   - component: {fileID: 266907301}
   - component: {fileID: 266907302}
-  - component: {fileID: 266907303}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -2907,17 +2906,6 @@ MonoBehaviour:
   noiseTexture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
   noiseShader: {fileID: 4800000, guid: b0249d8c935344451aa4de6db76f0688, type: 3}
   dx11NoiseShader: {fileID: 4800000, guid: 8b30686bb4322ab42ad5eb50a0210b58, type: 3}
---- !u!114 &266907303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 266907291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1256f2e924e258045a215d97e2a6d7c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &275662463
 GameObject:
   m_ObjectHideFlags: 0
@@ -12403,7 +12391,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1090133844}
   m_LocalRotation: {x: 0.2985606, y: 0.58722866, z: 0.6816346, w: -0.31843114}
-  m_LocalPosition: {x: 0.000015258789, y: 9.302, z: -0.9527893}
+  m_LocalPosition: {x: 2.048, y: 9.302, z: -0.9527893}
   m_LocalScale: {x: 0.031180022, y: 2.2867913, z: 0.031180022}
   m_Children:
   - {fileID: 1497185807}
@@ -13254,8 +13242,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1204660672}
-  m_LocalRotation: {x: -0.6807645, y: 0.34310934, z: 0.33097923, w: 0.55613714}
-  m_LocalPosition: {x: 0.000015258789, y: 9.209, z: -9.653999}
+  m_LocalRotation: {x: -0.42901668, y: 0.55918163, z: 0.630145, w: 0.32584962}
+  m_LocalPosition: {x: -3.552, y: 9.203, z: -6.909}
   m_LocalScale: {x: 0.031180022, y: 2.2867916, z: 0.031180043}
   m_Children:
   - {fileID: 988520631}
@@ -13264,7 +13252,7 @@ Transform:
   - {fileID: 1484043759}
   m_Father: {fileID: 816343347}
   m_RootOrder: 27
-  m_LocalEulerAnglesHint: {x: -100.159, y: 23.029999, z: 34.148987}
+  m_LocalEulerAnglesHint: {x: -100.159, y: 92.118996, z: 23.074997}
 --- !u!23 &1204660674
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16537,6 +16525,7 @@ GameObject:
   - component: {fileID: 1484043759}
   - component: {fileID: 1484043761}
   - component: {fileID: 1484043760}
+  - component: {fileID: 1484043762}
   m_Layer: 0
   m_Name: Point light (1)
   m_TagString: Untagged
@@ -16568,7 +16557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8578577a919d7a54fb1f9f0804e70bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flicker: {fileID: 0}
+  flicker: {fileID: 8300000, guid: a510001fcaae1d9438010851dcfcc591, type: 3}
 --- !u!108 &1484043761
 Light:
   m_ObjectHideFlags: 0
@@ -16603,6 +16592,86 @@ Light:
   m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!82 &1484043762
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1484043758}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 256
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 10
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1486172740
 GameObject:
   m_ObjectHideFlags: 0
@@ -20887,6 +20956,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1891976092}
   - component: {fileID: 1891976091}
+  - component: {fileID: 1891976093}
   m_Layer: 0
   m_Name: Scene Management
   m_TagString: Untagged
@@ -20927,6 +20997,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1891976093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1891976090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19c20e281d83384f86588f99cec368e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lasers:
+  - {fileID: 1548069914}
+  - {fileID: 395255415}
+  - {fileID: 86283021}
+  waitTime: 6
 --- !u!1 &1895573354
 GameObject:
   m_ObjectHideFlags: 0

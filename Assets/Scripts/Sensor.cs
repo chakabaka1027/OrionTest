@@ -27,7 +27,7 @@ public class Sensor : MonoBehaviour {
             wasTriggeredByLaser = true;
 
             if(audioSource != null) {
-                audioSource.PlayOneShot(sensorOn, .5f);
+                audioSource.PlayOneShot(sensorOn, .25f);
             }
             if(gameObject.transform.name != "LaserSensor") {
                 sensorAction.Invoke();
@@ -62,7 +62,7 @@ public class Sensor : MonoBehaviour {
             wasTriggeredByLaser = false;
 
             if(audioSource != null) {
-                audioSource.PlayOneShot(sensorOff, .5f);
+                audioSource.PlayOneShot(sensorOff, .25f);
             }
 
 

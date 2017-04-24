@@ -67,7 +67,7 @@ public class Door : MonoBehaviour {
             
             //sound
             if(isFacilityDoor) {
-                openAudioSouce.volume = .1f;
+                openAudioSouce.volume = .05f;
             } else if (!isFacilityDoor){
                 openAudioSouce.volume = .3f;
 
@@ -95,7 +95,7 @@ public class Door : MonoBehaviour {
             openAudioSouce.volume = 0;
             
             if(isFacilityDoor) {
-                closeAudioSource.volume = .1f;
+                closeAudioSource.volume = .05f;
             } else if(!isFacilityDoor) {
                 closeAudioSource.volume = .3f;
             }

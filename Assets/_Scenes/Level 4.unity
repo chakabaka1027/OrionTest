@@ -1137,7 +1137,6 @@ GameObject:
   - component: {fileID: 266907293}
   - component: {fileID: 266907294}
   - component: {fileID: 266907298}
-  - component: {fileID: 266907299}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -1380,7 +1379,7 @@ AudioListener:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 266907291}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &266907298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1397,17 +1396,6 @@ MonoBehaviour:
   ScanDistance: 0
   player: {fileID: 0}
   scanSound: {fileID: 0}
---- !u!114 &266907299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 266907291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1256f2e924e258045a215d97e2a6d7c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &283675631
 GameObject:
   m_ObjectHideFlags: 0
@@ -6246,7 +6234,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 704169723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.52, y: 3.142, z: 25.623}
+  m_LocalPosition: {x: 2.52, y: 3.533, z: 25.623}
   m_LocalScale: {x: 0.13543, y: 0.13543, z: 0.13543}
   m_Children:
   - {fileID: 1976865969}
@@ -11996,6 +11984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1469024401}
   - component: {fileID: 1469024400}
+  - component: {fileID: 1469024402}
   m_Layer: 0
   m_Name: Scene Management
   m_TagString: Untagged
@@ -12036,6 +12025,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1469024402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1469024399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19c20e281d83384f86588f99cec368e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lasers:
+  - {fileID: 1373476847}
+  - {fileID: 320967777}
+  waitTime: 6
 --- !u!1 &1499245676
 GameObject:
   m_ObjectHideFlags: 0
