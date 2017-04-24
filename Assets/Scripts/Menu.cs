@@ -12,6 +12,8 @@ public class Menu : MonoBehaviour {
     public GameObject emitter;
     public GameObject laser;
 
+    public GameObject tutorialManager;
+
     public GameObject textComp;
 	public AudioClip putt;
     public float startDelay = 2f;
@@ -19,15 +21,13 @@ public class Menu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		laser.SetActive(false);
+        if(laser != null) {
+            laser.SetActive(false);
+        }
         textComp.GetComponent<Text>().text = "";
         StartCoroutine(TypeIn("The Cave "));
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public void BeginAscent() {
         StartCoroutine(BeginAscentCoroutine());
@@ -50,7 +50,10 @@ public class Menu : MonoBehaviour {
 
         yield return new WaitForSeconds(3f);
         laser.SetActive(true);
-   
+
+        yield return new WaitForSeconds(1f);
+
+        tutorialManager.GetComponent<TutorialManager>().Activate(0);
     }
 
     public void QuitGame() {

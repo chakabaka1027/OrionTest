@@ -105,6 +105,10 @@ public class Movement : MonoBehaviour {
             nextNavpoint.GetComponent<MeshRenderer>().enabled = false;
             nextNavpoint.GetComponent<BoxCollider>().enabled = false;
 
+            //trigger any tutorials if they exist
+            if(nextNavpoint.GetComponent<TutorialTrigger>() != null) {
+                nextNavpoint.GetComponent<TutorialTrigger>().Activate();
+            }
 
             currentNavpoint = nextNavpoint;
 
