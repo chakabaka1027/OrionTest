@@ -69,6 +69,13 @@ public class DragBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+    // play rotation sounds
+        if(isRotating && mirror != null) {
+            mirror.GetComponent<Scannable>().rotationAudioSource.volume = .25f;
+        } else if(!isRotating && mirror != null) {
+            mirror.GetComponent<Scannable>().rotationAudioSource.volume = 0;
+
+        }
 
         if(FindObjectOfType<Movement>().moveModeActive && !isRotating && !rotationModeActive) {
             IdentifyRotationObj();
@@ -312,7 +319,7 @@ public class DragBehavior : MonoBehaviour {
 
     public void FinishedRotating() {
         if(rotationModeActive) {
-            audioSource.PlayOneShot(thumbsUp, .5f);
+            audioSource.PlayOneShot(thumbsUp, .2f);
             StartCoroutine(FinishedRotatingCoroutine());
         }
     }

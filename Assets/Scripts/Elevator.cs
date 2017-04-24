@@ -50,7 +50,7 @@ public class Elevator : MonoBehaviour {
 
         isOccupied = true;
 
-        audioSource.PlayOneShot(success, 1);
+        audioSource.PlayOneShot(success, .1f);
 
         float percent = 0;
         float speed = 1 / travelTime;

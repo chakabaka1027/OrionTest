@@ -100,6 +100,9 @@ public class RaycastReflection : MonoBehaviour{
             if (Physics.Raycast(lastLaserPosition, laserDirection, out hit, laserDistance)) {
                 if ((hit.transform.gameObject.tag == bounceTag) || (hit.transform.gameObject.tag == splitTag)){
                     
+                    //play sound
+                    hit.collider.gameObject.GetComponent<Scannable>().Activate();
+
                     //Debug.Log("Bounce");
                     laserReflected++;
                     vertexCounter += 3;

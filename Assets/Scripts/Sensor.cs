@@ -10,12 +10,25 @@ public class Sensor : MonoBehaviour {
     public GameObject door;
     public GameObject otherlaserSensor;
 
+    AudioSource audioSource;
+    public AudioClip sensorOn;
+    public AudioClip sensorOff;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+
+    }
+
     public void Activate() {
 
         StopCoroutine("DeactivationTimer");
         if(!wasTriggeredByLaser) {
 
             wasTriggeredByLaser = true;
+
+            if(audioSource != null) {
+                audioSource.PlayOneShot(sensorOn, .5f);
+            }
             if(gameObject.transform.name != "LaserSensor") {
                 sensorAction.Invoke();
             }
@@ -47,6 +60,11 @@ public class Sensor : MonoBehaviour {
                 sensorAction.Invoke();
             }
             wasTriggeredByLaser = false;
+
+            if(audioSource != null) {
+                audioSource.PlayOneShot(sensorOff, .5f);
+            }
+
 
             if (gameObject.transform.name == "LaserSensor") {
                 GameObject cords = gameObject.transform.FindChild("Cords").gameObject;
