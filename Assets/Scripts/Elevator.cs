@@ -49,7 +49,9 @@ public class Elevator : MonoBehaviour {
 
     public IEnumerator Activate() {
 
-        yield return new WaitForSeconds(ascentDelay);
+        if(!isStartingElevator) { 
+            yield return new WaitForSeconds(ascentDelay);
+        }
 
         Vector3 startLocation = gameObject.transform.position;
         Vector3 endLocation = target.transform.position;
