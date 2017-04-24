@@ -285,6 +285,12 @@ public class DragBehavior : MonoBehaviour {
             palmPosReference = rightPalm.transform.localPosition;
             FindObjectOfType<DirectionTracker>().GrabDirection();
 
+            //tutorial activation if it is a trigger
+            if (mirror.GetComponent<TutorialTrigger>() != null) {
+                mirror.GetComponent<TutorialTrigger>().Activate();
+
+            }
+
         }
     }
 

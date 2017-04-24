@@ -9,6 +9,9 @@ public class TutorialManager : MonoBehaviour {
     public string[] tutorialText;
 
 	public void Activate(int i) {
+        if(i > 0) {
+            Deactivate(i-1);
+        }
         tutorial[i].GetComponent<Animator>().Play("Active");
         StartCoroutine(tutorial[i].transform.FindChild("UIElementsPanel").FindChild("Text").GetComponent<Typing>().TypeIn(tutorialText[i]));
         //tutorialPlayed[i] = true;

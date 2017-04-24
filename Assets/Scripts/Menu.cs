@@ -40,6 +40,11 @@ public class Menu : MonoBehaviour {
         mainMenu.GetComponent<Animator>().Play("Deactivate");
 
         yield return new WaitForSeconds(1);
+
+        FindObjectOfType<TutorialManager>().Activate(0);
+
+        yield return new WaitForSeconds(3);
+
         StartCoroutine(introDoor.GetComponent<Door>().OpenDoor());
         
         mainMenu.SetActive(false);
@@ -54,7 +59,7 @@ public class Menu : MonoBehaviour {
 
         yield return new WaitForSeconds(1f);
 
-        FindObjectOfType<TutorialManager>().Activate(0);
+        FindObjectOfType<TutorialManager>().Activate(1);
     }
 
     public void QuitGame() {
