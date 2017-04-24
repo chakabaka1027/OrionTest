@@ -23,6 +23,7 @@ public class Elevator : MonoBehaviour {
 
     void Start() { 
         audioSource = GetComponent<AudioSource>();
+        audioSource.volume = 0;
 
         if(isStartingElevator) {
             StartCoroutine(Activate());
@@ -51,7 +52,7 @@ public class Elevator : MonoBehaviour {
         if(!isStartingElevator) { 
             yield return new WaitForSeconds(ascentDelay);
         }
-        audioSource.PlayOneShot(success, .1f);
+        player.GetComponent<AudioSource>().PlayOneShot(success, .1f);
 
         Vector3 startLocation = gameObject.transform.position;
         Vector3 endLocation = target.transform.position;
@@ -65,6 +66,7 @@ public class Elevator : MonoBehaviour {
             percent += Time.deltaTime * speed;
             gameObject.transform.position = Vector3.Lerp(startLocation, endLocation, percent); 
 
+            audioSource.volume = 0.1f;
             yield return null;
         }
 
@@ -74,6 +76,8 @@ public class Elevator : MonoBehaviour {
         if(!isStartingElevator) {
             SceneManager.LoadScene(nextLevelIndex);
         }
+
+        audioSource.volume = 0;
 
         isOccupied = false;
     }
