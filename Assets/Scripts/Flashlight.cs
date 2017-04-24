@@ -3,15 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Flashlight : MonoBehaviour {
-        
+    
+    public GameObject player;
+
+    public AudioClip on;
+    public AudioClip off;
+    
     int flashlightValue = 0;
 
+    void Start() {
+    }
 
     public void FlashLightOn() {
+        player.GetComponent<AudioSource>().PlayOneShot(on, .4f);
         gameObject.SetActive(true);
     }
 
     public void FlashLightOff() {
+        player.GetComponent<AudioSource>().PlayOneShot(off, .4f);
         gameObject.SetActive(false);
     }
 

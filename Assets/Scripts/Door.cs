@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Door : MonoBehaviour {
 
+    public AudioSource openAudioSouce;
+    public AudioSource closeAudioSource;
+
     public Transform closedPos;
     public Transform openedPos;
 
@@ -59,8 +62,14 @@ public class Door : MonoBehaviour {
         while(percent < 1) {
             percent += Time.deltaTime * speed;
             transform.position = Vector3.Lerp(currentPos, openedPosition, percent);
+            
+            //sound
+            openAudioSouce.volume = .1f;
+            closeAudioSource.volume = 0;
+            
             yield return null;
         }
+        openAudioSouce.volume = 0;
 
     }
 
@@ -74,8 +83,14 @@ public class Door : MonoBehaviour {
         while(percent < 1) {
             percent += Time.deltaTime * speed;
             transform.position = Vector3.Lerp(currentPos, closedPosition, percent);
+            
+            //sound
+            openAudioSouce.volume = 0;
+            closeAudioSource.volume = .1f;
+            
             yield return null;
         }
+        closeAudioSource.volume = 0;
 
     }
 }
