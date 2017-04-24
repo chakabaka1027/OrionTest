@@ -14,6 +14,9 @@ public class Menu : MonoBehaviour {
 
     public GameObject textComp;
 	public AudioClip putt;
+
+    public AudioSource rotationSource;
+
     public float startDelay = 2f;
 	public float typeDelay = 0.01f;
 
@@ -53,6 +56,7 @@ public class Menu : MonoBehaviour {
 
               
         emitter.GetComponent<Animator>().Play("Activate");
+        StartCoroutine(PlayRotationSound());
 
         yield return new WaitForSeconds(3f);
         //laser.SetActive(true);
@@ -61,6 +65,12 @@ public class Menu : MonoBehaviour {
         yield return new WaitForSeconds(1f);
 
         FindObjectOfType<TutorialManager>().Activate(1);
+    }
+
+    IEnumerator PlayRotationSound() {
+        rotationSource.volume = .1f;
+        yield return new WaitForSeconds(2);
+        rotationSource.volume = 0;
     }
 
     public void QuitGame() {
