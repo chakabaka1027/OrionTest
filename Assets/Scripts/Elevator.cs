@@ -16,7 +16,11 @@ public class Elevator : MonoBehaviour {
 
     public int nextLevelIndex;
 
+    AudioSource audioSource;
+    public AudioClip success;
+
     void Start() { 
+        audioSource = GetComponent<AudioSource>();
 
         if(isStartingElevator) {
             StartCoroutine(Activate());
@@ -45,6 +49,8 @@ public class Elevator : MonoBehaviour {
         Vector3 endLocation = target.transform.position;
 
         isOccupied = true;
+
+        audioSource.PlayOneShot(success, 1);
 
         float percent = 0;
         float speed = 1 / travelTime;

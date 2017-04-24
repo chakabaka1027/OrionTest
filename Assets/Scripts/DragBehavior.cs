@@ -7,6 +7,9 @@ using Hover.InterfaceModules.Cast;
 
 public class DragBehavior : MonoBehaviour {
 
+    AudioSource audioSource;
+    public AudioClip thumbsUp;
+
     public GameObject cameraReference;
     public GameObject cameraReferenceUpandDown;
 
@@ -59,6 +62,7 @@ public class DragBehavior : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        audioSource = GetComponent<AudioSource>();
 		sensitivity = 65;
         rotation = Vector3.zero;
 	}
@@ -308,6 +312,7 @@ public class DragBehavior : MonoBehaviour {
 
     public void FinishedRotating() {
         if(rotationModeActive) {
+            audioSource.PlayOneShot(thumbsUp, 1);
             StartCoroutine(FinishedRotatingCoroutine());
         }
     }

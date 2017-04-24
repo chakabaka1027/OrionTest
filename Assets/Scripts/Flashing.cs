@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Flashing : MonoBehaviour {
 
+    AudioSource audioSource;
+    public AudioClip flicker;
     Light light;
     GameObject lightMaterial;
     Color lightMaterialColor;
@@ -11,6 +13,7 @@ public class Flashing : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        audioSource = GetComponent<AudioSource>();
         light = GetComponent<Light>();
         lightMaterial = gameObject.transform.parent.FindChild("LightCasing").gameObject;
         lightMaterialColor = lightMaterial.GetComponent<MeshRenderer>().material.GetColor("_EmissionColor");
@@ -30,6 +33,7 @@ public class Flashing : MonoBehaviour {
 
             } else {
                 //turn on light and casing for light
+                audioSource.PlayOneShot(flicker, .5f);
                 light.enabled = true;
                 lightMaterial.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", lightMaterialColor * .375f);
                 //turn on beam

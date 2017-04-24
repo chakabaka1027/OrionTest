@@ -6603,6 +6603,7 @@ GameObject:
   - component: {fileID: 704169726}
   - component: {fileID: 704169725}
   - component: {fileID: 704169729}
+  - component: {fileID: 704169730}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -6617,7 +6618,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 704169723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.52, y: 2.886, z: 25.623}
+  m_LocalPosition: {x: 2.52, y: 3.275, z: 25.623}
   m_LocalScale: {x: 0.13543, y: 0.13543, z: 0.13543}
   m_Children:
   - {fileID: 1976865969}
@@ -6639,6 +6640,7 @@ MonoBehaviour:
   isActive: 0
   isCurrentLantern: 0
   sensor: {fileID: 1882886849}
+  spawnSound: {fileID: 8300000, guid: 36c9e532627d38547adaf27097bd8886, type: 3}
 --- !u!23 &704169726
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6701,6 +6703,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialNumber: 3
+--- !u!82 &704169730
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 704169723}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &711186343
 GameObject:
   m_ObjectHideFlags: 0
@@ -7143,6 +7225,7 @@ GameObject:
   - component: {fileID: 755878981}
   - component: {fileID: 755878980}
   - component: {fileID: 755878984}
+  - component: {fileID: 755878985}
   m_Layer: 8
   m_Name: Elevator
   m_TagString: MovementSensor
@@ -7231,6 +7314,87 @@ MonoBehaviour:
   target: {fileID: 2056087667}
   player: {fileID: 1805543666}
   nextLevelIndex: 1
+  success: {fileID: 8300000, guid: 0962be18c069baf4c933cb73dc5b1962, type: 3}
+--- !u!82 &755878985
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 755878979}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &762858253
 GameObject:
   m_ObjectHideFlags: 0
@@ -13087,7 +13251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 5.712, y: -0.707}
+  m_AnchoredPosition: {x: 5.712, y: -0.343}
   m_SizeDelta: {x: 500, y: 310.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1358817784
@@ -15483,6 +15647,7 @@ GameObject:
   - component: {fileID: 1741959050}
   - component: {fileID: 1741959054}
   - component: {fileID: 1741959055}
+  - component: {fileID: 1741959056}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -15497,7 +15662,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1741959048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.52, y: 2.886, z: 25.623}
+  m_LocalPosition: {x: 2.52, y: 3.251, z: 25.623}
   m_LocalScale: {x: 0.13543, y: 0.13543, z: 0.13543}
   m_Children:
   - {fileID: 2056267315}
@@ -15519,6 +15684,7 @@ MonoBehaviour:
   isActive: 0
   isCurrentLantern: 0
   sensor: {fileID: 1488058215}
+  spawnSound: {fileID: 8300000, guid: 36c9e532627d38547adaf27097bd8886, type: 3}
 --- !u!23 &1741959051
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15598,6 +15764,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialNumber: 2
+--- !u!82 &1741959056
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1741959048}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1748761982
 GameObject:
   m_ObjectHideFlags: 0
@@ -16147,6 +16393,7 @@ GameObject:
   - component: {fileID: 1805543670}
   - component: {fileID: 1805543671}
   - component: {fileID: 1805543672}
+  - component: {fileID: 1805543673}
   m_Layer: 0
   m_Name: LMHeadMountedRig
   m_TagString: Player
@@ -16233,6 +16480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59311c045e236d843b7c6ef66fe99a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thumbsUp: {fileID: 8300000, guid: 5b2fc337945223543a08fd0c16b1aea0, type: 3}
   cameraReference: {fileID: 72902600}
   cameraReferenceUpandDown: {fileID: 266907291}
   rightPalm: {fileID: 1156891106}
@@ -16270,6 +16518,86 @@ MonoBehaviour:
   laserOnUI: {fileID: 469205017}
   laserOffUI: {fileID: 1299106338}
   defaultCursor: {fileID: 1289647381}
+--- !u!82 &1805543673
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1805543666}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1822372176
 GameObject:
   m_ObjectHideFlags: 0
@@ -16743,7 +17071,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d00c7bbbf7fbc3c408568adfc91390e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.552
+      value: 2.426
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d00c7bbbf7fbc3c408568adfc91390e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -17623,6 +17951,7 @@ GameObject:
   - component: {fileID: 1980236190}
   - component: {fileID: 1980236189}
   - component: {fileID: 1980236188}
+  - component: {fileID: 1980236192}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -17637,7 +17966,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1980236186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.52, y: 2.886, z: 25.623}
+  m_LocalPosition: {x: 2.52, y: 3.307, z: 25.623}
   m_LocalScale: {x: 0.13543, y: 0.13543, z: 0.13543}
   m_Children:
   - {fileID: 1793569283}
@@ -17659,6 +17988,7 @@ MonoBehaviour:
   isActive: 0
   isCurrentLantern: 0
   sensor: {fileID: 998125925}
+  spawnSound: {fileID: 8300000, guid: 36c9e532627d38547adaf27097bd8886, type: 3}
 --- !u!23 &1980236189
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17709,6 +18039,86 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1980236186}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!82 &1980236192
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1980236186}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1999121776
 GameObject:
   m_ObjectHideFlags: 0

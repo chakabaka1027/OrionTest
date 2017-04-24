@@ -24,7 +24,10 @@ public class Menu : MonoBehaviour {
         if(laser != null) {
             laser.SetActive(false);
         }
-        textComp.GetComponent<Text>().text = "";
+        if(textComp != null) {
+            textComp.GetComponent<Text>().text = "";
+
+        }
         StartCoroutine(TypeIn("The Cave "));
 	}
 	
@@ -69,7 +72,9 @@ public class Menu : MonoBehaviour {
     public IEnumerator TypeIn(string msg){
 		yield return new WaitForSeconds(startDelay);
 		for (int i = 0; i < msg.Length; i++){
-			textComp.GetComponent<Text>().text = msg.Substring(0, i);
+            if(textComp != null) { 
+			    textComp.GetComponent<Text>().text = msg.Substring(0, i);
+            }
 			GetComponent<AudioSource>().PlayOneShot(putt, 0.03f);
 			yield return new WaitForSeconds(typeDelay);
 		}

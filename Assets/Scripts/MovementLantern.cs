@@ -17,8 +17,13 @@ public class MovementLantern : MonoBehaviour {
 
     bool wasTriggeredByLaser = false;
 
+    AudioSource audioSource;
+    public AudioClip spawnSound;
+
     private void Start() {
 
+        audioSource = GetComponent<AudioSource>();
+        audioSource.PlayOneShot(spawnSound, 1);
     //deactivate mesh renderer if the player is occupying this lantern
        
 
