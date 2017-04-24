@@ -55,7 +55,8 @@ public class Menu : MonoBehaviour {
         emitter.GetComponent<Animator>().Play("Activate");
 
         yield return new WaitForSeconds(3f);
-        laser.SetActive(true);
+        //laser.SetActive(true);
+        StartCoroutine(FindObjectOfType<ActivationDelay>().DelayActivation());
 
         yield return new WaitForSeconds(1f);
 

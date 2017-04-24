@@ -41,7 +41,6 @@ public class Elevator : MonoBehaviour {
     }	
 
     public void InitiateElevator() {
-        audioSource.PlayOneShot(success, .1f);
 
         StartCoroutine(Activate());
 
@@ -52,6 +51,7 @@ public class Elevator : MonoBehaviour {
         if(!isStartingElevator) { 
             yield return new WaitForSeconds(ascentDelay);
         }
+        audioSource.PlayOneShot(success, .1f);
 
         Vector3 startLocation = gameObject.transform.position;
         Vector3 endLocation = target.transform.position;
