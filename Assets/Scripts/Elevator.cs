@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Elevator : MonoBehaviour {
 
+    public float ascentDelay = .75f;
+
     public bool isOccupied = false;
     public bool isStartingElevator = false;
 
@@ -46,6 +48,8 @@ public class Elevator : MonoBehaviour {
     }
 
     public IEnumerator Activate() {
+
+        yield return new WaitForSeconds(ascentDelay);
 
         Vector3 startLocation = gameObject.transform.position;
         Vector3 endLocation = target.transform.position;

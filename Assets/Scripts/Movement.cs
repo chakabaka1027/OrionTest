@@ -150,7 +150,7 @@ public class Movement : MonoBehaviour {
         }
         //is end of level elevator
         if(currentNavpoint != null && currentNavpoint.GetComponent<Elevator>() != null) {
-            yield return new WaitForSeconds(.75f);
+            //yield return new WaitForSeconds(.75f);
             if(nextNavpoint != null && nextNavpoint.GetComponent<Elevator>() != null && !hasFinishedLevel) {
                 hasFinishedLevel = true;
                 nextNavpoint.GetComponent<Elevator>().InitiateElevator();
