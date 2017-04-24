@@ -1623,8 +1623,8 @@ MonoBehaviour:
   - '"Redirection" '
   - 'Take aim at the round, blue mirror. Grasp it with your right hand to lock on. '
   - 'While grasping, move your right hand left and right to rotate the mirror. '
-  - 'Do a "thumbs up" when you are finished rotating. '
-  - Ascend!
+  - 'Give a "thumbs up" when you are finished rotating to unlock from mirror. '
+  - 'Ascend! '
 --- !u!4 &217546245
 Transform:
   m_ObjectHideFlags: 0
@@ -7777,7 +7777,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5b964491dc225bb489190e46b82093ca, type: 3}
-    m_FontSize: 43
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -13989,7 +13989,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5b964491dc225bb489190e46b82093ca, type: 3}
-    m_FontSize: 50
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -16484,7 +16484,7 @@ RectTransform:
   m_GameObject: {fileID: 1709363931}
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.00000061094755}
   m_LocalPosition: {x: 0, y: 0, z: 44.973}
-  m_LocalScale: {x: 0.001977907, y: 0.0019779073, z: 0.0019779073}
+  m_LocalScale: {x: 0.0027406246, y: 0.002740626, z: 0.002740626}
   m_Children:
   - {fileID: 68109492}
   - {fileID: 248307588}
@@ -16495,7 +16495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.981, y: 0.419}
+  m_AnchoredPosition: {x: -0.98253, y: 0.519}
   m_SizeDelta: {x: 500, y: 310.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1717105418
