@@ -1844,11 +1844,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!1 &295571085 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000011702194464, guid: 585b1cb301cc5094d8606d5e869e94e6,
-    type: 2}
-  m_PrefabInternal: {fileID: 1802580753}
 --- !u!4 &295571086 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010928380980, guid: 585b1cb301cc5094d8606d5e869e94e6,
@@ -2175,6 +2170,10 @@ MonoBehaviour:
   MinimumExtendedCount: 1
   MaximumExtendedCount: 1
   ShowGizmos: 1
+--- !u!1 &321665108 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 121614, guid: 23f2cce114628a448bfeaae171b4c0c0, type: 2}
+  m_PrefabInternal: {fileID: 599167946}
 --- !u!1001 &336175711
 Prefab:
   m_ObjectHideFlags: 0
@@ -2468,8 +2467,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d83229c566f089408914f55f65e961d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 543737195}
-  rightHand: {fileID: 295571085}
+  leftHand: {fileID: 321665108}
+  rightHand: {fileID: 2054171724}
   isLeft: 1
 --- !u!1001 &353230292
 Prefab:
@@ -4798,10 +4797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1babd2bcabac74a3c8ee5dcc8f7e6b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &543737195 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 110758, guid: fa5c11a695dad43f3944909204969330, type: 2}
-  m_PrefabInternal: {fileID: 353230292}
 --- !u!1 &581778316 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 188576, guid: 39d18871c11b53c4082d8202e3db68a3, type: 2}
@@ -10204,8 +10199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d83229c566f089408914f55f65e961d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftHand: {fileID: 543737195}
-  rightHand: {fileID: 295571085}
+  leftHand: {fileID: 321665108}
+  rightHand: {fileID: 2054171724}
   isLeft: 0
 --- !u!1 &1159624990
 GameObject:
@@ -12260,6 +12255,7 @@ MonoBehaviour:
   laser: {fileID: 0}
   textComp: {fileID: 0}
   putt: {fileID: 0}
+  rotationSource: {fileID: 0}
   startDelay: 2
   typeDelay: 0.01
 --- !u!4 &1276134288
@@ -17806,6 +17802,10 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2032173507}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2054171724 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 146154, guid: c8515ebee271c0649b9db1321f3026a4, type: 2}
+  m_PrefabInternal: {fileID: 1226953745}
 --- !u!1 &2056087667
 GameObject:
   m_ObjectHideFlags: 0

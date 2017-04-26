@@ -325,6 +325,9 @@ public class DragBehavior : MonoBehaviour {
 
     public void FinishedRotating() {
         if(rotationModeActive) {
+
+            StartCoroutine(FinishedRotatingCoroutine());
+
             audioSource.PlayOneShot(thumbsUp, .2f);
             isRotating = false;
 
@@ -352,11 +355,13 @@ public class DragBehavior : MonoBehaviour {
 
             }
 
-            StartCoroutine(FinishedRotatingCoroutine());
         }
     }
 
     IEnumerator FinishedRotatingCoroutine() {
+    rotationModeActive = false;
+    mirror = null;
+
     rotationPanel.GetComponent<Animator>().Play("Closed");
     
     //make thumb ui in HUD deactivate
@@ -374,8 +379,7 @@ public class DragBehavior : MonoBehaviour {
         }
 
 
-        rotationModeActive = false;
-        mirror = null;
+       
     }
 
 
