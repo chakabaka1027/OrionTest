@@ -1622,7 +1622,8 @@ MonoBehaviour:
   - {fileID: 1709363931}
   tutorialText:
   - '"Redirection" '
-  - 'Take aim at the round, blue mirror. Grasp it with your right hand to lock on. '
+  - 'Floating, round mirrors rotate horizontally. Grasp them with your right hand
+    to lock on. '
   - 'While grasping, move your right hand left and right to rotate the mirror. '
   - 'Give a "thumbs up" when you are finished rotating to unlock from mirror. '
   - 'Ascend! '
@@ -3411,6 +3412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 599167947}
   rightHand: {fileID: 1226953746}
+  rightHandClone: {fileID: 0}
   isLeft: 1
 --- !u!1001 &353230292
 Prefab:
@@ -11829,6 +11831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 599167947}
   rightHand: {fileID: 1226953746}
+  rightHandClone: {fileID: 0}
   isLeft: 0
 --- !u!1 &1159624990
 GameObject:

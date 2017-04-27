@@ -140,7 +140,7 @@ public class Movement : MonoBehaviour {
                 if (nextNavpoint != null) {
                     gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, nextNavpoint.transform.position, percent);
                 }
-                yield return null;
+                yield return new WaitForFixedUpdate();
 
             }     
             

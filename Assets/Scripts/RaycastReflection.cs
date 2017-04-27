@@ -37,8 +37,8 @@ public class RaycastReflection : MonoBehaviour{
     void FixedUpdate(){
 
         if (gameObject.tag != spawnedBeamTag){
-            //if (timer >= updateFrequency){
-                //timer = 0;
+            if (timer >= updateFrequency){
+                timer = 0;
 
                 //foreach (GameObject laserSplit in GameObject.FindGameObjectsWithTag(spawnedBeamTag)) {
                 //    Destroy(laserSplit);
@@ -52,8 +52,8 @@ public class RaycastReflection : MonoBehaviour{
                 StartCoroutine (RedrawLaser ());
                                 StartCoroutine (RedrawLaser ());
 
-            //}
-            //timer += Time.deltaTime;
+            }
+            timer += Time.deltaTime;
         }  
     }
 
