@@ -112,13 +112,13 @@ public class UniverseController : MonoBehaviour
         if (toggle == 1) {
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * 100;
             ResetCurrentMovementCubeState();
-            Debug.Log("Universe B");
+            //Debug.Log("Universe B");
             sun.transform.eulerAngles = new Vector3(lightRotationB, 0, 0);
 
         } else if (toggle == 0) {
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * -100;
             ResetCurrentMovementCubeState();
-            Debug.Log("Universe A");
+            //Debug.Log("Universe A");
             sun.transform.eulerAngles = new Vector3(lightRotationA, 0, 0);
 
         }
