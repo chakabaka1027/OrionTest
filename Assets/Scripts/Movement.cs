@@ -14,9 +14,7 @@ public class Movement : MonoBehaviour {
     public AudioClip[] move;
     bool hasPlayed = false;
     
-    [HideInInspector]
     public GameObject nextNavpoint;
-    [HideInInspector]
     public GameObject currentNavpoint;
 
     GameObject currentNavpointParent;
@@ -92,6 +90,7 @@ public class Movement : MonoBehaviour {
         if(moveModeActive && nextNavpoint!= null && FindObjectOfType<DragBehavior>().rotationModeActive == false) {
 
             if (currentNavpoint != null) {
+
                 currentNavpoint.GetComponent<MeshRenderer>().enabled = true;
                 currentNavpoint.GetComponent<BoxCollider>().enabled = true;
 
@@ -133,7 +132,7 @@ public class Movement : MonoBehaviour {
             }
             //interpolate movement
             float percent = 0;
-            float time = .6f;
+            float time = .45f;
             float speed = 1/time;
 
             while(percent < 1) {
