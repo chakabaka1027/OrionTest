@@ -50,6 +50,8 @@ public class RaycastReflection : MonoBehaviour{
 
 
                 StartCoroutine (RedrawLaser ());
+                                StartCoroutine (RedrawLaser ());
+
             //}
             //timer += Time.deltaTime;
         }  

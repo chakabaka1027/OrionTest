@@ -133,7 +133,7 @@ public class Movement : MonoBehaviour {
             }
             //interpolate movement
             float percent = 0;
-            float time = 0.3f;
+            float time = .6f;
             float speed = 1/time;
 
             while(percent < 1) {

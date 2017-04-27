@@ -20,7 +20,9 @@ public class Sensor : MonoBehaviour {
     }
 
     public void Activate() {
-
+        if(gameObject.transform.name == "DimensionSensor") {
+            Debug.Log("Teleport");
+        }
         StopCoroutine("DeactivationTimer");
         if(!wasTriggeredByLaser) {
 
