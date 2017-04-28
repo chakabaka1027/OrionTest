@@ -7,6 +7,11 @@ using UnityStandardAssets.ImageEffects;
 public class UniverseController : MonoBehaviour
 {
 
+    //dialogue stuff
+    int logNumber = 0;
+    public string[] tutorialText;
+    public GameObject[] tutorial;
+
     int toggle = 0;
 
 
@@ -115,12 +120,27 @@ public class UniverseController : MonoBehaviour
             //Debug.Log("Universe B");
             sun.transform.eulerAngles = new Vector3(lightRotationB, 0, 0);
 
+            //dialogue text
+   
+            if(tutorial.Length > 0 && logNumber <= tutorial.Length-1) {
+                tutorial[logNumber].GetComponent<Animator>().Play("Active");
+                StartCoroutine(tutorial[logNumber].transform.FindChild("UIElementsPanel").FindChild("Text").GetComponent<Typing>().TypeIn(tutorialText[logNumber]));
+            }
+           
+
         } else if (toggle == 0) {
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * -100;
             ResetCurrentMovementCubeState();
             //Debug.Log("Universe A");
             sun.transform.eulerAngles = new Vector3(lightRotationA, 0, 0);
 
+            //disable dialogue text
+            if(tutorial.Length > 0 && logNumber <= tutorial.Length-1) {
+                tutorial[logNumber].GetComponent<Animator>().Play("Inactive");
+            }
+            if(tutorial.Length > 0 && logNumber <= tutorial.Length-1) {
+                logNumber ++;
+            }
         }
     }
 
