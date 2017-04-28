@@ -2872,6 +2872,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 599167947}
   rightHand: {fileID: 1226953746}
+  rightHandClone: {fileID: 0}
   isLeft: 1
 --- !u!1001 &353230292
 Prefab:
@@ -11549,6 +11550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftHand: {fileID: 599167947}
   rightHand: {fileID: 1226953746}
+  rightHandClone: {fileID: 0}
   isLeft: 0
 --- !u!1 &1159624990
 GameObject:
@@ -16363,7 +16365,7 @@ MonoBehaviour:
   tutorialText:
   - '"Locking and Unlocking" '
   - 'Tip: Once you''ve locked on to a mirror, you don''t have to face it to rotate
-    it.'
+    it. '
   - 'Tip: Before you can move, remember to give a thumbs up to unlock from a mirror. '
   - 'Great work! '
 --- !u!4 &1632358579

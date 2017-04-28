@@ -325,6 +325,7 @@ public class DragBehavior : MonoBehaviour {
 
     public void FinishedRotating() {
         if(rotationModeActive) {
+            mirror.GetComponent<Scannable>().rotationAudioSource.volume = 0;
 
             StartCoroutine(FinishedRotatingCoroutine());
 
