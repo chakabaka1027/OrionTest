@@ -6753,7 +6753,7 @@ MonoBehaviour:
   travelTime: 5
   target: {fileID: 1658974148}
   player: {fileID: 1805543666}
-  nextLevelIndex: 6
+  nextLevelIndex: 8
   success: {fileID: 8300000, guid: 0962be18c069baf4c933cb73dc5b1962, type: 3}
 --- !u!23 &433538956
 MeshRenderer:
