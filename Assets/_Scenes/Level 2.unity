@@ -6025,7 +6025,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1805543672}
+      - m_Target: {fileID: 0}
         m_MethodName: ToggleLaser
         m_Mode: 1
         m_Arguments:
@@ -18557,7 +18557,6 @@ GameObject:
   - component: {fileID: 1805543669}
   - component: {fileID: 1805543670}
   - component: {fileID: 1805543671}
-  - component: {fileID: 1805543672}
   - component: {fileID: 1805543673}
   m_Layer: 0
   m_Name: LMHeadMountedRig
@@ -18672,23 +18671,6 @@ MonoBehaviour:
   rotationModeActive: 0
   isRotating: 0
   mirror: {fileID: 0}
---- !u!114 &1805543672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1805543666}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e63b75eb74846be4cb13ee4203106a62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lasers:
-    serializedVersion: 2
-    m_Bits: 1024
-  laserOnUI: {fileID: 469205017}
-  laserOffUI: {fileID: 1299106338}
-  defaultCursor: {fileID: 1289647381}
 --- !u!82 &1805543673
 AudioSource:
   m_ObjectHideFlags: 0

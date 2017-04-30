@@ -176,8 +176,9 @@ public class DragBehavior : MonoBehaviour {
 
 
         } else {
-            closedHandCursor.SetActive(false);
+            //closedHandCursor.SetActive(false);
             isRotating = false;
+
         }
 
 
@@ -190,7 +191,7 @@ public class DragBehavior : MonoBehaviour {
         if(Physics.Raycast(ray, Camera.main.transform.forward, out hit, Mathf.Infinity, rotatable) && FindObjectOfType<Movement>().moveModeActive) {
             if(hit.collider.gameObject.name == "MirrorX" || hit.collider.gameObject.name == "MirrorY") {
                 mirror = hit.collider.gameObject;
-                FindObjectOfType<Movement>().cursor.SetActive(false);
+                //FindObjectOfType<Movement>().cursor.SetActive(false);
 
                 if(FindObjectOfType<Movement>().moveModeActive && mirror.name == "MirrorX" || mirror.name == "MirrorY") {
                     openHandCursor.SetActive(true);
@@ -200,7 +201,7 @@ public class DragBehavior : MonoBehaviour {
             
             else {
                 openHandCursor.SetActive(false);
-                
+
                 mirror = null;
                 
             }
@@ -213,7 +214,7 @@ public class DragBehavior : MonoBehaviour {
     public void RotateMirrorLeftRight() {
         if(mirror != null) {
             //turn off crosshair
-            FindObjectOfType<Movement>().cursor.SetActive(false);
+            //FindObjectOfType<Movement>().cursor.SetActive(false);
 
             //deactivate wrist UI
             FindObjectOfType<HovercastInterface>().IsOpen = false;
@@ -325,7 +326,17 @@ public class DragBehavior : MonoBehaviour {
 
     public void FinishedRotating() {
         if(rotationModeActive) {
+
             mirror.GetComponent<Scannable>().rotationAudioSource.volume = 0;
+
+            if(mirror!=null) {
+            Debug.Log("decrease emission");
+            mirror.GetComponent<Animator>().Play("DecreaseEmission");
+
+            }
+
+            mirror = null;
+
 
             StartCoroutine(FinishedRotatingCoroutine());
 
@@ -337,6 +348,9 @@ public class DragBehavior : MonoBehaviour {
         
             Destroy(myUpArrow, .25f);
             Destroy(myDownArrow, .25f);
+
+            Destroy(myCompass, .5f);
+            Destroy(myLockOn, .5f);
 
             if(myUpArrow != null) {
                 myUpArrow.transform.GetChild(0).GetComponent<Animator>().Play("ArrowClosed");
@@ -360,24 +374,19 @@ public class DragBehavior : MonoBehaviour {
     }
 
     IEnumerator FinishedRotatingCoroutine() {
-    rotationModeActive = false;
-    mirror = null;
+        rotationModeActive = false;
 
-    rotationPanel.GetComponent<Animator>().Play("Closed");
+        rotationPanel.GetComponent<Animator>().Play("Closed");
     
-    //make thumb ui in HUD deactivate
-    rotationPanel.transform.FindChild("ThumbsUp").GetComponent<Animator>().Play("Accepted");
+        //make thumb ui in HUD deactivate
+        rotationPanel.transform.FindChild("ThumbsUp").GetComponent<Animator>().Play("Accepted");
        
         yield return new WaitForSeconds(.5f);
         rotationPanel.transform.GetComponentInChildren<Text>().text = "";
 
-        Destroy(myCompass);
-        Destroy(myLockOn);
 
-        if(mirror!=null) {
-            mirror.GetComponent<Animator>().Play("DecreaseEmission");
 
-        }
+        
 
 
        
