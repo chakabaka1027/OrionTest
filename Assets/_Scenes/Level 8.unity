@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 0.1
     smallestHole: 0.05
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 36a3ad9c6d7638947ad88b0a2c5b0592
+  m_OcclusionCullingData: {fileID: 36300000, guid: fe9f0c8007642964aa2d63bd16a16a6c,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -320,19 +321,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: c1de58b8e054dff48b2e25a7e765809d, type: 2}
     - target: {fileID: 100006, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_Name
@@ -1571,7 +1572,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &86283022
 Transform:
@@ -1600,7 +1601,7 @@ MonoBehaviour:
   laser: {fileID: 1827368240724560, guid: 9fad4ea3f1f73634984adad53936a348, type: 2}
   hasSpawned: 0
   vertexCounter: 0
-  updateFrequency: 0.01
+  updateFrequency: 0.05
   laserDistance: 10000
   bounceTag: Mirrors
   splitTag: Splitters
@@ -6046,7 +6047,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &395255416
 Transform:
@@ -6075,7 +6076,7 @@ MonoBehaviour:
   laser: {fileID: 1827368240724560, guid: 9fad4ea3f1f73634984adad53936a348, type: 2}
   hasSpawned: 0
   vertexCounter: 0
-  updateFrequency: 0.01
+  updateFrequency: 0.05
   laserDistance: 10000
   bounceTag: Mirrors
   splitTag: Splitters
@@ -22186,19 +22187,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: c1de58b8e054dff48b2e25a7e765809d, type: 2}
     - target: {fileID: 100006, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_Name
@@ -22764,7 +22765,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1548069915
 Transform:
@@ -22793,7 +22794,7 @@ MonoBehaviour:
   laser: {fileID: 1827368240724560, guid: 9fad4ea3f1f73634984adad53936a348, type: 2}
   hasSpawned: 0
   vertexCounter: 0
-  updateFrequency: 0.00001
+  updateFrequency: 0.01
   laserDistance: 10000
   bounceTag: Mirrors
   splitTag: Splitters
@@ -27354,19 +27355,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: c1de58b8e054dff48b2e25a7e765809d, type: 2}
     - target: {fileID: 100006, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_Name
@@ -28776,7 +28777,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 18
   m_IsActive: 1
 --- !u!4 &1978806365
 Transform:
@@ -28805,7 +28806,7 @@ MonoBehaviour:
   laser: {fileID: 1827368240724560, guid: 9fad4ea3f1f73634984adad53936a348, type: 2}
   hasSpawned: 0
   vertexCounter: 0
-  updateFrequency: 0.01
+  updateFrequency: 0.05
   laserDistance: 10000
   bounceTag: Mirrors
   splitTag: Splitters
@@ -29432,19 +29433,19 @@ Prefab:
       objectReference: {fileID: 2100000, guid: c1de58b8e054dff48b2e25a7e765809d, type: 2}
     - target: {fileID: 100006, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 29623639c73fbf94f8625353119961c2, type: 3}
       propertyPath: m_Name

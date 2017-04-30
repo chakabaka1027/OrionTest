@@ -122,7 +122,7 @@ public class UniverseController : MonoBehaviour
 
             //dialogue text
    
-            if(tutorial.Length > 0 && logNumber <= tutorial.Length-1) {
+            if(tutorial != null && tutorial.Length > 0 && logNumber <= tutorial.Length-1) {
                 tutorial[logNumber].GetComponent<Animator>().Play("Active");
                 StartCoroutine(tutorial[logNumber].transform.FindChild("UIElementsPanel").FindChild("Text").GetComponent<Typing>().TypeIn(tutorialText[logNumber]));
             }
