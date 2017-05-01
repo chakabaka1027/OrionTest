@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 1.5
+  ascentDelay: 2.5
   isOccupied: 0
   isStartingElevator: 0
   travelTime: 5
@@ -1690,7 +1690,7 @@ MonoBehaviour:
   - '"Duplication" '
   - 'Let''s not --split-- hairs about what happened. You''re home safe, and that''s
     all that matters. '
-  - 'You''re a splitting image of myself.  '
+  - 'The facility seems to be losing power... '
 --- !u!4 &217546245
 Transform:
   m_ObjectHideFlags: 0
@@ -13306,7 +13306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f936e4aa5afed334598195fd0aaa1f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDelay: 1
+  startDelay: 0.5
   typeDelay: 0.01
   putt: {fileID: 8300000, guid: 6ebef7bc1e23640448c92fcf08c459fc, type: 3}
 --- !u!82 &1345711678
