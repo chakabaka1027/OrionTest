@@ -26,7 +26,6 @@ public class HandLocationTracker : MonoBehaviour {
         if(rightHandClone != null && rightHandClone.activeSelf) {
             gameObject.transform.position = rightHandClone.transform.FindChild("palm").transform.position;
 
-            Debug.Log("Replaced!");
         }
 
         

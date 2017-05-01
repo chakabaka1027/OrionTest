@@ -16,9 +16,11 @@ public class Scannable : MonoBehaviour {
     public void Ping() {
         if(!hasBeenScanned) {
             hasBeenScanned = true;
-            Debug.Log("pinging");
+            //Debug.Log("pinging");
             if(gameObject.name == "MirrorX" || gameObject.name == "MirrorY") {
-                GetComponent<Animator>().Play("IncreaseMoveableMirrorEmission");
+                //GetComponent<Animator>().Play("IncreaseMoveableMirrorEmission");
+                GetComponent<Animator>().Play("IncreaseEmission");
+
             } else {
                 GetComponent<Animator>().Play("IncreaseEmission");
             }
@@ -28,7 +30,7 @@ public class Scannable : MonoBehaviour {
     }
 
     IEnumerator DecreaseEmission() {
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(5);
         GetComponent<Animator>().Play("DecreaseEmission");
         hasBeenScanned = false;
     }
