@@ -330,8 +330,7 @@ public class DragBehavior : MonoBehaviour {
             mirror.GetComponent<Scannable>().rotationAudioSource.volume = 0;
 
             if(mirror!=null) {
-            Debug.Log("decrease emission");
-            mirror.GetComponent<Animator>().Play("DecreaseEmission");
+                mirror.GetComponent<Animator>().Play("DecreaseEmission");
 
             }
 
