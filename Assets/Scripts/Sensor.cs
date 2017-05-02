@@ -36,7 +36,7 @@ public class Sensor : MonoBehaviour {
                 sensorAction.Invoke();
             }
 
-            if (gameObject.transform.name == "LaserSensor") {
+            if (gameObject.transform.name == "LaserSensor" || gameObject.transform.name == "Switch") {
                 GameObject cords = gameObject.transform.FindChild("Cords").gameObject;
                 for(int i = 0; i < cords.transform.childCount; i++) {
                     cords.transform.GetChild(i).GetComponent<Animator>().Play("Active");
