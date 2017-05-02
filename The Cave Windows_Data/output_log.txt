@@ -25,14 +25,14 @@ Platform assembly: C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Da
 Loading C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\UnityEngine.VR.dll into Unity Child Domain
 Platform assembly: C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\LeapCSharp.NET3.5.dll (this message is harmless)
 Loading C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\LeapCSharp.NET3.5.dll into Unity Child Domain
-- Completed reload, in  0.037 seconds
+- Completed reload, in  0.031 seconds
 Platform assembly: C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\alexa\Documents\GitHub\OrionTest\The Cave Windows_Data\Managed\System.dll (this message is harmless)
 desktop: 3440x1440 60Hz; virtual: 3440x1440 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-Overlay is using an unsupported compressed pixel format.UnloadTime: 1.083018 ms
+Overlay is using an unsupported compressed pixel format.UnloadTime: 1.111377 ms
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -54,13 +54,13 @@ Ensure that the layers that you have allotted are children of CompressibleUI obj
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: dcc -> priority: 1 
-  Thread -> id: 20c0 -> priority: 1 
+  Thread -> id: 5954 -> priority: 1 
+  Thread -> id: 4be4 -> priority: 1 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.868886 ms
+UnloadTime: 2.922794 ms
 
-Unloading 26 unused Assets to reduce memory usage. Loaded Objects now: 2739.
-Total: 1.087872 ms (FindLiveObjects: 0.113948 ms CreateObjectMapping: 0.063361 ms MarkObjects: 0.800191 ms  DeleteObjects: 0.110115 ms)
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 2772.
+Total: 1.142036 ms (FindLiveObjects: 0.136686 ms CreateObjectMapping: 0.076135 ms MarkObjects: 0.811688 ms  DeleteObjects: 0.117013 ms)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
@@ -89,10 +89,10 @@ NullReferenceException: Object reference not set to an instance of an object
 (Filename:  Line: -1)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.825724 ms
+UnloadTime: 1.907481 ms
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2660.
-Total: 1.289964 ms (FindLiveObjects: 0.124678 ms CreateObjectMapping: 0.061572 ms MarkObjects: 0.760846 ms  DeleteObjects: 0.342355 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 2678.
+Total: 1.278211 ms (FindLiveObjects: 0.108582 ms CreateObjectMapping: 0.067449 ms MarkObjects: 0.753948 ms  DeleteObjects: 0.347976 ms)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
@@ -117,10 +117,10 @@ NullReferenceException: Object reference not set to an instance of an object
 (Filename:  Line: -1)
 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.954491 ms
+UnloadTime: 1.884742 ms
 
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 2760.
-Total: 0.883736 ms (FindLiveObjects: 0.097596 ms CreateObjectMapping: 0.062339 ms MarkObjects: 0.703361 ms  DeleteObjects: 0.019928 ms)
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 2680.
+Total: 0.933046 ms (FindLiveObjects: 0.109349 ms CreateObjectMapping: 0.064894 ms MarkObjects: 0.724311 ms  DeleteObjects: 0.019928 ms)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
@@ -137,10 +137,10 @@ NullReferenceException: Object reference not set to an instance of an object
 (Filename:  Line: -1)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.761086 ms
+UnloadTime: 1.853317 ms
 
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 2754.
-Total: 1.296351 ms (FindLiveObjects: 0.115225 ms CreateObjectMapping: 0.063361 ms MarkObjects: 0.821652 ms  DeleteObjects: 0.295600 ms)
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 2814.
+Total: 0.974179 ms (FindLiveObjects: 0.112926 ms CreateObjectMapping: 0.063872 ms MarkObjects: 0.751137 ms  DeleteObjects: 0.045988 ms)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
@@ -161,10 +161,10 @@ NullReferenceException: Object reference not set to an instance of an object
 (Filename:  Line: -1)
 
 Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.877589 ms
+UnloadTime: 2.011720 ms
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3347.
-Total: 1.390882 ms (FindLiveObjects: 0.118035 ms CreateObjectMapping: 0.062339 ms MarkObjects: 0.735297 ms  DeleteObjects: 0.474954 ms)
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 3197.
+Total: 1.500487 ms (FindLiveObjects: 0.146650 ms CreateObjectMapping: 0.077157 ms MarkObjects: 0.780519 ms  DeleteObjects: 0.495393 ms)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
@@ -183,14 +183,6 @@ NullReferenceException: Object reference not set to an instance of an object
   at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Teleport
  
@@ -353,10 +345,10 @@ Teleport
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.015553 ms
+UnloadTime: 2.646611 ms
 
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3605.
-Total: 2.099353 ms (FindLiveObjects: 0.145884 ms CreateObjectMapping: 0.070770 ms MarkObjects: 0.899832 ms  DeleteObjects: 0.982610 ms)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 3725.
+Total: 2.181876 ms (FindLiveObjects: 0.112670 ms CreateObjectMapping: 0.063105 ms MarkObjects: 0.945564 ms  DeleteObjects: 1.060279 ms)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
@@ -387,38 +379,6 @@ NullReferenceException: Object reference not set to an instance of an object
   at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
  
 (Filename:  Line: -1)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Teleport
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Teleport
  
@@ -709,14 +669,134 @@ Teleport
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Unloading 8 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.696431 ms
+UnloadTime: 3.693860 ms
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 3696.
-Total: 2.150451 ms (FindLiveObjects: 0.135409 ms CreateObjectMapping: 0.064894 ms MarkObjects: 0.863808 ms  DeleteObjects: 1.086083 ms)
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 3842.
+Total: 2.324694 ms (FindLiveObjects: 0.162746 ms CreateObjectMapping: 0.070259 ms MarkObjects: 0.916183 ms  DeleteObjects: 1.175249 ms)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Menu+<TypeIn>c__Iterator3.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.839249 ms
+
+Unloading 45 unused Assets to reduce memory usage. Loaded Objects now: 3220.
+Total: 2.842060 ms (FindLiveObjects: 0.141285 ms CreateObjectMapping: 0.067704 ms MarkObjects: 0.774387 ms  DeleteObjects: 1.858427 ms)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Menu+<TypeIn>c__Iterator3.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 9 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.920000 ms
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 4036.
+Total: 1.635640 ms (FindLiveObjects: 0.152782 ms CreateObjectMapping: 0.066171 ms MarkObjects: 0.864574 ms  DeleteObjects: 0.551856 ms)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
@@ -904,6 +984,90 @@ Teleport
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.863521 ms
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 4887.
+Total: 2.604710 ms (FindLiveObjects: 0.198259 ms CreateObjectMapping: 0.072814 ms MarkObjects: 1.021445 ms  DeleteObjects: 1.311425 ms)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Menu+<TypeIn>c__Iterator3.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Teleport
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
 Teleport
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -913,10 +1077,22 @@ Teleport
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Unloading 7 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.173429 ms
+UnloadTime: 3.421764 ms
 
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 3588.
-Total: 1.890874 ms (FindLiveObjects: 0.147928 ms CreateObjectMapping: 0.060550 ms MarkObjects: 0.801469 ms  DeleteObjects: 0.880415 ms)
+Unloading 81 unused Assets to reduce memory usage. Loaded Objects now: 4178.
+Total: 3.138427 ms (FindLiveObjects: 0.236582 ms CreateObjectMapping: 0.071281 ms MarkObjects: 0.923081 ms  DeleteObjects: 1.906714 ms)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Ensure that the layers that you have allotted are children of CompressibleUI object and have UI Elements in them!
  
