@@ -17,11 +17,18 @@ public class Flashlight : MonoBehaviour {
     public void FlashLightOn() {
         player.GetComponent<AudioSource>().PlayOneShot(on, .4f);
         gameObject.SetActive(true);
+        if(GameObject.Find("HandAttachments-L(Clone)") != null) {
+            GameObject.Find("HandAttachments-L(Clone)").transform.FindChild("Palm").transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 
     public void FlashLightOff() {
         player.GetComponent<AudioSource>().PlayOneShot(off, .4f);
         gameObject.SetActive(false);
+
+        if(GameObject.Find("HandAttachments-L(Clone)") != null) {
+            GameObject.Find("HandAttachments-L(Clone)").transform.FindChild("Palm").transform.GetChild(0).gameObject.SetActive(false);;
+        }
     }
 
     public void FlashLightToggle() {

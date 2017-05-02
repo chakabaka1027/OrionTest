@@ -32,6 +32,7 @@ public class Sensor : MonoBehaviour {
                 audioSource.PlayOneShot(sensorOn, .25f);
             }
             if(gameObject.transform.name != "LaserSensor") {
+
                 sensorAction.Invoke();
             }
 
@@ -42,8 +43,10 @@ public class Sensor : MonoBehaviour {
                 }
                 //add 1 to the current sensor activations thats unique to door sensors
                 
-                
-                door.GetComponent<Door>().currentSensorActivations += 1;
+                if(door != null) {
+                    door.GetComponent<Door>().currentSensorActivations += 1;
+
+                }
                 
 
             }

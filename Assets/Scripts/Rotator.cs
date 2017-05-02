@@ -19,11 +19,14 @@ public class Rotator : MonoBehaviour {
             gameObject.transform.Rotate(Vector3.forward);
         } else {
             gameObject.transform.rotation = gameObject.transform.rotation;
+
         }
 
 	}
 
     public void RotationToggle() {
+
+
         toggle = 1 - toggle;
 
         if (toggle == 0) {
