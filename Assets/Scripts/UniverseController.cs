@@ -44,7 +44,7 @@ public class UniverseController : MonoBehaviour
 	void Awake()
 	{
 		_audio = GetComponent<AudioSource>();
-        sun.transform.eulerAngles = new Vector3(lightRotationA, 0, 0);
+        sun.transform.eulerAngles = new Vector3(lightRotationA, sun.transform.eulerAngles.y, sun.transform.eulerAngles.z);
 
 	}
 
@@ -118,7 +118,7 @@ public class UniverseController : MonoBehaviour
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * 100;
             ResetCurrentMovementCubeState();
             //Debug.Log("Universe B");
-            sun.transform.eulerAngles = new Vector3(lightRotationB, 0, 0);
+            sun.transform.eulerAngles = new Vector3(lightRotationB, sun.transform.eulerAngles.y, sun.transform.eulerAngles.z);
 
             //dialogue text
    
@@ -132,7 +132,7 @@ public class UniverseController : MonoBehaviour
             gameObject.transform.parent.position = gameObject.transform.parent.position + Vector3.right * -100;
             ResetCurrentMovementCubeState();
             //Debug.Log("Universe A");
-            sun.transform.eulerAngles = new Vector3(lightRotationA, 0, 0);
+            sun.transform.eulerAngles = new Vector3(lightRotationA, sun.transform.eulerAngles.y, sun.transform.eulerAngles.z);
 
             //disable dialogue text
             if(tutorial.Length > 0 && logNumber <= tutorial.Length-1) {

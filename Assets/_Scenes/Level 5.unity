@@ -12924,7 +12924,7 @@ MonoBehaviour:
   openedPos: {fileID: 1253004490}
   requiredSensorActivations: 1
   currentSensorActivations: 0
-  time: 8
+  time: 11
 --- !u!4 &1318619549
 Transform:
   m_ObjectHideFlags: 0
