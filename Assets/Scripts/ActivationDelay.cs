@@ -21,7 +21,7 @@ public class ActivationDelay : MonoBehaviour {
             introEmitter.GetComponent<AudioSource>().volume = 0;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex > 0) {
+        if (SceneManager.GetActiveScene().buildIndex > 0 && SceneManager.GetActiveScene().buildIndex != 12) {
             StartCoroutine(DelayActivation());
         }
     }

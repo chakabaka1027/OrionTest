@@ -70,7 +70,10 @@ public class Elevator : MonoBehaviour {
             yield return null;
         }
 
-        FindObjectOfType<TutorialManager>().Activate(0);
+        if(!GameObject.Find("IntroductoryElevator")) {
+            FindObjectOfType<TutorialManager>().Activate(0);
+
+        }
         
 
         if(!isStartingElevator) {

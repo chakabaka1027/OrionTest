@@ -27,9 +27,9 @@ public class ScannerEffectDemo : MonoBehaviour
 		if (_scanning)
 		{
 			ScanDistance += Time.deltaTime * 25;
-            ScanDistance = Mathf.Clamp(ScanDistance, 0, 50);
+            ScanDistance = Mathf.Clamp(ScanDistance, 0, 100);
 
-            if(ScanDistance >= 50) {
+            if(ScanDistance >= 100) {
                 _scanning = false;
             }
 
