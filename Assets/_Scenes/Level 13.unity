@@ -15602,7 +15602,7 @@ MonoBehaviour:
   tutorialText:
   - 'Welcome to the Facility '
   - 'Open your right hand. Use your head to aim. Grasp the pink cube. '
-  - Ascend!
+  - 'Ascend! '
 --- !u!4 &1561054335
 Transform:
   m_ObjectHideFlags: 0
