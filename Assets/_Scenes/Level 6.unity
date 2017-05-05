@@ -20642,7 +20642,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ROOM 6
+  m_Text: ROOM 5
 --- !u!222 &1722374485
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -2358,7 +2358,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ROOM 1
+  m_Text: Greetings
 --- !u!222 &265141127
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -15679,7 +15679,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1105740799}
   tutorialText:
-  - '"Follow the Light" '
+  - 'Welcome to the Facility '
   - 'Open your right hand. Use your head to aim. Grasp the pink cube. '
   - 'Good going! Now keep moving! '
   - 'Ascend! '

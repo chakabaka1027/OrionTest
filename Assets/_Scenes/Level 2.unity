@@ -473,7 +473,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 0.75
   isOccupied: 0
   isStartingElevator: 0
   travelTime: 5
@@ -8600,7 +8599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 0
   isOccupied: 0
   isStartingElevator: 1
   travelTime: 5
@@ -15402,7 +15400,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ROOM 2
+  m_Text: ROOM 1
 --- !u!222 &1607084493
 CanvasRenderer:
   m_ObjectHideFlags: 0
