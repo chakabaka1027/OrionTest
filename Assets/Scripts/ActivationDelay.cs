@@ -42,7 +42,7 @@ public class ActivationDelay : MonoBehaviour {
         
 
         if (introEmitter != null) {
-            introEmitter.GetComponent<AudioSource>().volume = .1f;
+            introEmitter.GetComponent<AudioSource>().volume = .025f;
         }
     }
 

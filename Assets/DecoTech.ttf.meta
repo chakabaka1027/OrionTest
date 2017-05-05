@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: d8ac0f4314f6f8b4591a6a8abff6b0be
+timeCreated: 1493959580
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DecoTech
+  fontNames:
+  - DecoTech
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
