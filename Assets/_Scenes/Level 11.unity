@@ -842,7 +842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 0.75
   isOccupied: 0
   isStartingElevator: 0
   travelTime: 5
@@ -2055,7 +2054,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 0
   isOccupied: 0
   isStartingElevator: 1
   travelTime: 5
@@ -5284,7 +5282,6 @@ GameObject:
   - component: {fileID: 329431385}
   - component: {fileID: 329431384}
   - component: {fileID: 329431383}
-  - component: {fileID: 329431382}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -5306,18 +5303,6 @@ Transform:
   m_Father: {fileID: 582013485}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &329431382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 329431380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c252255bf71da84a94590f6b6643d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialNumber: 2
 --- !u!82 &329431383
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7353,7 +7338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 1.5
   isOccupied: 0
   isStartingElevator: 0
   travelTime: 5
@@ -8038,14 +8022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorial:
   - {fileID: 2095756159}
-  - {fileID: 463368791}
-  - {fileID: 268300605}
-  - {fileID: 1926102773}
   tutorialText:
-  - 
-  - 'Please don''t leave. I''ve made a puzzle for you to solve! '
-  - 'The outside is cold and dangerous. You are better here. '
-  - 'I don''t want to see you leave again. '
+  - '"The Other Side" '
 --- !u!4 &455133287
 Transform:
   m_ObjectHideFlags: 0
@@ -10314,7 +10292,6 @@ GameObject:
   - component: {fileID: 563953294}
   - component: {fileID: 563953293}
   - component: {fileID: 563953292}
-  - component: {fileID: 563953291}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -10336,18 +10313,6 @@ Transform:
   m_Father: {fileID: 106538325}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &563953291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 563953289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c252255bf71da84a94590f6b6643d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialNumber: 2
 --- !u!82 &563953292
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17815,7 +17780,6 @@ GameObject:
   - component: {fileID: 998121126}
   - component: {fileID: 998121125}
   - component: {fileID: 998121124}
-  - component: {fileID: 998121123}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -17837,18 +17801,6 @@ Transform:
   m_Father: {fileID: 470252675}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &998121123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 998121121}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c252255bf71da84a94590f6b6643d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialNumber: 2
 --- !u!82 &998121124
 AudioSource:
   m_ObjectHideFlags: 0
@@ -24676,7 +24628,6 @@ GameObject:
   - component: {fileID: 1344265270}
   - component: {fileID: 1344265269}
   - component: {fileID: 1344265268}
-  - component: {fileID: 1344265267}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -24698,18 +24649,6 @@ Transform:
   m_Father: {fileID: 760126099}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1344265267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1344265265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c252255bf71da84a94590f6b6643d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialNumber: 2
 --- !u!82 &1344265268
 AudioSource:
   m_ObjectHideFlags: 0
@@ -25443,7 +25382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 0.75
   isOccupied: 0
   isStartingElevator: 0
   travelTime: 5
@@ -34480,6 +34418,9 @@ GameObject:
   - component: {fileID: 1805543671}
   - component: {fileID: 1805543672}
   - component: {fileID: 1805543673}
+  - component: {fileID: 1805543676}
+  - component: {fileID: 1805543675}
+  - component: {fileID: 1805543674}
   m_Layer: 0
   m_Name: LMHeadMountedRig
   m_TagString: Player
@@ -34624,6 +34565,180 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &1805543674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1805543666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44a227f57521484d8224e2212303ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diary: {fileID: 1805543675}
+  song: {fileID: 1805543676}
+  diaryWait: 2
+--- !u!82 &1805543675
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1805543666}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5958b01fa63eef748a4923971594c010, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!82 &1805543676
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1805543666}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f326836835b878544b15697f25b249d5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -38990,7 +39105,6 @@ GameObject:
   - component: {fileID: 2044748326}
   - component: {fileID: 2044748325}
   - component: {fileID: 2044748324}
-  - component: {fileID: 2044748323}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -39012,18 +39126,6 @@ Transform:
   m_Father: {fileID: 1902318896}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2044748323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2044748321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c252255bf71da84a94590f6b6643d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialNumber: 2
 --- !u!82 &2044748324
 AudioSource:
   m_ObjectHideFlags: 0
@@ -40350,7 +40452,6 @@ GameObject:
   - component: {fileID: 2108293993}
   - component: {fileID: 2108293992}
   - component: {fileID: 2108293991}
-  - component: {fileID: 2108293996}
   m_Layer: 8
   m_Name: Lantern
   m_TagString: MovementSensor
@@ -40518,18 +40619,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2108293989}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2108293996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2108293989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c252255bf71da84a94590f6b6643d1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialNumber: 2
 --- !u!4 &2120731129 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 77fe45147db0cdc4082f70fe49982535, type: 3}

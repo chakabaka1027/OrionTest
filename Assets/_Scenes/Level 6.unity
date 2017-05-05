@@ -878,7 +878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 0.75
   isOccupied: 0
   isStartingElevator: 0
   travelTime: 5
@@ -1116,7 +1115,7 @@ GameObject:
   - component: {fileID: 69163124}
   - component: {fileID: 69163128}
   m_Layer: 8
-  m_Name: Elevator (1)
+  m_Name: SongDestroyingElevator
   m_TagString: MovementSensor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1147,7 +1146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 0.75
   isOccupied: 0
   isStartingElevator: 0
   travelTime: 5
@@ -9752,7 +9750,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1aaabae1af93d14180c356612f350ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ascentDelay: 0
   isOccupied: 0
   isStartingElevator: 1
   travelTime: 5

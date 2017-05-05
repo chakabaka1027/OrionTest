@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Elevator : MonoBehaviour {
 
-    public float ascentDelay = .75f;
+    float ascentDelay = 1.5f;
 
     public bool isOccupied = false;
     public bool isStartingElevator = false;
@@ -75,9 +75,16 @@ public class Elevator : MonoBehaviour {
 
         }
         
-
+        //load next level
         if(!isStartingElevator) {
+
+            //if last elevator, save final song container obj
+            if(gameObject.name == "FinalElevator") {
+                GameObject container = GameObject.Find("FinalSongContainer");
+                DontDestroyOnLoad(container);
+            }
             SceneManager.LoadScene(nextLevelIndex);
+            
         }
 
         audioSource.volume = 0;

@@ -153,6 +153,16 @@ public class Movement : MonoBehaviour {
             if(nextNavpoint != null && nextNavpoint.GetComponent<Elevator>() != null && !hasFinishedLevel) {
                 hasFinishedLevel = true;
                 nextNavpoint.GetComponent<Elevator>().InitiateElevator();
+                //end song of level
+                if(FindObjectOfType<AudioDiaryHandler>() != null && currentNavpoint.name != "FinalElevator") {
+                    StartCoroutine(FindObjectOfType<AudioDiaryHandler>().StopMusic());
+                 
+                }
+
+                if(currentNavpoint.name == "SongDestroyingElevator" && FindObjectOfType<SongDestroyingElevator>() != null) {
+                    StartCoroutine(FindObjectOfType<SongDestroyingElevator>().StopEndGameMusic());
+                }
+
             }
         }
 
